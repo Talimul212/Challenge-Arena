@@ -2,22 +2,27 @@
 
 import React from "react";
 import styled from "styled-components";
+import Banner from "./Banner";
+import ContestCategories from "./ContestCategories";
+import FeaturedContests from "./FeaturedContests";
+import AboutSection from "./AboutSection";
+import HowWorks from "./HowWorks";
+import Testimonials from "./Testimonials";
+import LatestResults from "./LatestResults";
+import ContactUs from "./ContactUs";
 
 const Home = () => {
   return (
     <Section>
       <Container>
-        <Image
-          src="https://thumbs.dreamstime.com/b/contact-us-word-wooden-cubes-written-188527602.jpg"
-          alt="Featured Content"
-        />
-        <Text>
-          <Title>Featured Content Title</Title>
-          <Description>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac
-            nunc a purus tincidunt ullamcorper.
-          </Description>
-        </Text>
+        <Banner />
+        <ContestCategories />
+        <FeaturedContests />
+        <AboutSection />
+        <HowWorks />
+        <Testimonials />
+        <LatestResults />
+        <ContactUs />
       </Container>
     </Section>
   );

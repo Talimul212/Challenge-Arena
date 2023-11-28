@@ -1,13 +1,16 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import NavBar from "../../Components/NavBar/Navbar/NavBar";
 import Footer from "../../Components/Footer/Footer";
 
 const Main = () => {
+  const location = useLocation();
+  const path = location.pathname.split("/")[1];
+  const excludeRoute = ["login", "register"];
   return (
     <div>
-      <NavBar />
+      {!excludeRoute.includes(path) && <NavBar />}
       <Outlet />
-      <Footer />
+      {!excludeRoute.includes(path) && <Footer />}
     </div>
   );
 };

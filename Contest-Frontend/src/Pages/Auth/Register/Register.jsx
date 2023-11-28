@@ -1,6 +1,8 @@
+/* eslint-disable react/no-unescaped-entities */
 import { useState } from "react";
 import styled from "styled-components";
 import { fontFamily, primaryColor } from "../../../Components/Color/Color";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -56,6 +58,9 @@ const Register = () => {
         </FormField>
         <Button type="submit">Register</Button>
       </RegistrationForm>
+      <LoginLink>
+        Don't have an account? <Link to="/login">login here</Link>.
+      </LoginLink>
     </RegisterPage>
   );
 };
@@ -115,4 +120,8 @@ const Button = styled.button`
   border-radius: 4px;
   cursor: pointer;
   font-size: 18px;
+`;
+const LoginLink = styled.p`
+  margin-top: 10px;
+  font-size: 14px;
 `;
