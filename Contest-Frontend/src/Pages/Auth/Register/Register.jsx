@@ -1,9 +1,13 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useState } from "react";
 import styled from "styled-components";
-import { fontFamily, primaryColor } from "../../../Components/Color/Color";
+import {
+  InputColor,
+  fontFamily,
+  primaryColor,
+} from "../../../Components/Color/Color";
 import { Link } from "react-router-dom";
-
+import logo from "../../../assets/logo/BU.png";
 const Register = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -27,39 +31,46 @@ const Register = () => {
 
   return (
     <RegisterPage>
-      <FormTitle>Student Registration</FormTitle>
+      <Image src={logo} alt={logo} />
       <RegistrationForm onSubmit={handleRegister}>
-        <FormField>
-          <Label>Name:</Label>
+        <FormFieldflex>
           <Input
             type="text"
             name="name"
-            placeholder="Enter your name"
+            placeholder="Full Name"
             onChange={handleInputChange}
           />
-        </FormField>
-        <FormField>
-          <Label>Email:</Label>
+          {/* </FormField>
+        <FormField> */}
+          <Select name="gender" onChange={handleInputChange}>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </Select>
+        </FormFieldflex>
+        <FormField style={{ marginTop: "20px", marginBottom: "20px" }}>
           <Input
             type="email"
             name="email"
-            placeholder="Enter your email"
+            placeholder="Email"
             onChange={handleInputChange}
           />
         </FormField>
         <FormField>
-          <Label>Password:</Label>
           <Input
             type="password"
             name="password"
-            placeholder="Enter your password"
+            placeholder="Password"
             onChange={handleInputChange}
           />
         </FormField>
         <Button type="submit">Register</Button>
       </RegistrationForm>
       <LoginLink>
-        Don't have an account? <Link to="/login">login here</Link>.
+        Don't have an account?{" "}
+        <Link to="/login" style={{ color: "gray" }}>
+          login here
+        </Link>
+        .
       </LoginLink>
     </RegisterPage>
   );
@@ -74,22 +85,18 @@ const RegisterPage = styled.div`
   align-items: center;
   margin: 20px;
 `;
-
+const Image = styled.img`
+  width: 200px;
+`;
 const RegistrationForm = styled.form`
-  width: 350px;
+  width: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid #ccc;
+
   padding: 20px 40px 30px 30px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-`;
-
-const FormTitle = styled.h2`
-  font-size: 28px;
-  margin: 10px 0;
-  color: ${primaryColor};
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
 `;
 
 const FormField = styled.div`
@@ -98,30 +105,46 @@ const FormField = styled.div`
   margin: 10px 0;
   width: 100%;
 `;
-
-const Label = styled.label`
-  font-weight: bold;
-  margin-bottom: 5px;
-  font-size: 16px;
-`;
-
-const Input = styled.input`
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+const FormFieldflex = styled.div`
+  display: flex;
+  gap: 10px;
+  margin: 10px 0;
   width: 100%;
 `;
 
-const Button = styled.button`
-  background-color: #3498db;
-  color: white;
-  padding: 12px;
+const Select = styled.select`
+  padding: 5px 0;
   border: none;
-  border-radius: 4px;
+  width: 100%;
+  color: #4b4a4a;
+  outline: none;
+  border-radius: none;
+  border-bottom: 2px solid ${InputColor};
+`;
+
+const Input = styled.input`
+  padding: 5px 0;
+  border: none;
+  color: #4b4a4a;
+  outline: none;
+
+  border-radius: 0;
+  border-bottom: 2px solid ${InputColor};
+  background: transparent;
+`;
+
+const Button = styled.button`
+  margin-top: 20px;
+  background-color: ${primaryColor};
+  color: white;
+  padding: 15px;
+  border: none;
+  width: 100%;
+  border-radius: 10px;
   cursor: pointer;
-  font-size: 18px;
 `;
 const LoginLink = styled.p`
-  margin-top: 10px;
+  margin-top: 5px;
   font-size: 14px;
+  color: gray;
 `;

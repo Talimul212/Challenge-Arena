@@ -1,12 +1,20 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/no-unknown-property */
 /* eslint-disable react/no-unescaped-entities */
 import { useState } from "react";
 import styled from "styled-components";
-import { fontFamily, primaryColor } from "../../../Components/Color/Color";
+import {
+  InputColor,
+  fontFamily,
+  primaryColor,
+  secondaryColor,
+} from "../../../Components/Color/Color";
 import { Link } from "react-router-dom";
+import logo from "../../../assets/logo/BU.png";
 
 const Login = () => {
   const [formData, setFormData] = useState({
-    email: "",
+    number: "",
     password: "",
   });
 
@@ -26,30 +34,46 @@ const Login = () => {
 
   return (
     <LoginPage>
-      <FormTitle>Login</FormTitle>
+      <Image src={logo} alt={logo} />
+
       <LoginForm onSubmit={handleLogin}>
         <FormField>
-          <Label>Email:</Label>
           <Input
-            type="email"
-            name="email"
-            placeholder="Enter your email"
+            type="number"
+            name="number"
+            placeholder="Student ID:"
             onChange={handleInputChange}
           />
         </FormField>
         <FormField>
-          <Label>Password:</Label>
           <Input
             type="password"
             name="password"
-            placeholder="Enter your password"
+            placeholder="Password:"
             onChange={handleInputChange}
           />
         </FormField>
+        <TermBox>
+          <Radio type="checkbox" id="radio" name="radios" />
+          <i>
+            <Terms>
+              I accept the Privacy Policy and terms & condidations of university
+              Instructor
+            </Terms>
+          </i>
+        </TermBox>
+
         <Button type="submit">Login</Button>
+        <i>
+          <Terms1>Forgot password?</Terms1>
+        </i>
       </LoginForm>
       <RegisterLink>
-        Don't have an account? <Link to="/register">Register here</Link>.
+        Don't have an account?{" "}
+        <Link to="/register" style={{ color: "gray" }}>
+          Register here
+        </Link>
+        .
       </RegisterLink>
     </LoginPage>
   );
@@ -61,6 +85,7 @@ const LoginPage = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   margin: 20px;
   font-family: ${fontFamily};
 `;
@@ -70,16 +95,34 @@ const LoginForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid #ccc;
+
   padding: 20px 40px 30px 30px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 `;
 
-const FormTitle = styled.h2`
-  font-size: 24px;
+const Image = styled.img`
+  width: 200px;
+`;
+const TermBox = styled.div`
+  display: flex;
+  gap: 6px;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
   margin: 10px 0;
-  color: ${primaryColor};
+`;
+const Terms = styled.p`
+  font-size: 10px;
+  color: gray;
+  font-weight: 400;
+`;
+const Terms1 = styled.p`
+  font-size: 12px;
+  color: gray;
+  font-weight: 400;
+`;
+const Radio = styled.input`
+  font-size: 20px;
+  color: ${secondaryColor};
 `;
 
 const FormField = styled.div`
@@ -89,27 +132,27 @@ const FormField = styled.div`
   width: 100%;
 `;
 
-const Label = styled.label`
-  font-weight: bold;
-  margin-bottom: 5px;
-`;
-
 const Input = styled.input`
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 100%;
+  padding: 15px;
+  outline: 0;
+  border: none;
+  border-radius: 10px;
+  background: ${InputColor};
 `;
 
 const Button = styled.button`
-  background-color: teal;
+  background-color: ${primaryColor};
   color: white;
-  padding: 10px;
+  padding: 15px;
   border: none;
-  border-radius: 4px;
+  width: 100%;
+  border-radius: 10px;
   cursor: pointer;
 `;
 const RegisterLink = styled.p`
-  margin-top: 10px;
+  margin-top: 5px;
   font-size: 14px;
+  color: gray;
 `;
+
+// Styled component for the checked state of the radio button

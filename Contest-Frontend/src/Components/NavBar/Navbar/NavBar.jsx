@@ -1,9 +1,15 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { fontFamily, primaryColor, secondaryColor } from "../../Color/Color"; // Import color and font family variables
-
+import { CgProfile } from "react-icons/cg";
+import { fontFamily, secondaryColor } from "../../Color/Color"; // Import color and font family variables
+import logo from "../../../assets/logo/BU.png";
 const Navbar = () => {
+  const [isProfileVisible, setIsProfileVisible] = useState(false);
+
+  const handleProfileClick = () => {
+    setIsProfileVisible((prev) => !prev);
+  };
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -14,11 +20,7 @@ const Navbar = () => {
     <NavbarWrapper>
       <Container>
         <LogoContainer>
-          <Link to="/">
-            <LogoText>Challenge</LogoText>
-            <LogoShape />
-            <span>Arena</span>
-          </Link>
+          <Image src={logo} alt={logo} />
         </LogoContainer>
         <Navigation>
           <li>
@@ -53,8 +55,15 @@ const Navbar = () => {
           <input type="text" placeholder="Search" />
         </SearchBar>
         <AuthButtons>
-          <Link to="/login">Login</Link>
-          <Link to="/register">Register</Link>
+          <ProfileIcon onClick={handleProfileClick} />
+          <UserProfile isVisible={isProfileVisible}>
+            <Link to="/login" style={{ color: "black" }}>
+              Login
+            </Link>
+            <Link to="/register" style={{ color: "black", marginTop: "10px" }}>
+              Register
+            </Link>
+          </UserProfile>
         </AuthButtons>
       </Container>
     </NavbarWrapper>
@@ -62,17 +71,49 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+const AuthButtons = styled.div`
+  position: relative;
+`;
+
+const ProfileIcon = styled(CgProfile)`
+  font-size: 24px;
+  cursor: pointer;
+  color: black;
+  font-weight: 900;
+`;
+
+const UserProfile = styled.div`
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  width: 100px;
+  margin-left: -50px;
+  color: black;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: ${({ isVisible }) => (isVisible ? "block" : "none")};
+  transition: all 0.3s ease;
+  transform: ${({ isVisible }) =>
+    isVisible ? "translateY(0)" : "translateY(10px)"}; /* Add transformation */
+`;
+
 const NavbarWrapper = styled.nav`
-  background-color: ${primaryColor};
-  position: fixed;
-  z-index: 100;
+  background-color: transparent;
+
   width: 100vw;
   top: 0;
-  left: o;
+  left: 0;
   font-family: ${fontFamily};
   padding: 10px;
 `;
-
+const Image = styled.img`
+  height: 100px;
+  width: 100px;
+`;
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
@@ -81,7 +122,7 @@ const Container = styled.div`
   margin: 0 auto;
   a {
     text-decoration: none;
-    color: white;
+    color: black;
     display: block;
   }
 `;
@@ -97,23 +138,6 @@ const LogoContainer = styled.div`
   position: relative;
 `;
 
-const LogoText = styled.span`
-  margin-right: 8px;
-`;
-
-const LogoShape = styled.span`
-  content: "";
-  display: block;
-  width: 20px; /* Adjust the size as needed */
-  height: 20px; /* Adjust the size as needed */
-  background-color: #f5f5f5; /* Customize the color of the shape */
-  border-radius: 50%; /* Makes it a circle */
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: -30px; /* Adjust the position as needed */
-`;
-
 const Navigation = styled.ul`
   list-style: none;
   display: flex;
@@ -127,7 +151,7 @@ const Navigation = styled.ul`
     margin: 0 10px;
     a {
       text-decoration: none;
-      color: white;
+      color: black;
     }
   }
 `;
@@ -143,7 +167,7 @@ const MobileMenu = styled.div`
 
 const MobileMenuList = styled.ul`
   list-style: none;
-  background-color: ${primaryColor};
+  background-color: none;
   position: absolute;
   top: 50px;
   left: 0;
@@ -166,14 +190,9 @@ const SearchBar = styled.div`
   input {
     padding: 5px;
   }
-`;
 
-const AuthButtons = styled.div`
-  display: flex;
-  gap: 20px;
-  a {
-    text-decoration: none;
-    color: white;
-    display: block;
+  @media (max-width: 768px) {
+    /* Adjust the breakpoint as needed */
+    display: none; /* Hide the SearchBar in mobile view */
   }
 `;
