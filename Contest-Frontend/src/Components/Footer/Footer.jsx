@@ -6,6 +6,11 @@ const FooterContainer = styled.footer`
   color: white;
   padding: 20px 0;
   text-align: center;
+  display: none;
+  @media (max-width: 768px) {
+    display: none;
+    cursor: pointer;
+  }
 `;
 
 const SocialIcons = styled.ul`

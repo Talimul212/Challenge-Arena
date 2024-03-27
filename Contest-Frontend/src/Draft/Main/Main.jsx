@@ -1,6 +1,8 @@
 import { Outlet, useLocation } from "react-router-dom";
 import NavBar from "../../Components/NavBar/Navbar/NavBar";
 import Footer from "../../Components/Footer/Footer";
+import BottomBar from "../../Components/BottomBar/BottomBar";
+import styled from "styled-components";
 
 const Main = () => {
   const location = useLocation();
@@ -10,9 +12,19 @@ const Main = () => {
     <div>
       {!excludeRoute.includes(path) && <NavBar />}
       <Outlet />
+      <MobileBar>
+        <BottomBar />
+      </MobileBar>
       {!excludeRoute.includes(path) && <Footer />}
     </div>
   );
 };
 
 export default Main;
+const MobileBar = styled.div`
+  display: none;
+  @media (max-width: 768px) {
+    display: block;
+    cursor: pointer;
+  }
+`;

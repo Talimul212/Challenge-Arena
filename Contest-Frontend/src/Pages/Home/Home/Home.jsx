@@ -2,27 +2,22 @@
 
 import React from "react";
 import styled from "styled-components";
-import Banner from "./Banner";
-import ContestCategories from "./ContestCategories";
-import FeaturedContests from "./FeaturedContests";
-import AboutSection from "./AboutSection";
-import HowWorks from "./HowWorks";
-import Testimonials from "./Testimonials";
-import LatestResults from "./LatestResults";
-import ContactUs from "./ContactUs";
+import Profile from "../Profile";
 
 const Home = () => {
   return (
     <Section>
       <Container>
-        <Banner />
-        <ContestCategories />
-        <FeaturedContests />
-        <AboutSection />
-        <HowWorks />
-        <Testimonials />
-        <LatestResults />
-        <ContactUs />
+        <Profile />
+        <Profile />
+        <Profile />
+        <Profile />
+        <Profile />
+        <Profile />
+        <Profile />
+        <Profile />
+        <Profile />
+        <Profile />
       </Container>
     </Section>
   );
@@ -30,10 +25,7 @@ const Home = () => {
 
 export default Home;
 
-const Section = styled.section`
-  background-color: #f5f5f5; /* Set the background color to your preference */
-  padding: 40px;
-`;
+const Section = styled.section``;
 
 const Container = styled.div`
   max-width: 1200px;
