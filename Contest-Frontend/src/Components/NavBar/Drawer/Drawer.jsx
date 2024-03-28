@@ -33,7 +33,7 @@ const Drawer = ({ mobileMenuOpen, menuRef, CloseMobileMenu }) => {
           justifyContent: "end",
           paddingTop: " 5px",
           paddingRight: " 4px",
-          marginBottom: "-8px",
+          marginBottom: "-0px",
           background: "#f3ebeb65",
         }}
       >
@@ -42,7 +42,7 @@ const Drawer = ({ mobileMenuOpen, menuRef, CloseMobileMenu }) => {
       <Div
         style={{
           display: "flex",
-          padding: "0px 10px",
+          padding: " 0px 10px",
           paddingBottom: "15px",
           gap: "8px",
           marginBottom: "10px",
@@ -175,7 +175,7 @@ const MobileMenuList = styled.ul`
   left: ${(props) => (props.isOpen ? "0" : "-250px")}; /* Adjust as needed */
   width: 250px; /* Adjust as needed */
   height: 100vh;
-  box-shadow: 4px 0px 0px 0px #c5c3c3;
+
   background-color: white;
   /* Background color of the drawer */
   transition: left 0.3s ease; /* Add transition effect */
