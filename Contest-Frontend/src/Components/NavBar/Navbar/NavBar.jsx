@@ -114,6 +114,7 @@ const Title = styled.h4`
     color: black;
     font-family: ${fontFamily};
     cursor: pointer;
+    font-size: 18px;
   }
 `;
 
