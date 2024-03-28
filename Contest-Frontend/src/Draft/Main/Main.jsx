@@ -12,9 +12,12 @@ const Main = () => {
     <div>
       {!excludeRoute.includes(path) && <NavBar />}
       <Outlet />
-      <MobileBar>
-        <BottomBar />
-      </MobileBar>
+
+      {!excludeRoute.includes(path) && (
+        <MobileBar>
+          <BottomBar />
+        </MobileBar>
+      )}
       {!excludeRoute.includes(path) && <Footer />}
     </div>
   );

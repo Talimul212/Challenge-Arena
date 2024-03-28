@@ -2,22 +2,15 @@
 
 import React from "react";
 import styled from "styled-components";
-import Profile from "../Profile";
+import Profile from "./Profile";
+import ClassCard from "../../../Components/Card/ClassCard";
 
 const Home = () => {
   return (
     <Section>
       <Container>
         <Profile />
-        <Profile />
-        <Profile />
-        <Profile />
-        <Profile />
-        <Profile />
-        <Profile />
-        <Profile />
-        <Profile />
-        <Profile />
+        <ClassCard />
       </Container>
     </Section>
   );

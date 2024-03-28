@@ -115,7 +115,7 @@ const FormFieldflex = styled.div`
 const Select = styled.select`
   padding: 5px 0;
   border: none;
-  width: 100%;
+
   color: #4b4a4a;
   outline: none;
   border-radius: none;
@@ -127,7 +127,7 @@ const Input = styled.input`
   border: none;
   color: #4b4a4a;
   outline: none;
-
+  width: 100%;
   border-radius: 0;
   border-bottom: 2px solid ${InputColor};
   background: transparent;

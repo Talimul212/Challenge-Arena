@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { IoPersonCircleSharp } from "react-icons/io5";
-import { primaryColor } from "../../Components/Color/Color";
+import { primaryColor } from "../../../Components/Color/Color";
 import { Link } from "react-router-dom";
 import { FaGraduationCap } from "react-icons/fa";
 const Profile = () => {
