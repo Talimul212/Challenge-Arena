@@ -4,6 +4,7 @@ import Main from "../../Draft/Main/Main";
 import Home from "../../Pages/Home/Home/Home";
 import Register from "../../Pages/Auth/Register/Register";
 import Login from "../../Pages/Auth/Login/Login";
+import CartHome from "../../Pages/Cart/CartHome";
 
 export const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ export const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/buySell",
+        element: <CartHome />,
       },
     ],
   },

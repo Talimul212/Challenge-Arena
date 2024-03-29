@@ -34,7 +34,7 @@ const Container = styled.div`
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  margin-top: 10px;
+  margin-top: 20px;
   align-items: center;
   justify-content: space-between;
 

@@ -5,14 +5,25 @@ import { LuMessagesSquare } from "react-icons/lu";
 import { IoMdCart } from "react-icons/io";
 import { PiDotsThreeCircleFill } from "react-icons/pi";
 import { primaryColor } from "../Color/Color";
+import { Link } from "react-router-dom";
 const BottomBar = () => {
   return (
     <MobileScoll>
-      <MdHomeFilled />
-      <PiNewspaperClippingBold />
-      <PiDotsThreeCircleFill />
-      <LuMessagesSquare />
-      <IoMdCart />
+      <Link to="/">
+        <MdHomeFilled />
+      </Link>
+      <Link to="/">
+        <PiNewspaperClippingBold />
+      </Link>
+      <Link to="/">
+        <PiDotsThreeCircleFill />
+      </Link>
+      <Link to="/">
+        <LuMessagesSquare />
+      </Link>
+      <Link to="/buySell">
+        <IoMdCart />
+      </Link>
     </MobileScoll>
   );
 };

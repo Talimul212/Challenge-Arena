@@ -4,13 +4,17 @@ import React from "react";
 import styled from "styled-components";
 import Profile from "./Profile";
 import ClassCard from "../../../Components/Card/ClassCard";
+import FourCard from "../../../Components/Card/FourCard";
+import QuoteBanner from "../../../Components/Banner/QuoteBanner";
 
 const Home = () => {
   return (
     <Section>
       <Container>
         <Profile />
+        <QuoteBanner />
         <ClassCard />
+        <FourCard />
       </Container>
     </Section>
   );
@@ -27,25 +31,4 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   flex-direction: column; /* Adjust as needed */
-`;
-
-const Image = styled.img`
-  max-width: 100%;
-  height: auto;
-`;
-
-const Text = styled.div`
-  text-align: center;
-  margin-top: 20px;
-`;
-
-const Title = styled.h2`
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px;
-`;
-
-const Description = styled.p`
-  font-size: 16px;
-  color: #333;
 `;
