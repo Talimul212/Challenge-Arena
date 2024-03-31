@@ -7,7 +7,7 @@ import styled from "styled-components";
 const Main = () => {
   const location = useLocation();
   const path = location.pathname.split("/")[1];
-  const excludeRoute = ["login", "register"];
+  const excludeRoute = ["login", "register", "adsForm", "booksDetalis"];
   return (
     <div>
       {!excludeRoute.includes(path) && <NavBar />}

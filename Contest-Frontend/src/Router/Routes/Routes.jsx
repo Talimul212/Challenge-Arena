@@ -5,6 +5,8 @@ import Home from "../../Pages/Home/Home/Home";
 import Register from "../../Pages/Auth/Register/Register";
 import Login from "../../Pages/Auth/Login/Login";
 import CartHome from "../../Pages/Cart/CartHome";
+import AdsForm from "../../Components/Form/AdsForm";
+import CartDetails from "../../Pages/Cart/CartDetails";
 
 export const router = createBrowserRouter([
   {
@@ -26,6 +28,14 @@ export const router = createBrowserRouter([
       {
         path: "/buySell",
         element: <CartHome />,
+      },
+      {
+        path: "/booksDetalis/:id",
+        element: <CartDetails />,
+      },
+      {
+        path: "/adsForm",
+        element: <AdsForm />,
       },
     ],
   },

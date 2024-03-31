@@ -46,7 +46,7 @@ const Container = styled.div`
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 22px;
   justify-content: center;
   margin-top: 10px;
   margin-bottom: 100px;

@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import styled from "styled-components";
 import { primaryColor, secondaryColor } from "../Color/Color";
+import { Link } from "react-router-dom";
 
 const BookCards = ({ department, books }) => {
   return (
@@ -9,24 +10,26 @@ const BookCards = ({ department, books }) => {
       <BooksContainer>
         {books.map((book) => (
           <BookCard key={book.id}>
-            <BookImage src={book.image_url} alt={book.title} />
-            <BookAuthor>{book.author}</BookAuthor>
-            <BookDetails>
-              <BookTitle title={`${book.title}`}>
-                {book.title.slice(0, 15)}..
-              </BookTitle>
+            <Link to={`/booksDetalis/${book.id}`}>
+              <BookImage src={book.image_url} alt={book.title} />
+              <BookAuthor>{book.author}</BookAuthor>
+              <BookDetails>
+                <BookTitle title={`${book.title}`}>
+                  {book.title.slice(0, 15)}..
+                </BookTitle>
 
-              <div
-                style={{
-                  marginBottom: "-8px",
-                  display: "flex",
-                  justifyContent: "space-between",
-                }}
-              >
-                <BookPrice>${book.price}</BookPrice>
-                <BookDate>{book.date}</BookDate>
-              </div>
-            </BookDetails>
+                <div
+                  style={{
+                    marginBottom: "-8px",
+                    display: "flex",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <BookPrice>${book.price}</BookPrice>
+                  <BookDate>{book.date}</BookDate>
+                </div>
+              </BookDetails>
+            </Link>
           </BookCard>
         ))}
       </BooksContainer>

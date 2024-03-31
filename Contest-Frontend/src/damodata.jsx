@@ -1,6 +1,7 @@
 export const departments = {
   CSE: [
     {
+      id: 1,
       name: "Introduction to Algorithms",
       title: "Introduction to Algorithms",
       author: "Thomas H. Cormen",
@@ -10,6 +11,7 @@ export const departments = {
         "https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791156641131.jpg",
     },
     {
+      id: 2,
       name: "Clean Code",
       title: "Clean Code: A Handbook of Agile Software Craftsmanship",
       author: "Robert C. Martin",
@@ -20,6 +22,7 @@ export const departments = {
   ],
   BBA: [
     {
+      id: 3,
       name: "Principles of Management",
       title: "Principles of Management",
       author: "Peter F. Drucker",
@@ -29,6 +32,7 @@ export const departments = {
         "https://redshine.co.in/wp-content/uploads/2022/03/9789198758290_thumbnail.jpg",
     },
     {
+      id: 4,
       name: "Marketing Management",
       title: "Marketing Management",
       author: "Philip Kotler",
@@ -40,6 +44,7 @@ export const departments = {
   ],
   GDS: [
     {
+      id: 5,
       name: "Thinking, Fast and Slow",
       title: "Thinking, Fast and Slow",
       author: "Daniel Kahneman",
@@ -49,6 +54,7 @@ export const departments = {
         "https://www.booksoftitans.com/wp-content/uploads/2017/12/thinking-fast-and-slow.jpg",
     },
     {
+      id: 6,
       name: "Freakonomics",
       title:
         "Freakonomics: A Rogue Economist Explores the Hidden Side of Everything",
@@ -59,9 +65,9 @@ export const departments = {
         "https://upload.wikimedia.org/wikipedia/en/6/63/Freakonomics.jpg",
     },
   ],
-
   English: [
     {
+      id: 7,
       name: "To Kill a Mockingbird",
       title: "To Kill a Mockingbird",
       author: "Harper Lee",
@@ -71,6 +77,7 @@ export const departments = {
         "https://upload.wikimedia.org/wikipedia/commons/4/4f/To_Kill_a_Mockingbird_%28first_edition_cover%29.jpg",
     },
     {
+      id: 8,
       name: "Pride and Prejudice",
       title: "Pride and Prejudice",
       author: "Jane Austen",
@@ -82,6 +89,7 @@ export const departments = {
   ],
   HTM: [
     {
+      id: 9,
       name: "Hospitality Management",
       title: "Hospitality Management",
       author: "John Doe",
@@ -90,6 +98,7 @@ export const departments = {
       image_url: "https://m.media-amazon.com/images/I/41De-4UIn3L.jpg",
     },
     {
+      id: 10,
       name: "Tourism Management",
       title: "Tourism Management",
       author: "Jane Doe",
