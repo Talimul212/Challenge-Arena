@@ -54,7 +54,10 @@ const Navbar = () => {
             </Button>
             <Button>
               <Link to="/login" style={{ color: "black" }}>
-                Login
+                <Button>
+                  <IoMdLogOut />
+                  Login
+                </Button>
               </Link>
             </Button>
           </UserProfile>
@@ -79,7 +82,7 @@ const ProfileIcon = styled(BsThreeDotsVertical)`
 
 const UserProfile = styled.div`
   position: absolute;
-  top: calc(100% + 5px);
+  top: calc(100% + 10px);
   left: 0;
   width: 100px;
   margin-left: -50px;
@@ -95,8 +98,8 @@ const UserProfile = styled.div`
   transform: ${({ isVisible }) =>
     isVisible ? "translateY(0)" : "translateY(10px)"}; /* Add transformation */
   @media (max-width: 768px) {
-    margin-left: -107px;
-    width: 120px;
+    margin-left: -130px;
+    width: 150px;
   }
 `;
 

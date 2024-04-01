@@ -5,18 +5,45 @@ import { FaClipboardList } from "react-icons/fa";
 import { PiExamFill } from "react-icons/pi";
 import { FaBookOpenReader } from "react-icons/fa6";
 import { primaryColor, secondaryColor } from "../Color/Color";
+import { Link } from "react-router-dom";
 const FourCard = () => {
   const items = [
-    { id: 1, title: "Class", icon: <SiGoogleclassroom size={"20px"} /> },
-    { id: 2, title: "Class Mate", icon: <GiThreeFriends size={"20px"} /> },
-    { id: 3, title: "Course", icon: <FaClipboardList size={"20px"} /> },
+    {
+      id: 1,
+      route: "class",
+      title: "Class",
+      icon: <SiGoogleclassroom size={"20px"} />,
+    },
+    {
+      id: 2,
+      route: "classmate",
+      title: "Classmate",
+      icon: <GiThreeFriends size={"20px"} />,
+    },
+    {
+      id: 3,
+      route: "course",
+      title: "Course",
+      icon: <FaClipboardList size={"20px"} />,
+    },
     {
       id: 4,
+      route: "completeCourse",
       title: "Complete Course",
       icon: <FaClipboardList size={"20px"} />,
     },
-    { id: 5, title: "Course Book", icon: <FaBookOpenReader size={"20px"} /> },
-    { id: 6, title: "Exam Schedules", icon: <PiExamFill size={"20px"} /> },
+    {
+      id: 5,
+      route: "courseBook",
+      title: "Course Book",
+      icon: <FaBookOpenReader size={"20px"} />,
+    },
+    {
+      id: 6,
+      route: "examSchedules",
+      title: "Exam Schedules",
+      icon: <PiExamFill size={"20px"} />,
+    },
   ];
 
   return (
@@ -24,15 +51,19 @@ const FourCard = () => {
       {items.map((item, i) => (
         <Div key={item.id}>
           {i % 2 == 0 ? (
-            <Div1>
-              <span>{item.icon}</span>
-              <span>{item.title}</span>
-            </Div1>
+            <Link to={`/buI/${item.route}`}>
+              <Div1>
+                <span>{item.icon}</span>
+                <span>{item.title}</span>
+              </Div1>
+            </Link>
           ) : (
-            <Div2>
-              <span>{item.icon}</span>
-              <span>{item.title}</span>
-            </Div2>
+            <Link to={`/buI/${item.route}`}>
+              <Div2>
+                <span>{item.icon}</span>
+                <span>{item.title}</span>
+              </Div2>
+            </Link>
           )}
         </Div>
       ))}

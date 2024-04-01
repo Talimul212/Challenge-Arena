@@ -55,25 +55,24 @@ const DepartmentTitle = styled.h2`
 
 const BooksContainer = styled.div`
   display: flex;
-
-  gap: 10px;
+  justify-content: center;
+  gap: 15px;
 `;
 
 const BookCard = styled.div`
-  background-color: white;
+  background-color: #ffffff;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
   overflow: hidden;
-  height: 280px;
+  width: 100%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 200px;
 `;
 
 const BookImage = styled.img`
-  width: 100%;
+  width: 100vw;
   height: 170px;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
@@ -82,7 +81,7 @@ const BookImage = styled.img`
 
 const BookDetails = styled.div`
   width: 100%;
-  padding: 5px;
+  padding: 10px;
 `;
 
 const BookTitle = styled.h3`
@@ -98,9 +97,10 @@ const BookAuthor = styled.p`
   margin-bottom: 5px;
   color: white;
   border-radius: 5px;
-  margin-top: -25px;
+  margin: -13px auto 0 auto;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   z-index: 10;
+  position: relative;
   width: 150px;
   text-align: center;
   padding: 2px 10px 2px 10px;

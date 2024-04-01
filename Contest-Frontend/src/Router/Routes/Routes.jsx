@@ -7,6 +7,7 @@ import Login from "../../Pages/Auth/Login/Login";
 import CartHome from "../../Pages/Cart/CartHome";
 import AdsForm from "../../Components/Form/AdsForm";
 import CartDetails from "../../Pages/Cart/CartDetails";
+import SixCardDetails from "../../Pages/SixCard/SixCardDetails";
 
 export const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ export const router = createBrowserRouter([
       {
         path: "/adsForm",
         element: <AdsForm />,
+      },
+      {
+        path: "/buI/:item",
+        element: <SixCardDetails />,
       },
     ],
   },

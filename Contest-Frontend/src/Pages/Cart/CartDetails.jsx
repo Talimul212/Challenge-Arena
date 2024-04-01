@@ -83,7 +83,7 @@ const Container = styled.div`
   margin: 0 auto;
 
   display: flex;
-  background: #d6d6d6;
+  background: #ebebeb;
   justify-content: space-between;
   flex-direction: column; /* Adjust as needed */
 `;
