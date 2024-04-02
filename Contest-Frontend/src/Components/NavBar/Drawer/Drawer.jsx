@@ -57,31 +57,31 @@ const Drawer = ({ mobileMenuOpen, menuRef, CloseMobileMenu }) => {
           </p>
         </div>
       </Div>
-      <Link to="/profile">
+      <Link to="/">
         <Option>
           <IoPersonOutline />
           Profile
         </Option>
       </Link>
-      <Link to="/newsfeed">
+      <Link to="/buI/newsfeed">
         <Option>
           <PiNewspaperClipping />
           Newsfeed
         </Option>
       </Link>
-      <Link to="/messages">
+      <Link to="/buI/messages">
         <Option>
           <LuMessagesSquare />
           Messages
         </Option>
       </Link>
-      <Link to="/classmate">
+      <Link to="/buI/classmate">
         <Option>
           <TiGroup />
           Classmate
         </Option>
       </Link>
-      <Link to="/tuition">
+      <Link to="/buI/tuition">
         <Option>
           <GiTeacher />
           Tuition
@@ -95,63 +95,63 @@ const Drawer = ({ mobileMenuOpen, menuRef, CloseMobileMenu }) => {
       </Link>
       <hr style={{ margin: "15px 0px" }} />
 
-      <Link to="/course">
+      <Link to="/buI/course">
         <Option>
           <LiaDatabaseSolid />
           Course
         </Option>
       </Link>
-      <Link to="/schedules">
+      <Link to="/buI/schedules">
         <Option>
           <GrSchedules />
           Schedules
         </Option>
       </Link>
-      <Link to="/classes">
+      <Link to="/buI/classes">
         <Option>
           <MdOutlineClass />
           Classes
         </Option>
       </Link>
-      <Link to="/feculties">
+      <Link to="/buI/faculties">
         <Option>
           <MdOutlineGroups />
           Feculties
         </Option>
       </Link>
       <hr style={{ margin: "15px 0px" }} />
-      <Link to="/cgpa">
+      <Link to="/buI/cgpa">
         <Option>
           <FaCalculator />
           CGPA Calculator
         </Option>
       </Link>
-      <Link to="/cgpaAnalyzer">
+      <Link to="/buI/cgpaAnalyzer">
         <Option>
           <IoAnalytics />
           CGPA Analyzer
         </Option>
       </Link>
       <hr style={{ margin: "15px 0px" }} />
-      <Link to="/contact">
+      <Link to="/buI/contact">
         <Option>
           <CgMail />
           Contact
         </Option>
       </Link>
-      <Link to="/contact">
+      <Link to="/buI/privacyPolicy">
         <Option>
           <MdOutlinePrivacyTip />
-          prvacy Policy
+          Privacy Policy
         </Option>
       </Link>
-      <Link to="/contact">
+      <Link to="/buI/termsConditions">
         <Option>
           <LiaStreamSolid />
           Terms & Conditions
         </Option>
       </Link>
-      <Link to="/contact">
+      <Link to="/buI/about">
         <Option>
           <CiCircleQuestion />
           About

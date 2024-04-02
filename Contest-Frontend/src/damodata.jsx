@@ -109,3 +109,63 @@ export const departments = {
     },
   ],
 };
+
+import { IoPersonOutline } from "react-icons/io5";
+import { PiNewspaperClipping } from "react-icons/pi";
+import { LuMessagesSquare } from "react-icons/lu";
+import { MdOutlinePoll } from "react-icons/md";
+import { LiaDatabaseSolid } from "react-icons/lia";
+import { RiGroup2Fill } from "react-icons/ri";
+import { GrSchedules } from "react-icons/gr";
+import { MdOutlineClass } from "react-icons/md";
+import { GiTeacher } from "react-icons/gi";
+import { TiGroup } from "react-icons/ti";
+import { FaCalculator } from "react-icons/fa";
+import { IoAnalytics } from "react-icons/io5";
+import { RiGalleryLine } from "react-icons/ri";
+import { MdOutlineEvent } from "react-icons/md";
+import { CiCircleQuestion } from "react-icons/ci";
+import { IoMdNotifications } from "react-icons/io";
+export const bottomBarData = [
+  { id: 1, icon: IoPersonOutline, title: "profile", route: "/buI/profile" },
+  {
+    id: 2,
+    icon: PiNewspaperClipping,
+    title: "Newsfeed",
+    route: "/buI/newsfeed",
+  },
+  { id: 3, icon: LuMessagesSquare, title: "Messages", route: "/buI/messages" },
+  {
+    id: 4,
+    icon: MdOutlinePoll,
+    title: "Create Poll",
+    route: "/buI/createPoll",
+  },
+  { id: 5, icon: LiaDatabaseSolid, title: "Course", route: "/buI/course" },
+  { id: 6, icon: RiGroup2Fill, title: " Faculties", route: "/buI/faculties" },
+  { id: 7, icon: GrSchedules, title: "Schedules", route: "/buI/schedules" },
+  { id: 8, icon: MdOutlineClass, title: "Classes", route: "/buI/classes" },
+  { id: 9, icon: GiTeacher, title: "Tuition", route: "/buI/tuition" },
+  { id: 10, icon: TiGroup, title: "classmate", route: "/buI/classmate" },
+  { id: 11, icon: FaCalculator, title: "CGPA Calculator", route: "/buI/cgpa" },
+  {
+    id: 12,
+    icon: IoAnalytics,
+    title: "  CGPA Analyzer",
+    route: "/buI/cgpaAnalyzer",
+  },
+  { id: 13, icon: RiGalleryLine, title: "Gallery", route: "/buI/gallery" },
+  {
+    id: 14,
+    icon: MdOutlineEvent,
+    title: " Notice & Event",
+    route: "/buI/noticeEvent",
+  },
+  { id: 15, icon: CiCircleQuestion, title: "About", route: "/buI/about" },
+  {
+    id: 16,
+    icon: IoMdNotifications,
+    title: "Notifications",
+    route: "/buI/notifications",
+  },
+];

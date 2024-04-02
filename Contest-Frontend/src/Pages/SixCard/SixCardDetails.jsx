@@ -19,7 +19,6 @@ const SixCardDetails = () => {
   return (
     <SixCardDetailsContainer>
       <p>{/* Page {pageNumber} of {numPages} */}</p>
-      <p className="text-xl font-semibold uppercase mb-5">{item}</p>
       {item === "classmate" ? <ClassMateCard /> : <></>}
     </SixCardDetailsContainer>
   );

@@ -10,8 +10,8 @@ const FourCard = () => {
   const items = [
     {
       id: 1,
-      route: "class",
-      title: "Class",
+      route: "classes",
+      title: "Classes",
       icon: <SiGoogleclassroom size={"20px"} />,
     },
     {

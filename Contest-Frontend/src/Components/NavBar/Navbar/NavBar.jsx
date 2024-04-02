@@ -9,6 +9,7 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 
 import Drawer from "../Drawer/Drawer";
 import DesktopBar from "../DesktopBar";
+import TitlePath from "../TitlePath/TitlePath";
 const Navbar = () => {
   const [isProfileVisible, setIsProfileVisible] = useState(false);
   const handleProfileClick = () => {
@@ -23,6 +24,7 @@ const Navbar = () => {
   const CloseMobileMenu = () => {
     setMobileMenuOpen(false);
   };
+
   return (
     <NavbarWrapper>
       <Container>
@@ -37,11 +39,7 @@ const Navbar = () => {
           menuRef={menuRef}
           mobileMenuOpen={mobileMenuOpen}
         />
-        <Title>
-          {" "}
-          <span style={{ color: `${primaryColor}` }}>University</span>{" "}
-          Instructor
-        </Title>
+        <TitlePath />
         {/* <SearchBar>
           <input type="text" placeholder="Search" />
         </SearchBar> */}
@@ -110,16 +108,6 @@ const NavbarWrapper = styled.nav`
   left: 0;
   font-family: ${fontFamily};
 `;
-const Title = styled.h4`
-  display: none;
-  @media (max-width: 768px) {
-    display: block;
-    color: black;
-    font-family: ${fontFamily};
-    cursor: pointer;
-    font-size: 18px;
-  }
-`;
 
 const Image = styled.img`
   height: 100px;
@@ -161,7 +149,7 @@ const MobileMenu = styled.div`
     display: block;
     cursor: pointer;
     color: black;
-    background-color: white;
+
     padding: 10px;
 
     top: 20px; /* Adjust as needed */
