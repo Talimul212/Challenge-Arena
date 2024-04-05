@@ -169,3 +169,38 @@ export const bottomBarData = [
     route: "/buI/notifications",
   },
 ];
+
+export const coursesData = [
+  {
+    courseName: "Data Structures and Algorithms",
+    teacherName: "Dr. John Smith",
+    credits: 3,
+    hours: 4,
+    courseCode: "CSE200",
+    type: "Theory",
+  },
+  {
+    courseName: "Database Management Systems",
+    teacherName: "Prof. Emily Johnson",
+    credits: 3,
+    hours: 3,
+    courseCode: "CSE310",
+    type: "Lab",
+  },
+  {
+    courseName: "Software Engineering",
+    teacherName: "Dr. Michael Brown",
+    credits: 3,
+    hours: 3,
+    courseCode: "CSE420",
+    type: "Theory",
+  },
+  {
+    courseName: "Computer Networks",
+    teacherName: "Prof. Sarah Wilson",
+    credits: 3,
+    hours: 3,
+    courseCode: "CSE530",
+    type: "Lab",
+  },
+];

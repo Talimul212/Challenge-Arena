@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import { FaEye } from "react-icons/fa";
 import CourseDetailsM from "../Modal/CourseDetailsM";
 import { useState } from "react";
 
-const CourseCard = () => {
+const CourseCard = ({ course, index }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleToggle = () => {
@@ -18,22 +19,27 @@ const CourseCard = () => {
         className="mt-5 p-3 rounded-lg  flex justify-between items-center bg-white shadow-lg border-[1px] mb-3"
       >
         <div className="gap-4 flex items-center">
-          <div className="font-bold text-lg bg-green-300 rounded p-1 text-white">
-            1
+          <div className="font-bold text-lg bg-[#00bf63] rounded p-1 text-white">
+            {index + 1}
           </div>
           <div>
-            <h3 className="font-bold ">numerical methods linear algebra</h3>
-            <div className="text-xs">MD: Amir Shaddat</div>
+            <h3 className="font-bold ">{course.courseName}</h3>
+            <div className="text-xs">MD: {course.teacherName}</div>
           </div>
         </div>
         <button
           onClick={handleToggle}
-          className=" text-[#00bf63] hover:text-black "
+          className="text-[#38b6ff] hover:text-black"
         >
           <FaEye />
         </button>
-        <CourseDetailsM handleClose={handleClose} isOpen={isOpen} />
       </div>
+
+      <CourseDetailsM
+        course={course}
+        handleClose={handleClose}
+        isOpen={isOpen}
+      />
     </div>
   );
 };

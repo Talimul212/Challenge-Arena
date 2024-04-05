@@ -78,9 +78,8 @@ export const ModalContentC = styled.div`
 `;
 
 export const ModalBodyC = styled.div`
-  display: grid;
-  gap: 22px;
-  grid-template-columns: auto auto auto auto;
+  display: flex;
+  justify-content: space-between;
 `;
 export const DivC = styled.div`
   li {
@@ -89,12 +88,5 @@ export const DivC = styled.div`
   }
 `;
 export const BottomBarItemC = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex: 1;
   color: gray;
-  &:hover {
-    color: ${primaryColor};
-  }
 `;

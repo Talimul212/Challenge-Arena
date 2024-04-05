@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { CiCircleRemove } from "react-icons/ci";
 import {
   BottomBarItemC,
   DivC,
@@ -7,7 +8,7 @@ import {
   ModalContentC,
 } from "../GobalStyle/GobalStyle";
 
-const CourseDetailsM = ({ isOpen, handleClose }) => {
+const CourseDetailsM = ({ isOpen, handleClose, course }) => {
   return (
     <div>
       <div>
@@ -17,19 +18,43 @@ const CourseDetailsM = ({ isOpen, handleClose }) => {
               <ModalBodyC>
                 <DivC>
                   <BottomBarItemC>
-                    <p className="text-[12px] mt-1">
-                      numerical methods linear algebra
+                    <p className=" text-[12px] mt-3 text-black font-semibold">
+                      Course Name:{" "}
+                      <span className="ms-2 bg-[#38b6ff] text-white px-2 py-1 rounded">
+                        {course.courseName}
+                      </span>
                     </p>
-                    <p className="text-[12px] mt-1">course code:math320</p>
-                    <p className="text-[12px] mt-1">MD: Amir Shaddat</p>
-                    <p className="text-[12px] mt-1">credits:3</p>
-                    <p className="text-[12px] mt-1">
-                      Class Houre:1.5 (weekly 2 days)
+
+                    <p className="text-black font-semibold text-[12px] mt-3 ">
+                      Teacher:
+                      <span className=" ms-2 bg-[#38b6ff] text-white px-2 py-1 rounded">
+                        {course.teacherName}
+                      </span>
+                    </p>
+                    <p className="text-[12px] mt-3 text-black font-semibold">
+                      Course Code:{" "}
+                      <span className=" ms-2  bg-[#38b6ff] text-white px-2 py-1 rounded">
+                        {course.courseCode}
+                      </span>
+                    </p>
+                    <p className="text-[12px] mt-3 text-black font-semibold">
+                      Credits:{" "}
+                      <span className=" ms-2 bg-[#38b6ff] text-white px-3 py-[2px] rounded">
+                        {course.credits}
+                      </span>
+                    </p>
+                    <p className="text-[18px] mt-3 font-semibold text-start ">
+                      {course.hours} hours (weekly 2 days)
                     </p>
                   </BottomBarItemC>
                 </DivC>
 
-                <p onClick={handleClose}>close</p>
+                <p
+                  className=" absolute right-1 top-1 z-10 shadow rounded-full text-[#00bf63] text-2xl font-bold cursor-pointer hover:text-black"
+                  onClick={handleClose}
+                >
+                  <CiCircleRemove />
+                </p>
               </ModalBodyC>
             </ModalContentC>
           </ModalContainerC>
