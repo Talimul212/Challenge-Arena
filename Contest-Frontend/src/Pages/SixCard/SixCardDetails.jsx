@@ -2,7 +2,8 @@ import { useParams } from "react-router-dom";
 // import { useState } from "react";
 import styled from "styled-components";
 import ClassMateCard from "../../Components/Card/ClassMateCard";
-import Course from "../Course/Course";
+import Classes from "./Components/Classes/Classes";
+import Course from "./Components/Course/Course";
 // import samplePDF from "../../assets/PDF/Pdf1.pdf"; // Replace './sample.pdf' with the path to your PDF file
 
 // Required to avoid issues with displaying PDFs in some environments
@@ -24,6 +25,8 @@ const SixCardDetails = () => {
         <ClassMateCard />
       ) : item === "course" ? (
         <Course />
+      ) : item === "classes" ? (
+        <Classes />
       ) : (
         <></>
       )}

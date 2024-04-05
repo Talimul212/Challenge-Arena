@@ -1,8 +1,9 @@
 import styled from "styled-components";
-import CourseCard from "../../Components/Card/CourseCard";
-import { coursesData } from "../../damodata";
+
 import { FaComputer } from "react-icons/fa6";
 import { MdOutlineMenuBook } from "react-icons/md";
+import CourseCard from "../../../../Components/Card/CourseCard";
+import { coursesData } from "../../../../damodata";
 
 const Course = () => {
   let theoryCount = 0;

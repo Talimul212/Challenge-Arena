@@ -6,7 +6,7 @@ const UserProfile = () => {
   return (
     <Container>
       <Div>
-        <Link to="/buysell">
+        <Link to="/">
           <IoMdArrowBack />
         </Link>
         <span className="text-black">Edit Profile</span>
