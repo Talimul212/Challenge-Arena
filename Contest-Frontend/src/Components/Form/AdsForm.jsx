@@ -79,7 +79,9 @@ const AdsForm = () => {
         <Link to="/buysell">
           <IoMdArrowBack />
         </Link>
-        Create an ad
+        <p>
+          <span className="text-[#00bf63]">Create</span> an ad
+        </p>
       </Div>
       {image ? (
         <Divim>
@@ -129,20 +131,32 @@ const AdsForm = () => {
         <FormField>
           <FieldName>Department</FieldName>
           <div>
-            <select
-              className="w-full ms-[-5px] mt-1 border-b-[1px] text-sm bg-none border-black"
-              name="department "
-              value={formData.department}
-              onChange={handleChange}
-            >
-              <option disabled value="">
-                Select Department
-              </option>
-              <option value="English">English</option>
-              <option value="GDS">Governance and Development Studies</option>
-              <option value="BBA">Business Administration</option>
-              <option value="CSE">Computer Science and Engineering</option>
-            </select>
+            {formData.department ? (
+              <select
+                className="w-full ms-[-5px] mt-1 border-b-[1px] text-sm  bg-transparent border-black"
+                name="department "
+                value={formData.department}
+                onChange={handleChange}
+              >
+                <option disabled>Select Department</option>
+                <option value="English">English</option>
+                <option value="GDS">Governance and Development Studies</option>
+                <option value="BBA">Business Administration</option>
+                <option value="CSE">Computer Science and Engineering</option>
+              </select>
+            ) : (
+              <select
+                className="w-full ms-[-5px] mt-1 border-b-[1px] text-sm  bg-transparent border-black"
+                name="department "
+                onChange={handleChange}
+              >
+                <option disabled>Select Department</option>
+                <option value="English">English</option>
+                <option value="GDS">Governance and Development Studies</option>
+                <option value="BBA">Business Administration</option>
+                <option value="CSE">Computer Science and Engineering</option>
+              </select>
+            )}
           </div>
         </FormField>
         <div

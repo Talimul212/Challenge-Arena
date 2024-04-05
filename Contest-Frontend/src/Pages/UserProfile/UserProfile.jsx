@@ -9,7 +9,9 @@ const UserProfile = () => {
         <Link to="/">
           <IoMdArrowBack />
         </Link>
-        <span className="text-black">Edit Profile</span>
+        <p>
+          <span className="text-[#00bf63]">Edit </span> Profile
+        </p>
       </Div>
       <ProfileForm />
     </Container>

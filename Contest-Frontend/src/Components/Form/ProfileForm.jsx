@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { useState } from "react";
 import { IoIosCamera } from "react-icons/io";
 import { IoPerson } from "react-icons/io5";
@@ -17,6 +18,7 @@ const ProfileForm = () => {
   const [formData, setFormData] = useState({
     name: "Talimul Islam",
     department: "",
+    batch: "",
     semester: 0,
     cgpa: "", // Add image to formData
     credite: "", // Add image to formData
@@ -52,6 +54,7 @@ const ProfileForm = () => {
     setFormData({
       name: "",
       department: "",
+      batch: "",
       semester: 0,
       cgpa: "", // Add image to formData
       credite: "", // Reset image after submission
@@ -114,7 +117,7 @@ const ProfileForm = () => {
           <div>
             {formData?.department ? (
               <select
-                className="w-full ms-[-5px] mt-1 border-b-[1px] text-sm border-black"
+                className="w-full bg-transparent ms-[-5px] mt-1 border-b-[1px] text-sm border-black"
                 name="department "
                 value={formData.department}
                 onChange={handleChange}
@@ -129,7 +132,7 @@ const ProfileForm = () => {
               </select>
             ) : (
               <select
-                className="w-full ms-[-5px] mt-1 border-b-[1px] text-sm border-black"
+                className="w-full bg-transparent ms-[-5px] mt-1 border-b-[1px] text-sm border-black"
                 name="department "
                 onChange={handleChange}
               >
@@ -147,11 +150,48 @@ const ProfileForm = () => {
 
         <div className="flex gap-10">
           <FormField>
-            <FieldName>Semester(th)</FieldName>
+            <FieldName>Batch (th)</FieldName>
+            <div>
+              {formData?.batch ? (
+                <select
+                  className=" bg-transparent w-full ms-[-5px] mt-1 border-b-[1px] text-sm border-black"
+                  name="department "
+                  value={formData.batch}
+                  onChange={handleChange}
+                >
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                </select>
+              ) : (
+                <select
+                  className="w-full bg-transparent ms-[-5px] mt-1 border-b-[1px] text-sm border-black"
+                  name="department "
+                  type="number"
+                  onChange={handleChange}
+                >
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                </select>
+              )}
+            </div>
+          </FormField>
+          <FormField>
+            <FieldName>Semseter (th)</FieldName>
             <div>
               {formData?.semester ? (
                 <select
-                  className=" bg-none w-full ms-[-5px] mt-1 border-b-[1px] text-sm border-black"
+                  className=" bg-transparent w-full ms-[-5px] mt-1 border-b-[1px] text-sm border-black"
                   name="department "
                   value={formData.semester}
                   onChange={handleChange}
@@ -171,7 +211,7 @@ const ProfileForm = () => {
                 </select>
               ) : (
                 <select
-                  className="w-full ms-[-5px] mt-1 border-b-[1px] text-sm border-black"
+                  className="w-full bg-transparent ms-[-5px] mt-1 border-b-[1px] text-sm border-black"
                   name="department "
                   type="number"
                   onChange={handleChange}
@@ -192,14 +232,16 @@ const ProfileForm = () => {
               )}
             </div>
           </FormField>
+        </div>
+        <div className="flex gap-10">
           <FormField>
-            <FieldName>Credits</FieldName>
+            <FieldName>CGPA</FieldName>
             <div>
-              {formData?.credite ? (
+              {formData?.cgpa ? (
                 <Input
                   type="text"
                   name="number"
-                  value={formData.credite}
+                  value={formData.cgpa}
                   onChange={handleChange}
                 />
               ) : (
@@ -207,22 +249,22 @@ const ProfileForm = () => {
               )}
             </div>
           </FormField>
+          <FormField>
+            <FieldName>Credits</FieldName>
+            <div>
+              {formData?.credite ? (
+                <Input
+                  type="number"
+                  name="credite"
+                  value={formData.credite}
+                  onChange={handleChange}
+                />
+              ) : (
+                <Input type="number" name="credite" onChange={handleChange} />
+              )}
+            </div>
+          </FormField>
         </div>
-        <FormField>
-          <FieldName>CGPA</FieldName>
-          <div>
-            {formData?.cgpa ? (
-              <Input
-                type="text"
-                name="number"
-                value={formData.cgpa}
-                onChange={handleChange}
-              />
-            ) : (
-              <Input type="text" name="number" onChange={handleChange} />
-            )}
-          </div>
-        </FormField>
 
         <div className="mt-10">
           <ul

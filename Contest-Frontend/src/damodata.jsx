@@ -178,6 +178,19 @@ export const coursesData = [
     hours: 4,
     courseCode: "CSE200",
     type: "Theory",
+    relatedBooks: [
+      {
+        title: "Introduction to Algorithms",
+        author: "Thomas H. Cormen",
+        imageURL: "https://example.com/intro-to-algorithms.jpg",
+      },
+      {
+        title: "Data Structures and Algorithms in Java",
+        author: "Robert Lafore",
+        imageURL: "https://example.com/data-structures-in-java.jpg",
+      },
+      // Add more related books as needed
+    ],
   },
   {
     courseName: "Database Management Systems",
@@ -186,6 +199,19 @@ export const coursesData = [
     hours: 3,
     courseCode: "CSE310",
     type: "Lab",
+    relatedBooks: [
+      {
+        title: "Database System Concepts",
+        author: "Abraham Silberschatz",
+        imageURL: "https://example.com/db-system-concepts.jpg",
+      },
+      {
+        title: "Fundamentals of Database Systems",
+        author: "Ramez Elmasri",
+        imageURL: "https://example.com/fundamentals-of-db-systems.jpg",
+      },
+      // Add more related books as needed
+    ],
   },
   {
     courseName: "Software Engineering",
@@ -194,6 +220,14 @@ export const coursesData = [
     hours: 3,
     courseCode: "CSE420",
     type: "Theory",
+    relatedBooks: [
+      {
+        title: "Software Engineering: A Practitioner's Approach",
+        author: "Roger S. Pressman",
+        imageURL: "https://example.com/software-engineering.jpg",
+      },
+      // Add more related books as needed
+    ],
   },
   {
     courseName: "Computer Networks",
@@ -202,5 +236,131 @@ export const coursesData = [
     hours: 3,
     courseCode: "CSE530",
     type: "Lab",
+    relatedBooks: [
+      {
+        title: "Computer Networking: A Top-Down Approach",
+        author: "James F. Kurose",
+        imageURL: "https://example.com/computer-networking.jpg",
+      },
+      {
+        title: "Data Communications and Networking",
+        author: "Behrouz A. Forouzan",
+        imageURL: "https://example.com/data-communications.jpg",
+      },
+      // Add more related books as needed
+    ],
+  },
+];
+
+export const CourseSchedule = [
+  {
+    day: "Friday",
+    batch: "5th/5th",
+    courses: [
+      {
+        period: "1st Period (9.00 am – 10.30 am)",
+        courseName: "Theory of Computation",
+        instructor: "MSKS",
+      },
+      {
+        period: "2nd Period (10.30 am – 12.00 pm)",
+        courseName: "Computer Architecture",
+        instructor: "MMAS",
+      },
+      {
+        period: "3rd Period (12.00 pm - 01.30 pm)",
+        courseName: "System Analysis and Design",
+        instructor: "MSKS",
+      },
+      {
+        period: "4th Period (01.30 pm – 03.00 pm)",
+        courseName: "Database Management Systems",
+        instructor: "MUR",
+      },
+    ],
+  },
+  {
+    day: "Saturday",
+    batch: "5th/5th",
+    courses: [
+      {
+        period: "1st Period (9.00 am – 10.30 am)",
+        courseName: "Computer Architecture",
+        instructor: "MMAS",
+      },
+      {
+        period: "2nd Period (10.30 am – 12.00 pm)",
+        courseName: "System Analysis and Design",
+        instructor: "MMAS",
+      },
+    ],
+  },
+  {
+    day: "Sunday",
+    batch: "5th/5th",
+    courses: [
+      {
+        period: "1st Period (9.00 am – 10.30 am)",
+        courseName: "Database Management Systems",
+        instructor: "MUR",
+      },
+      {
+        period: "2nd Period (10.30 am – 12.00 pm)",
+        courseName: "Operating System",
+        instructor: "MMAS",
+      },
+      {
+        period: "3rd Period (12.00 pm - 01.30 pm)",
+        courseName: "Operating System Lab",
+        instructor: "MMAS",
+      },
+    ],
+  },
+  {
+    day: "Monday",
+    batch: "5th/5th",
+    courses: [
+      {
+        period: "1st Period (9.00 am – 10.30 am)",
+        courseName: "Theory of Computation",
+        instructor: "MSKS",
+      },
+      {
+        period: "2nd Period (10.30 am – 12.00 pm)",
+        courseName: "Database Management Systems Lab",
+        instructor: "MUR",
+      },
+      {
+        period: "3rd Period (12.00 pm - 01.30 pm)",
+        courseName: "Operating System",
+        instructor: "MMAS",
+      },
+      {
+        period: "4th Period (01.30 pm – 03.00 pm)",
+        courseName: "Graph Theory Lab",
+        instructor: "MSKS",
+      },
+    ],
+  },
+  {
+    day: "Tuesday",
+    batch: "5th/5th",
+    courses: [
+      {
+        period: "1st Period (9.00 am – 10.30 am)",
+        courseName: "Mobile Application Development Lab",
+        instructor: "MUR",
+      },
+      {
+        period: "2nd Period (10.30 am – 12.00 pm)",
+        courseName: "Computer Architecture",
+        instructor: "MMAS",
+      },
+      {
+        period: "3rd Period (12.00 pm - 01.30 pm)",
+        courseName: "Database Management Systems",
+        instructor: "MUR",
+      },
+    ],
   },
 ];
