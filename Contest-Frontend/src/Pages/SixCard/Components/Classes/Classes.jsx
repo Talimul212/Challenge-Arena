@@ -18,13 +18,15 @@ const Classes = () => {
                 )
               </p>
             </DayDuration>
-            {daySchedule.courses.map((course, idx) => (
-              <ClassRoutineCard
-                key={idx}
-                course={course}
-                daySchedule={daySchedule}
-              />
-            ))}
+            <div className="block lg:flex justify-between">
+              {daySchedule.courses.map((course, idx) => (
+                <ClassRoutineCard
+                  key={idx}
+                  course={course}
+                  daySchedule={daySchedule}
+                />
+              ))}
+            </div>
           </React.Fragment>
         ))}
       </RoutineMapp>
