@@ -69,7 +69,7 @@ export const ModalContainerC = styled.div`
 export const ModalContentC = styled.div`
   background-color: white;
   position: absolute;
-  bottom: 250px;
+  bottom: 290px;
   padding: 20px;
   width: 85vw;
   height: 50vw;
