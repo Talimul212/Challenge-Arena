@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 // import { useState } from "react";
 import styled from "styled-components";
 import ClassMateCard from "../../Components/Card/ClassMateCard";
+import Course from "../Course/Course";
 // import samplePDF from "../../assets/PDF/Pdf1.pdf"; // Replace './sample.pdf' with the path to your PDF file
 
 // Required to avoid issues with displaying PDFs in some environments
@@ -19,7 +20,13 @@ const SixCardDetails = () => {
   return (
     <SixCardDetailsContainer>
       <p>{/* Page {pageNumber} of {numPages} */}</p>
-      {item === "classmate" ? <ClassMateCard /> : <></>}
+      {item === "classmate" ? (
+        <ClassMateCard />
+      ) : item === "course" ? (
+        <Course />
+      ) : (
+        <></>
+      )}
     </SixCardDetailsContainer>
   );
 };

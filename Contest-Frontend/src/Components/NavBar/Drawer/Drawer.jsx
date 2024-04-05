@@ -57,37 +57,37 @@ const Drawer = ({ mobileMenuOpen, menuRef, CloseMobileMenu }) => {
           </p>
         </div>
       </Div>
-      <Link to="/">
+      <Link onClick={CloseMobileMenu} to="/">
         <Option>
           <IoPersonOutline />
           Profile
         </Option>
       </Link>
-      <Link to="/buI/newsfeed">
+      <Link onClick={CloseMobileMenu} to="/buI/newsfeed">
         <Option>
           <PiNewspaperClipping />
           Newsfeed
         </Option>
       </Link>
-      <Link to="/buI/messages">
+      <Link onClick={CloseMobileMenu} to="/buI/messages">
         <Option>
           <LuMessagesSquare />
           Messages
         </Option>
       </Link>
-      <Link to="/buI/classmate">
+      <Link onClick={CloseMobileMenu} to="/buI/classmate">
         <Option>
           <TiGroup />
           Classmate
         </Option>
       </Link>
-      <Link to="/buI/tuition">
+      <Link onClick={CloseMobileMenu} to="/buI/tuition">
         <Option>
           <GiTeacher />
           Tuition
         </Option>
       </Link>
-      <Link to="/buySell">
+      <Link onClick={CloseMobileMenu} to="/buySell">
         <Option>
           <IoMdCart />
           BuySell Books
@@ -95,63 +95,63 @@ const Drawer = ({ mobileMenuOpen, menuRef, CloseMobileMenu }) => {
       </Link>
       <hr style={{ margin: "15px 0px" }} />
 
-      <Link to="/buI/course">
+      <Link onClick={CloseMobileMenu} to="/buI/course">
         <Option>
           <LiaDatabaseSolid />
           Course
         </Option>
       </Link>
-      <Link to="/buI/schedules">
+      <Link onClick={CloseMobileMenu} to="/buI/schedules">
         <Option>
           <GrSchedules />
           Schedules
         </Option>
       </Link>
-      <Link to="/buI/classes">
+      <Link onClick={CloseMobileMenu} to="/buI/classes">
         <Option>
           <MdOutlineClass />
           Classes
         </Option>
       </Link>
-      <Link to="/buI/faculties">
+      <Link onClick={CloseMobileMenu} to="/buI/faculties">
         <Option>
           <MdOutlineGroups />
           Feculties
         </Option>
       </Link>
       <hr style={{ margin: "15px 0px" }} />
-      <Link to="/buI/cgpa">
+      <Link onClick={CloseMobileMenu} to="/buI/cgpa">
         <Option>
           <FaCalculator />
           CGPA Calculator
         </Option>
       </Link>
-      <Link to="/buI/cgpaAnalyzer">
+      <Link onClick={CloseMobileMenu} to="/buI/cgpaAnalyzer">
         <Option>
           <IoAnalytics />
           CGPA Analyzer
         </Option>
       </Link>
       <hr style={{ margin: "15px 0px" }} />
-      <Link to="/buI/contact">
+      <Link onClick={CloseMobileMenu} to="/buI/contact">
         <Option>
           <CgMail />
           Contact
         </Option>
       </Link>
-      <Link to="/buI/privacyPolicy">
+      <Link onClick={CloseMobileMenu} to="/buI/privacyPolicy">
         <Option>
           <MdOutlinePrivacyTip />
           Privacy Policy
         </Option>
       </Link>
-      <Link to="/buI/termsConditions">
+      <Link onClick={CloseMobileMenu} to="/buI/termsConditions">
         <Option>
           <LiaStreamSolid />
           Terms & Conditions
         </Option>
       </Link>
-      <Link to="/buI/about">
+      <Link onClick={CloseMobileMenu} to="/buI/about">
         <Option>
           <CiCircleQuestion />
           About

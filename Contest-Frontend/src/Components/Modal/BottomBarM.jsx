@@ -9,7 +9,7 @@ import {
   ModalContent,
 } from "../GobalStyle/GobalStyle";
 
-const BottomBarM = ({ isOpen }) => {
+const BottomBarM = ({ isOpen, handleClose }) => {
   return (
     <div>
       {isOpen && (
@@ -18,7 +18,7 @@ const BottomBarM = ({ isOpen }) => {
             <ModalBody>
               {bottomBarData.map((item, index) => (
                 <Div key={index}>
-                  <Link to={`${item.route}`}>
+                  <Link onClick={handleClose} to={`${item.route}`}>
                     <BottomBarItem>
                       <div className="bg-gray-200  p-2 rounded-full text-gray">
                         <item.icon size={25} />

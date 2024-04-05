@@ -8,6 +8,7 @@ import CartHome from "../../Pages/Cart/CartHome";
 import AdsForm from "../../Components/Form/AdsForm";
 import CartDetails from "../../Pages/Cart/CartDetails";
 import SixCardDetails from "../../Pages/SixCard/SixCardDetails";
+import UserProfile from "../../Pages/UserProfile/UserProfile";
 
 export const router = createBrowserRouter([
   {
@@ -27,9 +28,14 @@ export const router = createBrowserRouter([
         element: <Login />,
       },
       {
+        path: "/profile",
+        element: <UserProfile />,
+      },
+      {
         path: "/buySell",
         element: <CartHome />,
       },
+
       {
         path: "/booksDetalis/:id",
         element: <CartDetails />,

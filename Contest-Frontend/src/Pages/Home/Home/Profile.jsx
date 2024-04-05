@@ -42,7 +42,7 @@ const Profile = () => {
         }}
       >
         <Link to="/profile">PROFILE</Link>
-        <Link to="/https://bubban.agamilabs.com/">BUBBAN</Link>
+        <a href="https://bubban.agamilabs.com">BUBBAN</a>
       </Div>
     </Container>
   );

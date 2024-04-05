@@ -127,7 +127,7 @@ import { MdOutlineEvent } from "react-icons/md";
 import { CiCircleQuestion } from "react-icons/ci";
 import { IoMdNotifications } from "react-icons/io";
 export const bottomBarData = [
-  { id: 1, icon: IoPersonOutline, title: "profile", route: "/buI/profile" },
+  { id: 1, icon: IoPersonOutline, title: "profile", route: "/profile" },
   {
     id: 2,
     icon: PiNewspaperClipping,

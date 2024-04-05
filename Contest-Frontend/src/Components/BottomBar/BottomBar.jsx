@@ -58,7 +58,7 @@ const BottomBar = () => {
           />
         </Link>
       </MobileScroll>
-      <BottomBarM isOpen={isOpen} />
+      <BottomBarM handleClose={handleClose} isOpen={isOpen} />
     </>
   );
 };

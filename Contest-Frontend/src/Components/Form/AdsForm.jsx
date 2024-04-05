@@ -1,12 +1,23 @@
 /* eslint-disable no-constant-condition */
 import { IoMdArrowBack } from "react-icons/io";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
 import { FaRegImage } from "react-icons/fa";
 import { IoIosCamera } from "react-icons/io";
-import { InputColor, primaryColor } from "../Color/Color";
 import { GoCheckCircleFill } from "react-icons/go";
 import { useState } from "react";
+import {
+  Button,
+  Container,
+  Div,
+  Div1,
+  Div2,
+  Divim,
+  FieldName,
+  Form,
+  FormField,
+  Input,
+  Title,
+} from "../GobalStyle/AdsFormStyle";
 const AdsForm = () => {
   const [image, setImage] = useState(null);
   const [formData, setFormData] = useState({
@@ -119,7 +130,7 @@ const AdsForm = () => {
           <FieldName>Department</FieldName>
           <div>
             <select
-              className="w-full ms-[-5px] mt-1 border-b-[1px] text-sm border-black"
+              className="w-full ms-[-5px] mt-1 border-b-[1px] text-sm bg-none border-black"
               name="department "
               value={formData.department}
               onChange={handleChange}
@@ -263,99 +274,3 @@ const AdsForm = () => {
 };
 
 export default AdsForm;
-
-const Container = styled.div`
-  max-width: 95%;
-  margin: 0 auto;
-  margin-top: 5px;
-  display: flex;
-
-  justify-content: space-between;
-  flex-direction: column; /* Adjust as needed */
-`;
-const Div = styled.div`
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  gap: 20px;
-  color: gray;
-  font-size: 20px;
-  font-weight: 500;
-  li {
-    cursor: pointer;
-  }
-`;
-const Div1 = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: gray;
-  width: 55%;
-  height: 180px;
-  border-radius: 10px;
-  margin: 0 auto;
-  margin-top: 20px;
-  background: ${InputColor};
-`;
-const Divim = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 55%;
-  height: 180px;
-  border-radius: 10px;
-  margin: 0 auto;
-  margin-top: 20px;
-`;
-const Div2 = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: black;
-  width: 58%;
-  margin-top: -30px;
-  margin-right: -160px;
-`;
-const Form = styled.form``;
-const FormField = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-top: 15px;
-  width: 100%;
-`;
-const FieldName = styled.p`
-  color: #9b9b9b;
-`;
-const Input = styled.input`
-  margin-top: -5px;
-  padding: 5px 0;
-  font-size: 15px;
-  border: none;
-  color: #4b4a4a;
-  outline: none;
-  width: 100%;
-  border-radius: 0;
-  border-bottom: 1px solid black;
-  background: transparent;
-`;
-
-const Title = styled.p`
-  font-weight: 800;
-  color: #7c7b7b;
-  margin-top: 20px;
-  margin-bottom: 5px;
-`;
-const Button = styled.button`
-  margin-top: 20px;
-  position: fixed;
-  color: ${primaryColor};
-  padding: 15px;
-  border: none;
-  font-size: 45px;
-  border-radius: 10px;
-  cursor: pointer;
-  right: 10px;
-
-  bottom: 0px;
-`;
