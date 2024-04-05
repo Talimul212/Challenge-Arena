@@ -28,9 +28,11 @@ const Course = () => {
       <div className=" absolute right-3 top-24 flex items-center gap-2 text-[#38b6ff]">
         <FaComputer /> Lab: {labCount}
       </div>
-      {coursesData.map((course, i) => (
-        <CourseCard key={i} index={i} course={course} />
-      ))}
+      <div className="mt-5 w-full">
+        {coursesData.map((course, i) => (
+          <CourseCard key={i} index={i} course={course} />
+        ))}
+      </div>
     </CourseContain>
   );
 };
