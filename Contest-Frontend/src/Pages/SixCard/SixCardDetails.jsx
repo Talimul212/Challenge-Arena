@@ -4,6 +4,7 @@ import styled from "styled-components";
 import ClassMateCard from "../../Components/Card/ClassMateCard";
 import Classes from "./Components/Classes/Classes";
 import Course from "./Components/Course/Course";
+import CompleteCourse from "./Components/CompleteCourse/CompleteCourse";
 // import samplePDF from "../../assets/PDF/Pdf1.pdf"; // Replace './sample.pdf' with the path to your PDF file
 
 // Required to avoid issues with displaying PDFs in some environments
@@ -27,6 +28,8 @@ const SixCardDetails = () => {
         <Course />
       ) : item === "classes" ? (
         <Classes />
+      ) : item === "completeCourse" ? (
+        <CompleteCourse />
       ) : (
         <></>
       )}

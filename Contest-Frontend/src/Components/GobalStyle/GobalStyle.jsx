@@ -90,3 +90,43 @@ export const DivC = styled.div`
 export const BottomBarItemC = styled.div`
   color: gray;
 `;
+
+// CompleteCourseCSS
+export const ModalContainerCE = styled.div`
+  position: fixed;
+
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+  height: 100vh; /* Adjust as needed */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  z-index: 900;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+`;
+export const ModalContentCE = styled.div`
+  background-color: white;
+  position: absolute;
+  bottom: 290px;
+  padding: 18px;
+  width: 94vw;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+`;
+
+export const ModalBodyCE = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+export const DivCE = styled.div`
+  li {
+    display: flex;
+    align-items: center;
+  }
+`;
+export const BottomBarItemCE = styled.div`
+  color: gray;
+`;

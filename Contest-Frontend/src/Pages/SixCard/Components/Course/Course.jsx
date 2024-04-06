@@ -19,7 +19,7 @@ const Course = () => {
   return (
     <CourseContain>
       <div>
-        <Title>In this semseter you have 6 course :-</Title>
+        <Title>In this semseter you have {coursesData.length} course :-</Title>
       </div>
       <div className="flex items-center gap-2 text-[#00bf63]">
         <MdOutlineMenuBook /> Theory: {theoryCount}
