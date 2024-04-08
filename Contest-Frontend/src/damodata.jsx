@@ -465,3 +465,169 @@ export const completeCourseData = [
     totalMark: "100/100",
   },
 ];
+
+export const courseTeacherData = [
+  {
+    id: 6,
+    name: "Fatima Ali",
+    photoURL:
+      "https://scontent.fcgp3-1.fna.fbcdn.net/v/t39.30808-6/387167602_1611937125878832_6687982353967740114_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=5f2048&_nc_ohc=9buFxxfMDuIAb7l-tEQ&_nc_ht=scontent.fcgp3-1.fna&oh=00_AfBlg2Z_enRP9UyklNu-oSS1aI-gSo3lpHFLWfSMIwLjKw&oe=66189B11",
+    position: "Lecturer",
+    courseList: [
+      {
+        courseName: "Introduction to Programming",
+        courseCode: "CSE110",
+      },
+      {
+        courseName: "Web Development",
+        courseCode: "CSE220",
+      },
+    ],
+    whatsappNumber: "+1234567890",
+    gmailAccount: "fatima.ali@gmail.com",
+  },
+  {
+    id: 7,
+    name: "Youssef Ahmed",
+    photoURL:
+      "https://scontent.fcgp3-1.fna.fbcdn.net/v/t39.30808-6/428711439_3680786232162066_7074512577400629760_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_ohc=xvn1Crj9KzcAb6rROa-&_nc_ht=scontent.fcgp3-1.fna&oh=00_AfDheiF-ipaQoo1dXYUtw4zKwVMkQ-jfwcTNGTcVMxE7Tw&oe=66188784",
+    position: "Professor",
+    courseList: [
+      {
+        courseName: "Database Management Systems",
+        courseCode: "CSE310",
+      },
+      {
+        courseName: "Software Engineering",
+        courseCode: "CSE420",
+      },
+    ],
+    whatsappNumber: "+1234567891",
+    gmailAccount: "youssef.ahmed@gmail.com",
+  },
+  {
+    id: 8,
+    name: "Sana Khan",
+    photoURL:
+      "https://scontent.fcgp3-1.fna.fbcdn.net/v/t39.30808-6/409761888_1789300151495727_3373174694337264930_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_ohc=jZalM4C-1pcAb5VSsKu&_nc_ht=scontent.fcgp3-1.fna&oh=00_AfBiRYpeb06LwRfr75UgKS8ePq9tFOMoPd5j8Cvqkewbbg&oe=6618966D",
+    position: "Lecturer",
+    courseList: [
+      {
+        courseName: "Computer Networks",
+        courseCode: "CSE530",
+      },
+      {
+        courseName: "Computer Networks Lab",
+        courseCode: "CSE530L",
+      },
+    ],
+    whatsappNumber: "+1234567892",
+    gmailAccount: "sana.khan@gmail.com",
+  },
+  {
+    id: 9,
+    name: "Ayesha Hussain",
+    photoURL:
+      "https://scontent.fcgp3-2.fna.fbcdn.net/v/t39.30808-6/348556720_219614800822361_3351644192919147956_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=5f2048&_nc_ohc=oy00GvTYyOQAb4faB7g&_nc_ht=scontent.fcgp3-2.fna&oh=00_AfDUad9JxtheJLMev7CKx9_GJED_5yo7oYKZhUbjedFTAQ&oe=661898EF",
+    position: "Professor",
+    courseList: [
+      {
+        courseName: "Algorithm Design",
+        courseCode: "CSE600",
+      },
+      {
+        courseName: "Artificial Intelligence",
+        courseCode: "CSE610",
+      },
+    ],
+    whatsappNumber: "+1234567893",
+    gmailAccount: "ayesha.hussain@gmail.com",
+  },
+  {
+    id: 10,
+    name: "Mohammad Saleh",
+    photoURL:
+      "https://scontent.fcgp3-1.fna.fbcdn.net/v/t1.6435-9/165867751_2871238409790397_6842629657528418810_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_ohc=Zr4HgY5pUvgAb6wau0O&_nc_oc=Adg6Bi4abosWMHXPQzjrQluGA5fD6AhsEh8Bun33FFU_qapiYPOUF1lhgtN3MySlIjA&_nc_ht=scontent.fcgp3-1.fna&oh=00_AfAeKW9s8mo18QYkEKTySuga22XlwF7TbCnYLh7VpSxUSA&oe=663A28EF",
+    position: "Professor",
+    courseList: [
+      {
+        courseName: "Data Science",
+        courseCode: "CSE710",
+      },
+      {
+        courseName: "Machine Learning",
+        courseCode: "CSE720",
+      },
+    ],
+    whatsappNumber: "+1234567894",
+    gmailAccount: "mohammad.saleh@gmail.com",
+  },
+];
+
+export const examSchedule = [
+  {
+    date: "10/06/2023",
+    day: "Monday",
+    courses: [
+      {
+        courseCode: " CSE 413  ",
+        courseName: "Data Management",
+        semester: ["3rd", "4th", "4th (special)"],
+      },
+    ],
+  },
+  {
+    date: "13/06/2023",
+    day: "Tuesday",
+    courses: [
+      {
+        courseCode: "GED 211",
+        courseName: "Bangladesh Studies",
+        semester: ["2nd"],
+      },
+      {
+        courseCode: " GED 313  ",
+        courseName: "Industrial Management",
+        semester: ["3rd", "4th", "4th (special)"],
+      },
+    ],
+  },
+  {
+    date: "15/06/2023",
+    day: "Thursday",
+    courses: [
+      {
+        courseCode: "MAT 341",
+        courseName: "Complex Variables, Laplace and Fourier Transform",
+        semester: ["3rd", "4th", "4th (special)", "8th"],
+      },
+    ],
+  },
+  {
+    date: "17/06/2023",
+    day: "Saturday",
+    courses: [
+      {
+        courseCode: "CSE 201",
+        courseName: "Discrete Mathematics",
+        semester: ["2nd"],
+      },
+      {
+        courseCode: "STA 321",
+        courseName: "Probability and Statistical Analysis",
+        semester: ["3rd", "4th", "7th"],
+      },
+      {
+        courseCode: "CSE 703",
+        courseName: "Artificial Intelligence",
+        semester: ["7th", "8th"],
+      },
+      {
+        courseCode: "CSE 805",
+        courseName: "Machine Learning",
+        semester: ["9th"],
+      },
+    ],
+  },
+  // Add more entries based on the pattern...
+];

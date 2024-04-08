@@ -5,6 +5,8 @@ import ClassMateCard from "../../Components/Card/ClassMateCard";
 import Classes from "./Components/Classes/Classes";
 import Course from "./Components/Course/Course";
 import CompleteCourse from "./Components/CompleteCourse/CompleteCourse";
+import TeacherList from "./Components/Teacher/TeacherList";
+import ExamRoutine from "./Components/ExamRoutine/ExamRoutine";
 // import samplePDF from "../../assets/PDF/Pdf1.pdf"; // Replace './sample.pdf' with the path to your PDF file
 
 // Required to avoid issues with displaying PDFs in some environments
@@ -30,6 +32,10 @@ const SixCardDetails = () => {
         <Classes />
       ) : item === "completeCourse" ? (
         <CompleteCourse />
+      ) : item === "teacher" ? (
+        <TeacherList />
+      ) : item === "examSchedules" ? (
+        <ExamRoutine />
       ) : (
         <></>
       )}

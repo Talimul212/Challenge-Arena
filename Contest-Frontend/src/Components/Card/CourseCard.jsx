@@ -24,7 +24,7 @@ const CourseCard = ({ course, index }) => {
           </div>
           <div className=" p-3">
             <h3 className="font-bold ">{course.courseName}</h3>
-            <div className="text-xs">MD: {course.teacherName}</div>
+            <div className="text-xs"> {course.teacherName}</div>
           </div>
         </div>
         <button

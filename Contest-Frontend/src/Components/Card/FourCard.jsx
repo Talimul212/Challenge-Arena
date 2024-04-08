@@ -1,9 +1,8 @@
 import styled from "styled-components";
 import { SiGoogleclassroom } from "react-icons/si";
 import { GiThreeFriends } from "react-icons/gi";
-import { FaClipboardList } from "react-icons/fa";
+import { FaChalkboardTeacher, FaClipboardList } from "react-icons/fa";
 import { PiExamFill } from "react-icons/pi";
-import { FaBookOpenReader } from "react-icons/fa6";
 import { primaryColor, secondaryColor } from "../Color/Color";
 import { Link } from "react-router-dom";
 const FourCard = () => {
@@ -34,9 +33,9 @@ const FourCard = () => {
     },
     {
       id: 5,
-      route: "courseBook",
-      title: "Course Book",
-      icon: <FaBookOpenReader size={"20px"} />,
+      route: "teacher",
+      title: " Course Teacher",
+      icon: <FaChalkboardTeacher size={"20px"} />,
     },
     {
       id: 6,

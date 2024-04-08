@@ -32,10 +32,10 @@ const TitlePath = () => {
         <Title1>
           <span style={{ color: `${primaryColor}` }}>Complete</span> Course
         </Title1>
-      ) : path === "/buI/courseBook" ? (
+      ) : path === "/buI/teacher" ? (
         <Title1>
           {" "}
-          <span style={{ color: `${primaryColor}` }}> Course</span> Book
+          <span style={{ color: `${primaryColor}` }}> Course</span> Teacher
         </Title1>
       ) : path === "/buI/examSchedules" ? (
         <Title1>

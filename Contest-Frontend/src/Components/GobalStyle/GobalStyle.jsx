@@ -69,10 +69,10 @@ export const ModalContainerC = styled.div`
 export const ModalContentC = styled.div`
   background-color: white;
   position: absolute;
-  bottom: 290px;
+  bottom: 200px;
   padding: 20px;
   width: 85vw;
-  height: 50vw;
+  height: auto;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 `;

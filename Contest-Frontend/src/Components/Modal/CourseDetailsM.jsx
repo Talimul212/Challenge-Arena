@@ -43,6 +43,27 @@ const CourseDetailsM = ({ isOpen, handleClose, course }) => {
                         {course.credits}
                       </span>
                     </p>
+                    <div className="mt-2">
+                      <p className="text-[12px] mt-3 text-black font-semibold">
+                        {" "}
+                        Relate Books:
+                      </p>
+                      {course.relatedBooks.map((e, i) => (
+                        <div key={i}>
+                          <p className="text-[12px] mt-3 text-black font-semibold">
+                            <span className="  bg-[#38b6ff] text-white px-3 py-[2px] rounded">
+                              {e.title}
+                            </span>
+                          </p>
+                          <p className="text-[12px] mt-3 text-black font-semibold">
+                            Authors:
+                            <span className=" ms-2 bg-[#38b6ff] text-white px-3 py-[2px] rounded">
+                              {e.author}
+                            </span>
+                          </p>
+                        </div>
+                      ))}
+                    </div>
                     <p className="text-[18px] mt-3 font-semibold text-start ">
                       {course.hours} hours (weekly 2 days)
                     </p>
