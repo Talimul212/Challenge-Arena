@@ -1,12 +1,12 @@
-const { Users } = require("../Models/userModel");
+const { Teachers } = require("../Models/teacherModel");
 
-module.exports.addUser = async (req, res) => {
+module.exports.addTeacher = async (req, res) => {
   try {
-    const user = new Users(req.body);
-    const result = await user.save();
+    const teacher = new Teachers(req.body);
+    const result = await teacher.save();
     res.status(200).json({
       status: true,
-      message: "user added successfully",
+      message: "teacher added successfully",
       data: result,
     });
   } catch (error) {
@@ -27,12 +27,13 @@ module.exports.addUser = async (req, res) => {
   }
 };
 
-module.exports.getUser = async (req, res) => {
-  const users = await Users.find({});
+module.exports.getTeachers = async (req, res) => {
   try {
+    const teacher = await Teachers.find({});
+
     res.status(200).json({
       status: true,
-      data: users,
+      data: teacher,
     });
   } catch (error) {
     res.status(400).json({

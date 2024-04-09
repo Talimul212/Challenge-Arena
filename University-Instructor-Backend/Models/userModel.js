@@ -1,12 +1,16 @@
-const { Mongoose, model } = require("mongoose");
+const mongoose = require("mongoose");
 
-const userSchema = Mongoose.Schema(
+const userSchema = mongoose.Schema(
   {
     name: {
       type: String,
       required: [true, " full Name is required"],
     },
     gender: {
+      type: String,
+      required: [false],
+    },
+    photoURL: {
       type: String,
       required: [false],
     },
@@ -38,25 +42,11 @@ const userSchema = Mongoose.Schema(
       type: Number,
       required: [true, "Credits  is required"],
     },
-    // dishes: [
-    //   {
-    //     img: {
-    //       type: String,
-    //       required: [true, "Image is required"],
-    //     },
-    //     price: {
-    //       type: Number,
-    //       required: [true, "Price is required"],
-    //     },
-    //     dish_tag: {
-    //       type: String,
-    //     },
-    //   },
-    // ],
   },
   {
     timestamps: true,
   }
 );
 
-export const Users = model("Users", userSchema);
+const Users = mongoose.model("Users", userSchema);
+module.exports = { Users };
