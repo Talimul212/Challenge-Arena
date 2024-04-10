@@ -3,7 +3,10 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const userRouter = require("./routers/v1/userRouter");
 const teachersRoute = require("./routers/v1/teachersRoute");
-// const { ServerApiVersion, ObjectId, MongoClient } = require("mongodb");
+const classRoutineRoute = require("./routers/v1/classRoutinrRoute");
+const completeCourseRoute = require("./routers/v1/completeCourseRoute");
+const courseRoute = require("./routers/v1/coursesRoute");
+const examRoute = require("./routers/v1/examRoute");
 const app = express();
 const port = process.env.PORT || 8000;
 
@@ -31,7 +34,6 @@ mongoose.connection.on("disconnected", () => {
 });
 
 // middlewares
-
 app.use(express.json());
 require("dotenv").config();
 
@@ -41,6 +43,10 @@ app.get("/", (req, res) => {
 
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/teachers", teachersRoute);
+app.use("/api/v1/classes", classRoutineRoute);
+app.use("/api/v1/completeCourse", completeCourseRoute);
+app.use("/api/v1/course", courseRoute);
+app.use("/api/v1/examSchedules", examRoute);
 
 app.listen(port, () => {
   connect();
