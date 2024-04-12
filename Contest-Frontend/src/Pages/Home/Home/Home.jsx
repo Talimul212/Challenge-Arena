@@ -1,13 +1,21 @@
 /* eslint-disable no-unused-vars */
-
-import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import Profile from "./Profile";
 import ClassCard from "../../../Components/Card/ClassCard";
 import FourCard from "../../../Components/Card/FourCard";
 import QuoteBanner from "../../../Components/Banner/QuoteBanner";
+import { getUser } from "../../../features/users/serviceApi";
 
 const Home = () => {
+  const { totalUser, isLoading } = useSelector((state) => state?.user);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    getUser(dispatch);
+  }, [dispatch]);
+
+  console.log(totalUser);
   return (
     <Section>
       <Container>

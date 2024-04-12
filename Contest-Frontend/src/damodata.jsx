@@ -564,7 +564,7 @@ export const courseTeacherData = [
   },
 ];
 
-export const examSchedule = [
+export const examSchedule1 = [
   {
     date: "10/06/2023",
     day: "Monday",

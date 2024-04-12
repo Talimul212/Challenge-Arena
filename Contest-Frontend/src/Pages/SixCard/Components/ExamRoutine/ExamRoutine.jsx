@@ -1,16 +1,36 @@
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import ExamCard from "../../../../Components/Card/ExamCard";
-import { examSchedule } from "../../../../damodata";
 import { primaryColor } from "../../../../Components/Color/Color";
+import { useEffect } from "react";
+import { getExamRoutine } from "../../../../features/examRoutine/serviceApi";
 
 const ExamRoutine = () => {
+  const { data, isLoading } = useSelector((state) => state?.examRoutine);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    getExamRoutine(dispatch);
+  }, [dispatch]);
+
+  if (isLoading) {
+    <p>lolo</p>;
+  }
+  const examSchedule = data;
+
   function getFirstExamDate(schedule) {
-    if (schedule.length === 0) {
-      return null; // No exams in the schedule
+    if (!Array.isArray(schedule) || schedule.length === 0) {
+      return null; // No exams in the schedule or invalid schedule format
+    }
+
+    // Filter out any invalid entries before sorting
+    const validExams = schedule.filter((exam) => exam && exam.date);
+
+    if (validExams.length === 0) {
+      return null; // No valid exam dates found
     }
 
     // Sort the exams by date (ascending order)
-    const sortedExams = schedule.sort(
+    const sortedExams = validExams.sort(
       (a, b) => new Date(a.date) - new Date(b.date)
     );
 
@@ -20,18 +40,17 @@ const ExamRoutine = () => {
 
   // Example usage:
   const firstExamDate = getFirstExamDate(examSchedule);
-  console.log("First exam date:", firstExamDate);
   return (
     <CourseContain>
       <Title>Your Exam will start: {firstExamDate}</Title>
-      {examSchedule.map((daySchedule, index) => (
+      {examSchedule?.map((daySchedule, index) => (
         <ExamDay key={index}>
           <DayTitle>
             {daySchedule.date} - {daySchedule.day}
           </DayTitle>
-          {daySchedule.courses.map((course, idx) => (
+          {daySchedule?.courses.map((course) => (
             <ExamCard
-              key={idx}
+              key={course._id}
               courseCode={course.courseCode}
               courseName={course.courseName}
               semester={course.semester}

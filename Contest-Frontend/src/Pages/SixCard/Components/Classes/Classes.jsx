@@ -1,13 +1,23 @@
 import styled from "styled-components";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 import ClassRoutineCard from "../../../../Components/Card/ClassRoutineCard";
-import { CourseSchedule } from "../../../../damodata";
 import React from "react";
-
+import { getClasses } from "../../../../features/classRoutine/serviceApi.js";
 const Classes = () => {
+  const { data, isLoading } = useSelector((state) => state?.classRoutine);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    getClasses(dispatch);
+  }, [dispatch]);
+  if (isLoading) {
+    <p>lolo</p>;
+  }
+  const CourseSchedule = data;
   return (
     <CourseContain>
       <RoutineMapp>
-        {CourseSchedule.map((daySchedule) => (
+        {CourseSchedule?.map((daySchedule) => (
           <React.Fragment key={daySchedule.id}>
             <DayDuration>
               <p className="text-2xl text-[#38b6ff]">

@@ -1,15 +1,26 @@
 import styled from "styled-components";
-
+import { useDispatch, useSelector } from "react-redux";
 import { FaComputer } from "react-icons/fa6";
 import { MdOutlineMenuBook } from "react-icons/md";
 import CourseCard from "../../../../Components/Card/CourseCard";
-import { coursesData } from "../../../../damodata";
+import { useEffect } from "react";
+import { getCourses } from "../../../../features/course/serviceApi";
 
 const Course = () => {
+  const { data, isLoading } = useSelector((state) => state?.courseList);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    getCourses(dispatch);
+  }, [dispatch]);
+  if (isLoading) {
+    <p>lolo</p>;
+  }
+  const coursesData = data;
+
   let theoryCount = 0;
   let labCount = 0;
 
-  coursesData.forEach((course) => {
+  coursesData?.forEach((course) => {
     if (course.type === "Theory") {
       theoryCount++;
     } else if (course.type === "Lab") {
@@ -19,7 +30,7 @@ const Course = () => {
   return (
     <CourseContain>
       <div>
-        <Title>In this semseter you have {coursesData.length} course :-</Title>
+        <Title>In this semseter you have {coursesData?.length} course :-</Title>
       </div>
       <div className="flex items-center gap-2 text-[#00bf63]">
         <MdOutlineMenuBook /> Theory: {theoryCount}
@@ -29,7 +40,7 @@ const Course = () => {
         <FaComputer /> Lab: {labCount}
       </div>
       <div className="mt-5 w-full">
-        {coursesData.map((course, i) => (
+        {coursesData?.map((course, i) => (
           <CourseCard key={i} index={i} course={course} />
         ))}
       </div>
@@ -41,7 +52,7 @@ export default Course;
 
 const CourseContain = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   margin-bottom: 90px;
 `;
 const Title = styled.p`

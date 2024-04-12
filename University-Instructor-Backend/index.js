@@ -11,7 +11,7 @@ const app = express();
 const port = process.env.PORT || 8000;
 
 const corsOrigin = {
-  origin: ["http://localhost:5173/", "192.168.1.212:5173s"],
+  origin: ["http://localhost:5173", "192.168.1.212:5173"],
   credentials: true,
   optionSuccessStatus: 200,
 };
@@ -37,7 +37,7 @@ mongoose.connection.on("disconnected", () => {
 app.use(express.json());
 require("dotenv").config();
 
-app.get("/", (req, res) => {
+app.get("/api/v1", (req, res) => {
   res.send("Running");
 });
 
@@ -45,7 +45,7 @@ app.use("/api/v1/users", userRouter);
 app.use("/api/v1/teachers", teachersRoute);
 app.use("/api/v1/classes", classRoutineRoute);
 app.use("/api/v1/completeCourse", completeCourseRoute);
-app.use("/api/v1/course", courseRoute);
+app.use("/api/v1/courses", courseRoute);
 app.use("/api/v1/examSchedules", examRoute);
 
 app.listen(port, () => {
