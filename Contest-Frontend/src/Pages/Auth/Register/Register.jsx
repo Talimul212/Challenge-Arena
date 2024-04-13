@@ -1,14 +1,20 @@
 /* eslint-disable react/no-unescaped-entities */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import {
   InputColor,
   fontFamily,
   primaryColor,
 } from "../../../Components/Color/Color";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/logo/BU.png";
+import { clear } from "../../../features/auth/authSlice";
 const Register = () => {
+  const dispatch = useDispatch();
+
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -26,8 +32,17 @@ const Register = () => {
   const handleRegister = (e) => {
     e.preventDefault();
     console.log("Form Data:", formData);
+    navigate("/profile", {
+      state: {
+        formData,
+      },
+    });
+    // register(dispatch, formData);
     // You can perform further actions here, like sending the data to a server.
   };
+  useEffect(() => {
+    dispatch(clear());
+  }, [dispatch]);
 
   return (
     <RegisterPage>
@@ -52,6 +67,14 @@ const Register = () => {
             type="email"
             name="email"
             placeholder="Email"
+            onChange={handleInputChange}
+          />
+        </FormField>
+        <FormField style={{ marginTop: "20px", marginBottom: "20px" }}>
+          <Input
+            type="number"
+            name="studentId"
+            placeholder="studentId"
             onChange={handleInputChange}
           />
         </FormField>

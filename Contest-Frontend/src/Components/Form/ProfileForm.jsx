@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/no-unescaped-entities */
 import { useState } from "react";
 import { IoIosCamera } from "react-icons/io";
@@ -13,15 +14,16 @@ import {
   Input,
 } from "../GobalStyle/AdsFormStyle";
 import { GoCheckCircleFill } from "react-icons/go";
-const ProfileForm = () => {
+const ProfileForm = ({ state }) => {
+  console.log(state.name);
   const [image, setImage] = useState(null);
   const [formData, setFormData] = useState({
-    name: "Talimul Islam",
+    name: state?.name,
     department: "",
     batch: "",
     semester: 0,
     cgpa: "", // Add image to formData
-    credite: "", // Add image to formData
+    credite: "",
   });
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -51,14 +53,6 @@ const ProfileForm = () => {
     // Here you can handle the form submission
     console.log("Form data:", formData);
     // Reset form fields after submission if needed
-    setFormData({
-      name: "",
-      department: "",
-      batch: "",
-      semester: 0,
-      cgpa: "", // Add image to formData
-      credite: "", // Reset image after submission
-    });
   };
 
   return (

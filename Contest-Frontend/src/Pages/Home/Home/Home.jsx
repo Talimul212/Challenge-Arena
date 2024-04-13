@@ -6,16 +6,15 @@ import Profile from "./Profile";
 import ClassCard from "../../../Components/Card/ClassCard";
 import FourCard from "../../../Components/Card/FourCard";
 import QuoteBanner from "../../../Components/Banner/QuoteBanner";
-import { getUser } from "../../../features/users/serviceApi";
+// import { getUser } from "../../../features/users/serviceApi";
 
 const Home = () => {
-  const { totalUser, isLoading } = useSelector((state) => state?.user);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    getUser(dispatch);
-  }, [dispatch]);
-
-  console.log(totalUser);
+  // const { totalUser, isLoading } = useSelector((state) => state?.user);
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  // getUser(dispatch);
+  // }, [dispatch]);
+  //
   return (
     <Section>
       <Container>

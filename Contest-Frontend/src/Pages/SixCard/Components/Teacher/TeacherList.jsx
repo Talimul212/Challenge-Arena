@@ -1,13 +1,25 @@
 import styled from "styled-components";
+import { useDispatch, useSelector } from "react-redux";
 import TeacherCard from "../../../../Components/Card/TeacherCard";
-import { courseTeacherData } from "../../../../damodata";
+import { useEffect } from "react";
+import { getTeachers } from "../../../../features/teachers/serviceApi";
 // Import your teacher data
 
 const TeacherList = () => {
+  const { data, isLoading } = useSelector((state) => state?.teachers);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    getTeachers(dispatch);
+  }, [dispatch]);
+  if (isLoading) {
+    <p>lolo</p>;
+  }
+  console.log(data);
+  const courseTeacherData = data;
   return (
     <CourseContain>
       <div className=" grid grid-cols-2 gap-5 mt-5">
-        {courseTeacherData.map((teacher, index) => (
+        {courseTeacherData?.map((teacher, index) => (
           <TeacherCard key={index} teacher={teacher} />
         ))}
       </div>

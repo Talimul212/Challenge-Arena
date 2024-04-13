@@ -1,15 +1,27 @@
 import styled from "styled-components";
+import { useDispatch, useSelector } from "react-redux";
 import CeCourseCard from "../../../../Components/Card/CeCourseCard";
-import { completeCourseData } from "../../../../damodata";
+import { useEffect } from "react";
+import { getCompleteCourse } from "../../../../features/completeCourse/serviceApi";
 const CompleteCourse = () => {
-  const sortedCourses = completeCourseData.sort(
+  const { data, isLoading } = useSelector((state) => state?.completeCourse);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    getCompleteCourse(dispatch);
+  }, [dispatch]);
+  if (isLoading) {
+    <p>lolo</p>;
+  }
+  console.log(data);
+  const completeCourseData = data;
+  const sortedCourses = completeCourseData?.sort(
     (a, b) => a.semesterCompleted - b.semesterCompleted
   );
 
   return (
     <CourseContain>
-      <Title>You have completed {sortedCourses.length} courses:</Title>
-      {sortedCourses.map((course, index) => (
+      <Title>You have completed {sortedCourses?.length} courses:</Title>
+      {sortedCourses?.map((course, index) => (
         <CeCourseCard key={index} index={index} course={course} />
       ))}
     </CourseContain>

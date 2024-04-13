@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const authRoute = require("./routers/v1/authRoute");
 const userRouter = require("./routers/v1/userRouter");
 const teachersRoute = require("./routers/v1/teachersRoute");
 const classRoutineRoute = require("./routers/v1/classRoutinrRoute");
@@ -41,6 +42,7 @@ app.get("/api/v1", (req, res) => {
   res.send("Running");
 });
 
+app.use("/api/v1/auth", authRoute);
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/teachers", teachersRoute);
 app.use("/api/v1/classes", classRoutineRoute);
