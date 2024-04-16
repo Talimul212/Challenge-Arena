@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { InputColor, primaryColor } from "../Color/Color";
+import { InputColor, primaryColor, vaildCondition } from "../Color/Color";
 
 export const Container = styled.div`
   max-width: 95%;
@@ -108,6 +108,17 @@ export const Button = styled.button`
   border-radius: 10px;
   cursor: pointer;
   right: 10px;
-
+  bottom: 0px;
+`;
+export const ButtonCondidtion = styled.button`
+  margin-top: 20px;
+  position: fixed;
+  color: ${vaildCondition};
+  padding: 15px;
+  border: none;
+  font-size: 45px;
+  border-radius: 10px;
+  cursor: not-allowed;
+  right: 10px;
   bottom: 0px;
 `;

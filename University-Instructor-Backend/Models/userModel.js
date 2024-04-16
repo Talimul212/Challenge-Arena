@@ -2,6 +2,14 @@ const mongoose = require("mongoose");
 
 const userSchema = mongoose.Schema(
   {
+    batch: {
+      type: Number,
+      required: [true, "Batch  is required"],
+    },
+    credits: {
+      type: Number,
+      required: [true, "Credits  is required"],
+    },
     name: {
       type: String,
       required: [true, " full Name is required"],
@@ -11,12 +19,47 @@ const userSchema = mongoose.Schema(
       required: [false],
     },
     photoURL: {
-      type: String,
-      required: [false],
+      fieldname: {
+        type: String,
+        required: [false],
+      },
+      originalname: {
+        type: String,
+        required: [false],
+      },
+      encoding: {
+        type: String,
+        required: [false],
+      },
+      mimetype: {
+        type: String,
+        required: [false],
+      },
+      destination: {
+        type: String,
+        required: [false],
+      },
+      filename: {
+        type: String,
+        required: [false],
+      },
+      path: {
+        type: String,
+        required: [false],
+      },
+      size: {
+        type: Number,
+        required: [false],
+      },
     },
+
     email: {
       type: String,
       required: [true, "Email is required"],
+    },
+    password: {
+      type: String,
+      required: [true, "password is required"],
     },
     studentId: {
       type: Number,
@@ -24,23 +67,15 @@ const userSchema = mongoose.Schema(
     },
     department: {
       type: String,
-      required: [true, "Departments ID is required"],
-    },
-    batch: {
-      type: Number,
-      required: [true, "Batch ID is required"],
-    },
-    semseter: {
-      type: Number,
-      required: [true, "Batch ID is required"],
+      required: [true, "Departments  is required"],
     },
     cgpa: {
       type: Number,
-      required: [false],
+      required: [true],
     },
-    credits: {
+    semseter: {
       type: Number,
-      required: [true, "Credits  is required"],
+      required: [true, "Semseter  is required"],
     },
   },
   {

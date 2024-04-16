@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import { useRef, useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { fontFamily, primaryColor, secondaryColor } from "../../Color/Color"; // Import color and font family variables
 import logo from "../../../assets/logo/BU.png";
 import { IoMdLogOut } from "react-icons/io";
@@ -10,7 +10,12 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import Drawer from "../Drawer/Drawer";
 import DesktopBar from "../DesktopBar";
 import TitlePath from "../TitlePath/TitlePath";
+import { useDispatch, useSelector } from "react-redux";
+import { logOut } from "../../../features/auth/service";
 const Navbar = () => {
+  const { currentUser } = useSelector((state) => state?.auth);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [isProfileVisible, setIsProfileVisible] = useState(false);
   const handleProfileClick = () => {
     setIsProfileVisible((prev) => !prev);
@@ -25,6 +30,9 @@ const Navbar = () => {
     setMobileMenuOpen(false);
   };
 
+  const hanlerLogOut = async () => {
+    await logOut(dispatch, () => navigate("/login"));
+  };
   return (
     <NavbarWrapper>
       <Container>
@@ -46,18 +54,22 @@ const Navbar = () => {
         <AuthButtons>
           <ProfileIcon onClick={handleProfileClick} />
           <UserProfile isVisible={isProfileVisible}>
-            <Button>
-              <IoMdLogOut />
-              Logout
-            </Button>
-            <Button>
-              <Link to="/login" style={{ color: "black" }}>
-                <Button>
-                  <IoMdLogOut />
-                  Login
-                </Button>
-              </Link>
-            </Button>
+            {currentUser ? (
+              <ButtonLogOut onClick={hanlerLogOut}>
+                {" "}
+                <IoMdLogOut />
+                Logout
+              </ButtonLogOut>
+            ) : (
+              <Button>
+                <Link to="/login" style={{ color: "black" }}>
+                  <Button>
+                    <IoMdLogOut />
+                    Login
+                  </Button>
+                </Link>
+              </Button>
+            )}
           </UserProfile>
         </AuthButtons>
       </Container>
@@ -161,6 +173,25 @@ const Button = styled.button`
   display: flex;
   justify-content: start;
   gap: 20px;
+  align-items: center;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 15px;
+  font-weight: 600;
+  color: ${primaryColor};
+  cursor: pointer;
+  transition: all 0.3s ease;
+  &:hover {
+    color: black; /* Change text color on hover */
+  }
+`;
+
+const ButtonLogOut = styled.button`
+  display: flex;
+  justify-content: start;
+  gap: 20px;
+
   align-items: center;
   border: none;
   outline: none;

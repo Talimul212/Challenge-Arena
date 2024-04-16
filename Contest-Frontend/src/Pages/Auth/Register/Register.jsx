@@ -37,6 +37,7 @@ const Register = () => {
         formData,
       },
     });
+
     // register(dispatch, formData);
     // You can perform further actions here, like sending the data to a server.
   };

@@ -14,7 +14,7 @@ const UserProfile = () => {
           <span className="text-[#00bf63]">Edit </span> Profile
         </p>
       </Div>
-      <ProfileForm state={state.formData} />
+      <ProfileForm state={state?.formData} />
     </Container>
   );
 };

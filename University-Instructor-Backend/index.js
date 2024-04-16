@@ -8,9 +8,11 @@ const classRoutineRoute = require("./routers/v1/classRoutinrRoute");
 const completeCourseRoute = require("./routers/v1/completeCourseRoute");
 const courseRoute = require("./routers/v1/coursesRoute");
 const examRoute = require("./routers/v1/examRoute");
+const fileUploadRoute = require("./routers/v1/fileUploadRoute");
+
 const app = express();
 const port = process.env.PORT || 8000;
-
+const router = express.Router();
 const corsOrigin = {
   origin: ["http://localhost:5173", "192.168.1.212:5173"],
   credentials: true,
@@ -41,6 +43,9 @@ require("dotenv").config();
 app.get("/api/v1", (req, res) => {
   res.send("Running");
 });
+// upload  file
+app.use(express.static("upload"));
+app.use("/images", express.static("images"));
 
 app.use("/api/v1/auth", authRoute);
 app.use("/api/v1/users", userRouter);
@@ -49,6 +54,7 @@ app.use("/api/v1/classes", classRoutineRoute);
 app.use("/api/v1/completeCourse", completeCourseRoute);
 app.use("/api/v1/courses", courseRoute);
 app.use("/api/v1/examSchedules", examRoute);
+app.use("/api/v1/file-upload", fileUploadRoute);
 
 app.listen(port, () => {
   connect();

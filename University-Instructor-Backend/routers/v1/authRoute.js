@@ -52,36 +52,42 @@ router.post("/register", async (req, res) => {
 
 //LOGIN
 router.post("/login", async (req, res) => {
+  const { data } = req.body;
+  console.log(data);
   try {
-    const user = await Users.findOne({ email: req.body.email });
+    const user = await Users.findOne({
+      studentId: data.studentId,
+      password: data.password,
+    });
+    // console.log("fdha:", user);
     if (!user) {
       return res.status(401).json({ success: false, error: "User not found" });
     }
 
-    const hashedPassword = CryptoJS.AES.decrypt(
-      user.password,
-      process.env.PASS_SEC
-    );
-    const originalPassword = hashedPassword.toString(CryptoJS.enc.Utf8);
-
-    if (originalPassword !== req.body.password) {
+    // const hashedPassword = CryptoJS.AES.decrypt(
+    // user.password,
+    // process.env.PASS_SEC
+    // );
+    // const originalPassword = hashedPassword.toString(CryptoJS.enc.Utf8);
+    if (user.password !== data.password) {
       return res
         .status(401)
         .json({ success: false, error: "Email or Password is incorrect" });
     }
 
-    const accessToken = jwt.sign(
-      {
-        id: user._id,
-        isAdmin: user?.isAdmin,
-      },
-      process.env.JWT_SEC,
-      { expiresIn: "3d" }
-    );
+    // const accessToken = jwt.sign(
+    // {
+    // id: user._id,
+    // isAdmin: user?.isAdmin,
+    // },
+    // process.env.JWT_SEC,
+    // { expiresIn: "3d" }
+    // );
 
-    const { password, ...userInfo } = user._doc;
+    // const { password, ...userInfo } = user;
+    res.status(200).json({ success: true, data: user });
 
-    res.status(200).json({ success: true, data: { ...userInfo, accessToken } });
+    // res.status(200).json({ success: true, data: { ...userInfo, accessToken } });
   } catch (err) {
     res.status(500).json({ success: false, message: "Internal Server Error" });
   }
@@ -103,10 +109,10 @@ router.post("/login/dashboard", async (req, res) => {
     );
     const originalPassword = hashedPassword.toString(CryptoJS.enc.Utf8);
 
-    if (originalPassword !== req.body.password) {
+    if (originalPassword !== req.body.data.password) {
       return res
         .status(401)
-        .json({ success: false, error: "Email or Password is incorrect" });
+        .json({ success: false, error: "ID or Password is incorrect" });
     }
 
     const accessToken = jwt.sign(
@@ -120,6 +126,7 @@ router.post("/login/dashboard", async (req, res) => {
 
     const { password, ...userInfo } = user._doc;
 
+    // res.status(200).json({ success: true, data: userInfo });
     res.status(200).json({ success: true, data: { ...userInfo, accessToken } });
   } catch (err) {
     res.status(500).json({ success: false, message: "Internal Server Error" });

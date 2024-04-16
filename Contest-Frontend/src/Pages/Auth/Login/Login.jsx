@@ -9,27 +9,35 @@ import {
   primaryColor,
   secondaryColor,
 } from "../../../Components/Color/Color";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../../assets/logo/BU.png";
+import { useDispatch } from "react-redux";
+import { login } from "../../../features/auth/service";
 
 const Login = () => {
+  const dispatch = useDispatch();
+
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    number: "",
+    studentId: null,
     password: "",
   });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: name === "studentId" ? parseInt(value) : value,
+    }));
   };
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     console.log("Form Data:", formData);
-    // You can add your login logic here.
+    // login(dispatch, formData);
+    await login(dispatch, formData, () => navigate("/"));
+
+    //
   };
 
   return (
@@ -40,7 +48,7 @@ const Login = () => {
         <FormField>
           <Input
             type="number"
-            name="number"
+            name="studentId"
             placeholder="Student ID:"
             onChange={handleInputChange}
           />

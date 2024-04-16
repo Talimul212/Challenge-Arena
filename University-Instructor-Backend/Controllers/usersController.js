@@ -1,8 +1,18 @@
 const { Users } = require("../Models/userModel");
 
 module.exports.addUser = async (req, res) => {
+  const { userData } = req.body;
+  const userDataObject = JSON.parse(userData);
   try {
-    const user = new Users(req.body);
+    // Check if a user with the provided email already exists
+    const existingUser = await Users.findOne({ email: userDataObject.email });
+    if (existingUser) {
+      return res.status(400).json({
+        status: false,
+        message: "Email is already in use",
+      });
+    }
+    const user = new Users(userDataObject);
     const result = await user.save();
     res.status(200).json({
       status: true,
