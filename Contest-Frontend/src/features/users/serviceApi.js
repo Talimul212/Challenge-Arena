@@ -18,10 +18,10 @@ export const userRegistration = async (dispatch, payload) => {
     dispatch(registrationFailure(errorMessage));
   }
 };
-export const getUser = async (dispatch) => {
+export const getUser = async (dispatch, batch, semseter, id) => {
   dispatch(getUserStart());
   try {
-    const res = await publicRequest.get(`/users`);
+    const res = await publicRequest.get(`/users/${batch}/${semseter}/${id}`);
     dispatch(getUserSuccess(res.data.data));
   } catch (err) {
     const errorMessage = err.response?.data?.error || "An error occurred.";

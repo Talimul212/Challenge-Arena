@@ -8,10 +8,11 @@ import { getCourses } from "../../../../features/course/serviceApi";
 
 const Course = () => {
   const { data, isLoading } = useSelector((state) => state?.courseList);
+  const { currentUser } = useSelector((state) => state?.auth);
   const dispatch = useDispatch();
   useEffect(() => {
-    getCourses(dispatch);
-  }, [dispatch]);
+    getCourses(dispatch, currentUser?.batch);
+  }, [dispatch, currentUser?.batch]);
   if (isLoading) {
     <p>lolo</p>;
   }

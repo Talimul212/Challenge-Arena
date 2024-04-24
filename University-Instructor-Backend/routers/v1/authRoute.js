@@ -53,7 +53,6 @@ router.post("/register", async (req, res) => {
 //LOGIN
 router.post("/login", async (req, res) => {
   const { data } = req.body;
-  console.log(data);
   try {
     const user = await Users.findOne({
       studentId: data.studentId,

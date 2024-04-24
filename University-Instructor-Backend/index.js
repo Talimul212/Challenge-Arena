@@ -9,16 +9,16 @@ const completeCourseRoute = require("./routers/v1/completeCourseRoute");
 const courseRoute = require("./routers/v1/coursesRoute");
 const examRoute = require("./routers/v1/examRoute");
 const fileUploadRoute = require("./routers/v1/fileUploadRoute");
-
 const app = express();
 const port = process.env.PORT || 8000;
 const router = express.Router();
 const corsOrigin = {
-  origin: ["http://localhost:5173", "192.168.1.212:5173"],
+  origin: "*",
   credentials: true,
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
   optionSuccessStatus: 200,
 };
-
+app.options("", cors(corsOrigin));
 app.use(cors(corsOrigin));
 
 // database

@@ -20,7 +20,7 @@ const uploader = multer({
     }
   },
   limits: {
-    fileSize: 500000,
+    fileSize: 5000000,
   },
 });
 module.exports = uploader;

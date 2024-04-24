@@ -22,6 +22,12 @@ const coursesSchema = mongoose.Schema(
       type: String,
       required: [true, "Course Code ID is required"],
     },
+    batch: [
+      {
+        type: Number,
+        required: [true, "batch  is required"],
+      },
+    ],
     type: {
       type: String,
       required: [true, "Type is required"],

@@ -18,7 +18,7 @@ import {
 import { GoCheckCircleFill } from "react-icons/go";
 import { publicRequest } from "../../requestMethod";
 import { useDispatch, useSelector } from "react-redux";
-import { register } from "../../features/auth/service";
+import { register, updateUser } from "../../features/auth/service";
 import { useNavigate } from "react-router-dom";
 import { local } from "../../helpers/api";
 const ProfileForm = ({ state }) => {
@@ -81,7 +81,25 @@ const ProfileForm = ({ state }) => {
   };
   const handleUpdate = async (e) => {
     e.preventDefault();
+    const photoURL = await upload(file);
     console.log("dyaya");
+    const formDataJson = JSON.stringify({
+      id: currentUser._id,
+      batch: formData.batch || currentUser.batch,
+      credits: formData.credits || currentUser.credits,
+      name: formData.name,
+      gender: formData.gender,
+      photoURL: photoURL || currentUser.photoURL,
+      email: currentUser.email,
+      studentId: currentUser.studentId,
+      password: currentUser.password,
+      department: formData.department || currentUser.department,
+      cgpa: formData.cgpa || currentUser.cgpa,
+      semseter: formData.semester || currentUser.semester,
+    });
+    await updateUser(dispatch, currentUser._id, formDataJson, () =>
+      navigate("/")
+    );
   };
   const handleSubmit = async (e) => {
     e.preventDefault();

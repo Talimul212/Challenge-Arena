@@ -5,10 +5,10 @@ import {
   getCoursesSuccess,
 } from "./coursesSlice";
 
-export const getCourses = async (dispatch) => {
+export const getCourses = async (dispatch, batch) => {
   dispatch(getCoursesStart);
   try {
-    const res = await publicRequest.get(`/courses`);
+    const res = await publicRequest.get(`/courses/${batch}`);
     dispatch(getCoursesSuccess(res.data.data));
   } catch (err) {
     const errorMessage = err.response?.data?.error || "An error occurred.";

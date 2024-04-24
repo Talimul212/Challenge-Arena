@@ -43,3 +43,23 @@ module.exports.getCourses = async (req, res) => {
     });
   }
 };
+
+module.exports.getBatchCourse = async (req, res) => {
+  console.log(req.params.batch);
+  try {
+    const course = await Courses.find({
+      batch: req.params.batch,
+    });
+
+    res.status(200).json({
+      status: true,
+      data: course,
+    });
+  } catch (error) {
+    res.status(400).json({
+      status: false,
+      message: "Data can't fetch",
+      error,
+    });
+  }
+};

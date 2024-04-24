@@ -22,6 +22,7 @@ export const login = async (dispatch, formData, navigateCallback) => {
     const res = await publicRequest.post("/auth/login", { data });
     localStorage.setItem("token", res.data.data?.accessToken);
     dispatch(loginSuccess(res.data.data));
+    toast.success(` you successfully login `);
     navigateCallback();
   } catch (err) {
     const errorMessage = err.response?.data?.error || "An error occurred.";
@@ -37,11 +38,27 @@ export const register = async (dispatch, data, navigateCallback) => {
     const res = await publicRequest.post("/users/register", { userData });
     localStorage.setItem("token", res.data.data?.accessToken);
     dispatch(registrationSuccess(res.data.data));
+    toast.success(` ${res.data.data.name}, you successfully join `);
     navigateCallback();
-    toast.success(` ${data.data.name}, you successfully add `);
   } catch (err) {
     const errorMessage = err.response?.data?.error || "An error occurred.";
     dispatch(registrationFailure(errorMessage));
+  }
+};
+
+export const updateUser = async (dispatch, id, data, navigateCallback) => {
+  const userData = data;
+  dispatch(loginStart());
+  try {
+    const res = await publicRequest.put(`/users/register/${id}`, {
+      userData,
+    });
+    dispatch(loginSuccess(res.data.data));
+    toast.success(` successfully Update `);
+    navigateCallback();
+  } catch (err) {
+    const errorMessage = err.response?.data?.error || "An error occurred.";
+    dispatch(loginFailure(errorMessage));
   }
 };
 
