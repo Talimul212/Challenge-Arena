@@ -20,7 +20,7 @@ import { publicRequest } from "../../requestMethod";
 import { useDispatch, useSelector } from "react-redux";
 import { register, updateUser } from "../../features/auth/service";
 import { useNavigate } from "react-router-dom";
-import { local } from "../../helpers/api";
+import { local, vercel } from "../../helpers/api";
 const ProfileForm = ({ state }) => {
   const [file, setFile] = useState(null);
   const [image, setImage] = useState(null);
@@ -149,9 +149,7 @@ const ProfileForm = ({ state }) => {
           ) : (
             <Divim>
               <img
-                src={`${local || varsel}/images/${
-                  currentUser?.photoURL?.filename
-                }`}
+                src={`${vercel}/images/${currentUser?.photoURL?.filename}`}
                 alt="Captured Image"
                 className="h-[180px] mt-[-20px]"
               />

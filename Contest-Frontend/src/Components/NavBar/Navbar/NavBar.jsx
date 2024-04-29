@@ -46,6 +46,7 @@ const Navbar = () => {
           CloseMobileMenu={CloseMobileMenu}
           menuRef={menuRef}
           mobileMenuOpen={mobileMenuOpen}
+          currentUser={currentUser}
         />
         <TitlePath />
         {/* <SearchBar>

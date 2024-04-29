@@ -1,4 +1,6 @@
 import axios from "axios";
+// const VERCEL = "https://university-instructor-backend.vercel.app/api/v1";
+// const VERCEL = "http://localhost:8000/api/v1";
 const BASE_URL = "http://localhost:8000/api/v1";
 
 export const publicRequest = axios.create({

@@ -4,7 +4,7 @@ import { FaEye } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getUser } from "../../features/users/serviceApi";
-import { local, varsel } from "../../helpers/api";
+import { local, vercel } from "../../helpers/api";
 const ClassMateCard = () => {
   const { totalUser, isLoading } = useSelector((state) => state?.user);
   const { currentUser } = useSelector((state) => state?.auth);
@@ -33,9 +33,7 @@ const ClassMateCard = () => {
               <div className="avatar">
                 <div className="w-12 rounded-full ring ring-[#00bf63] ring-offset-base-100 ring-offset-[1px]">
                   <img
-                    src={`${local || varsel}/images/${
-                      item?.photoURL?.filename
-                    }`}
+                    src={`${vercel}/images/${item?.photoURL?.filename}`}
                     alt="Avatar"
                   />
                 </div>

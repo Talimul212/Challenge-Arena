@@ -21,7 +21,7 @@ import { CiCircleQuestion } from "react-icons/ci";
 import { LiaStreamSolid } from "react-icons/lia";
 import { primaryColor } from "../../Color/Color";
 import { Link } from "react-router-dom";
-const Drawer = ({ mobileMenuOpen, menuRef, CloseMobileMenu }) => {
+const Drawer = ({ mobileMenuOpen, menuRef, CloseMobileMenu, currentUser }) => {
   return (
     <MobileMenuList isOpen={mobileMenuOpen} ref={menuRef}>
       <Div
@@ -51,9 +51,11 @@ const Drawer = ({ mobileMenuOpen, menuRef, CloseMobileMenu }) => {
       >
         <CgProfile color={primaryColor} size={"50px"} />
         <div>
-          <p style={{ fontSize: "15px", fontWeight: "700" }}>Talimul Islam</p>
+          <p style={{ fontSize: "15px", fontWeight: "700" }}>
+            {currentUser?.name}
+          </p>
           <p style={{ fontSize: "13px", fontWeight: "500" }}>
-            islamtalimul0@gmal.com
+            {currentUser?.email}
           </p>
         </div>
       </Div>

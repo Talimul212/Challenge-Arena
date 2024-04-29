@@ -84,7 +84,6 @@ module.exports.updateUser = async (req, res) => {
       { $set: JSON.parse(userData.userData) }, // Use the entire `userData` object directly
       { new: true }
     );
-    console.log(updated);
     res.status(200).json({
       status: true,
       message: "User updated successfully",
