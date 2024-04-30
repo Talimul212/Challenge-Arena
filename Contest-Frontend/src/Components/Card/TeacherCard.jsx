@@ -20,7 +20,7 @@ const TeacherCard = ({ teacher }) => {
 export default TeacherCard;
 
 const CardContainer = styled.div`
-  width: 100%;
+  width: 175px;
   margin-bottom: 10px;
 `;
 

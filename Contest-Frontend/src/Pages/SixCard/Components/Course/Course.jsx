@@ -5,6 +5,7 @@ import { MdOutlineMenuBook } from "react-icons/md";
 import CourseCard from "../../../../Components/Card/CourseCard";
 import { useEffect } from "react";
 import { getCourses } from "../../../../features/course/serviceApi";
+import LoaderHub from "../../../../Components/Loader/LoaderHub";
 
 const Course = () => {
   const { data, isLoading } = useSelector((state) => state?.courseList);
@@ -14,7 +15,7 @@ const Course = () => {
     getCourses(dispatch, currentUser?.batch);
   }, [dispatch, currentUser?.batch]);
   if (isLoading) {
-    <p>lolo</p>;
+    <p>waiting</p>;
   }
   const coursesData = data;
 
@@ -29,23 +30,31 @@ const Course = () => {
     }
   });
   return (
-    <CourseContain>
-      <div>
-        <Title>In this semseter you have {coursesData?.length} course :-</Title>
-      </div>
-      <div className="flex items-center gap-2 text-[#00bf63]">
-        <MdOutlineMenuBook /> Theory: {theoryCount}
-      </div>
+    <>
+      {!data ? (
+        <LoaderHub type={"course"} />
+      ) : (
+        <CourseContain>
+          <div>
+            <Title>
+              In this semseter you have {coursesData?.length} course :-
+            </Title>
+          </div>
+          <div className="flex items-center gap-2 text-[#00bf63]">
+            <MdOutlineMenuBook /> Theory: {theoryCount}
+          </div>
 
-      <div className=" absolute right-3 top-24 flex items-center gap-2 text-[#38b6ff]">
-        <FaComputer /> Lab: {labCount}
-      </div>
-      <div className="mt-5 w-full">
-        {coursesData?.map((course, i) => (
-          <CourseCard key={i} index={i} course={course} />
-        ))}
-      </div>
-    </CourseContain>
+          <div className=" absolute right-3 top-24 flex items-center gap-2 text-[#38b6ff]">
+            <FaComputer /> Lab: {labCount}
+          </div>
+          <div className="mt-5 w-full">
+            {coursesData?.map((course, i) => (
+              <CourseCard key={i} index={i} course={course} />
+            ))}
+          </div>
+        </CourseContain>
+      )}
+    </>
   );
 };
 

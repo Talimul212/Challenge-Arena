@@ -23,10 +23,11 @@ const CardContainer = styled.div`
   background-color: #fff;
   width: 100%;
   padding: 15px;
+
   margin-bottom: 15px;
-  margin-left: 30px;
+  margin-left: 0px;
   position: relative;
-  box-shadow: 0 1px 4px 0 gray; /* Position relative for line */
+  box-shadow: 0 1px 2px 0 gray; /* Position relative for line */
 `;
 
 const Period = styled.div`

@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import ClassRoutineCard from "../../../../Components/Card/ClassRoutineCard";
 import React from "react";
 import { getClasses } from "../../../../features/classRoutine/serviceApi.js";
+import LoaderHub from "../../../../Components/Loader/LoaderHub.jsx";
 const Classes = () => {
   const { data, isLoading } = useSelector((state) => state?.classRoutine);
   const dispatch = useDispatch();
@@ -15,40 +16,69 @@ const Classes = () => {
   }
   const CourseSchedule = data;
   return (
-    <CourseContain>
-      <RoutineMapp>
-        {CourseSchedule?.map((daySchedule) => (
-          <React.Fragment key={daySchedule.id}>
-            <DayDuration>
-              <p className="text-2xl text-[#38b6ff]">
-                {daySchedule.day} (
-                <span className="text-lg text-[#00bf63]">
-                  {daySchedule.batch}
-                </span>
-                )
-              </p>
-            </DayDuration>
-            <div className="block lg:flex justify-between">
-              {daySchedule.courses.map((course, idx) => (
-                <ClassRoutineCard
-                  key={idx}
-                  course={course}
-                  daySchedule={daySchedule}
-                />
-              ))}
-            </div>
-          </React.Fragment>
-        ))}
-      </RoutineMapp>
-    </CourseContain>
+    <>
+      {!data ? (
+        <LoaderHub type={"classRoutine"} />
+      ) : (
+        <CourseContain>
+          <RoutineMapp>
+            {CourseSchedule?.map((daySchedule) => (
+              <React.Fragment key={daySchedule.id}>
+                <div
+                  tabIndex={0}
+                  className="collapse w-full border-[1px] mb-1 collapse-arrow   rounded"
+                >
+                  <input type="checkbox" />
+                  <div className="collapse-title  shadow my-[-20px]  text-xl font-medium">
+                    <DayDuration>
+                      <p className="text-xl text-[#38b6ff]">
+                        {daySchedule.day} (
+                        <span className="text-lg text-[#00bf63]">
+                          {daySchedule.batch}
+                        </span>
+                        )
+                      </p>
+                    </DayDuration>
+                  </div>
+                  <div className="collapse-content bg-transparent">
+                    <div className="block lg:flex justify-between mt-8">
+                      {daySchedule.courses.map((course, idx) => (
+                        <ClassRoutineCard
+                          key={idx}
+                          course={course}
+                          daySchedule={daySchedule}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                {/* <DayDuration> */}
+                {/* <p className="text-2xl text-[#38b6ff]"> */}
+                {/* {daySchedule.day} ( */}
+                {/* <span className="text-lg text-[#00bf63]"> */}
+                {/* {daySchedule.batch} */}
+                {/* </span> */}
+                {/* ) */}
+                {/* </p> */}
+                {/* </DayDuration> */}
+                {/* <div className="block lg:flex justify-between"> */}
+                {/* {daySchedule.courses.map((course, idx) => ( */}
+                {/* <ClassRoutineCard key={idx} course={course} daySchedule={daySchedule} /> */}
+                {/* ))} */}
+                {/* </div> */}
+              </React.Fragment>
+            ))}
+          </RoutineMapp>
+        </CourseContain>
+      )}{" "}
+    </>
   );
 };
 
 export default Classes;
 
 const CourseContain = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+  margin-top: 10px;
   margin-bottom: 90px;
 `;
 

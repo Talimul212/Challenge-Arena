@@ -3,7 +3,10 @@ import { IoPersonCircleSharp } from "react-icons/io5";
 import { primaryColor } from "../../../Components/Color/Color";
 import { Link } from "react-router-dom";
 import { FaGraduationCap } from "react-icons/fa";
+import { useSelector } from "react-redux";
+import { vercel } from "../../../helpers/api";
 const Profile = () => {
+  const { currentUser } = useSelector((state) => state?.auth);
   return (
     <Container>
       <Div
@@ -18,9 +21,22 @@ const Profile = () => {
           alignItems: "center",
         }}
       >
-        <IoPersonCircleSharp color={primaryColor} size={"80px"} />
+        {currentUser?.photoURL?.filename ? (
+          <div className="avatar online">
+            <div className="w-16 rounded-full">
+              <img
+                src={`${vercel}/images/${currentUser?.photoURL?.filename}`}
+                alt={currentUser?.name}
+              />
+            </div>
+          </div>
+        ) : (
+          <IoPersonCircleSharp color={primaryColor} size={"80px"} />
+        )}
         <div>
-          <p style={{ fontSize: "15px", fontWeight: "700" }}>Talimul Islam</p>
+          <p style={{ fontSize: "15px", fontWeight: "700" }}>
+            {currentUser?.name}
+          </p>
           <p
             style={{
               display: "flex",
@@ -31,7 +47,7 @@ const Profile = () => {
               fontWeight: "500",
             }}
           >
-            <FaGraduationCap /> BS in CSE
+            <FaGraduationCap /> BS in {currentUser?.department}
           </p>
         </div>
       </Div>

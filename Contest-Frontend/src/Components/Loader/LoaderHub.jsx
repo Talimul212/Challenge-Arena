@@ -5,41 +5,69 @@ const LoaderHub = ({ type }) => {
   return (
     <div>
       <div className="container">
-        {type === "List" ? (
-          <>
-            <Skeleton count={1} height={"40px"} width={"15%"} />
-            <Skeleton count={4} height={"100px"} width={"92%"} />
-          </>
-        ) : type === "Image" ? (
+        {type === "examRoutine" ? (
+          <div className="mt-4">
+            <Skeleton count={1} height={"20px"} width={"100%"} />
+            <div className="mt-10">
+              <Skeleton count={1} height={"25px"} width={"50%"} />
+              <div className="my-2">
+                <Skeleton count={1} height={"60px"} width={"100%"} />
+              </div>
+              <div className="flex justify-between">
+                <Skeleton count={1} height={"30px"} width={"100px"} />
+                <div className="flex  justify-start gap-5">
+                  <Skeleton count={1} height={"30px"} width={"42px"} />
+                  <Skeleton count={1} height={"30px"} width={"42px"} />
+                  <Skeleton count={1} height={"30px"} width={"42px"} />
+                </div>
+              </div>
+            </div>
+            <div className="mt-10">
+              <Skeleton count={1} height={"25px"} width={"50%"} />
+              <div className="my-2">
+                <Skeleton count={1} height={"60px"} width={"100%"} />
+              </div>
+              <div className="flex justify-between">
+                <Skeleton count={1} height={"30px"} width={"100px"} />
+                <div className="flex  justify-start gap-5">
+                  <Skeleton count={1} height={"30px"} width={"42px"} />
+                  <Skeleton count={1} height={"30px"} width={"42px"} />
+                  <Skeleton count={1} height={"30px"} width={"42px"} />
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : type === "classRoutine" ? (
           <>
             <div>
-              <div className="flex justify-center gap-16">
-                <Skeleton count={1} height={"200px"} width={"330px"} />
-                <Skeleton count={1} height={"200px"} width={"330px"} />
-                <Skeleton count={1} height={"200px"} width={"330px"} />
+              <div className="flex flex-col gap-1 mx-auto mt-4">
+                <Skeleton count={1} height={"50px"} width={"95vw"} />
+                <Skeleton count={1} height={"50px"} width={"95vw"} />
+                <Skeleton count={1} height={"50px"} width={"95vw"} />
+                <Skeleton count={1} height={"50px"} width={"95vw"} />
+                <Skeleton count={1} height={"50px"} width={"95vw"} />
               </div>
             </div>
           </>
         ) : type === "classes" ? (
           <>
-            <div>
-              <Skeleton count={1} height={"200px"} width={"200px"} />
-              <Skeleton count={1} height={"200px"} width={"200px"} />
+            <div className="my-2 flex flex-col gap-1">
+              <Skeleton count={1} height={"160px"} width={"88vw"} />
+              <Skeleton count={1} height={"160px"} width={"88vw"} />
             </div>
           </>
-        ) : type === "AdminHome" ? (
+        ) : type === "course" ? (
           <>
             <div>
-              <div className="lg:ms-20 lg:mb-6">
-                <Skeleton count={1} height={"40px"} width={"720px"} />
+              <div className="flex justify-between gap-5 mt-4">
+                <Skeleton count={1} height={"20px"} width={"95vw"} />
               </div>
-              <div className="flex justify-start gap-5">
-                <Skeleton count={1} height={"150px"} width={"270px"} />
-                <Skeleton count={1} height={"150px"} width={"270px"} />
-                <Skeleton count={1} height={"150px"} width={"270px"} />
+              <div className="flex justify-between gap-5 mt-1">
+                <Skeleton count={1} height={"40px"} width={"70px"} />
+                <Skeleton count={1} height={"40px"} width={"70px"} />
               </div>
-              <div className="flex justify-start gap-5 lg:mt-6">
-                <Skeleton count={1} height={"300px"} width={"845px"} />
+              <div className="flex justify-start gap-5 mt-2">
+                <Skeleton count={5} height={"40px"} width={"95vw"} />
               </div>
             </div>
           </>
@@ -68,18 +96,18 @@ const LoaderHub = ({ type }) => {
               <Skeleton count={1} height={"200px"} width={"1120px"} />
             </div>
           </>
-        ) : type === "Teacher" ? (
+        ) : type === "teachers" ? (
           <>
-            <div className="flex gap-5 w-[90%] mx-auto">
-              <Skeleton count={2} height={"250px"} width={"600px"} />
-              <Skeleton count={2} height={"250px"} width={"550px"} />
+            <div className="flex justify-between w-[97%] mx-auto mt-4">
+              <Skeleton count={3} height={"160px"} width={"175px"} />
+              <Skeleton count={2} height={"160px"} width={"175px"} />
             </div>
           </>
-        ) : type === "CourseList" ? (
-          <div className="flex gap-12 ">
-            <Skeleton count={2} height={"340px"} width={"320px"} />
-            <Skeleton count={2} height={"340px"} width={"360px"} />
-            <Skeleton count={2} height={"340px"} width={"350px"} />
+        ) : type === "classMate" ? (
+          <div className="flex gap-2 flex-col mt-4">
+            <Skeleton count={1} height={"60px"} width={"95vw"} />
+            <Skeleton count={1} height={"60px"} width={"95vw"} />
+            <Skeleton count={1} height={"60px"} width={"95vw"} />
           </div>
         ) : type === "CourseDetails" ? (
           <>
@@ -114,20 +142,12 @@ const LoaderHub = ({ type }) => {
           </>
         ) : (
           <>
-            <div style={{ marginLeft: "100px" }}>
-              <Skeleton count={1} height={"40px"} width={"90%"} />
+            <div className="mt-4 mb-2">
+              <Skeleton count={1} height={"20px"} width={"95vw"} />
             </div>
-            <div
-              style={{
-                display: "flex",
-                gap: "20px",
-                justifyContent: "center",
-                marginTop: "30px",
-              }}
-            >
-              <Skeleton count={1} height={"250px"} width={"250px"} />
-              <Skeleton count={1} height={"250px"} width={"500px"} />
-              <Skeleton count={1} height={"250px"} width={"360px"} />
+            <div>
+              <Skeleton count={2} height={"50px"} width={"95vw"} />
+              <Skeleton count={2} height={"50px"} width={"95vw"} />
             </div>
           </>
         )}

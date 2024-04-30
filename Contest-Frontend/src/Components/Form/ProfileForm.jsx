@@ -20,7 +20,7 @@ import { publicRequest } from "../../requestMethod";
 import { useDispatch, useSelector } from "react-redux";
 import { register, updateUser } from "../../features/auth/service";
 import { useNavigate } from "react-router-dom";
-import { local, vercel } from "../../helpers/api";
+import { vercel } from "../../helpers/api";
 const ProfileForm = ({ state }) => {
   const [file, setFile] = useState(null);
   const [image, setImage] = useState(null);

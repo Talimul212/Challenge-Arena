@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import CeCourseCard from "../../../../Components/Card/CeCourseCard";
 import { useEffect } from "react";
 import { getCompleteCourse } from "../../../../features/completeCourse/serviceApi";
+import LoaderHub from "../../../../Components/Loader/LoaderHub";
 const CompleteCourse = () => {
   const { data, isLoading } = useSelector((state) => state?.completeCourse);
   const dispatch = useDispatch();
@@ -10,7 +11,7 @@ const CompleteCourse = () => {
     getCompleteCourse(dispatch);
   }, [dispatch]);
   if (isLoading) {
-    <p>lolo</p>;
+    <p>waiting....</p>;
   }
   console.log(data);
   const completeCourseData = data;
@@ -19,12 +20,18 @@ const CompleteCourse = () => {
   );
 
   return (
-    <CourseContain>
-      <Title>You have completed {sortedCourses?.length} courses:</Title>
-      {sortedCourses?.map((course, index) => (
-        <CeCourseCard key={index} index={index} course={course} />
-      ))}
-    </CourseContain>
+    <>
+      {!data ? (
+        <LoaderHub type={"completeCourse"} />
+      ) : (
+        <CourseContain>
+          <Title>You have completed {sortedCourses?.length} courses:</Title>
+          {sortedCourses?.map((course, index) => (
+            <CeCourseCard key={index} index={index} course={course} />
+          ))}
+        </CourseContain>
+      )}
+    </>
   );
 };
 

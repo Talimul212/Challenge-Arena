@@ -4,6 +4,7 @@ import ExamCard from "../../../../Components/Card/ExamCard";
 import { primaryColor } from "../../../../Components/Color/Color";
 import { useEffect } from "react";
 import { getExamRoutine } from "../../../../features/examRoutine/serviceApi";
+import LoaderHub from "../../../../Components/Loader/LoaderHub";
 
 const ExamRoutine = () => {
   const { data, isLoading } = useSelector((state) => state?.examRoutine);
@@ -13,7 +14,7 @@ const ExamRoutine = () => {
   }, [dispatch]);
 
   if (isLoading) {
-    <p>lolo</p>;
+    <p>wating......</p>;
   }
   const examSchedule = data;
 
@@ -41,24 +42,30 @@ const ExamRoutine = () => {
   // Example usage:
   const firstExamDate = getFirstExamDate(examSchedule);
   return (
-    <CourseContain>
-      <Title>Your Exam will start: {firstExamDate}</Title>
-      {examSchedule?.map((daySchedule, index) => (
-        <ExamDay key={index}>
-          <DayTitle>
-            {daySchedule.date} - {daySchedule.day}
-          </DayTitle>
-          {daySchedule?.courses.map((course) => (
-            <ExamCard
-              key={course._id}
-              courseCode={course.courseCode}
-              courseName={course.courseName}
-              semester={course.semester}
-            />
+    <>
+      {!data ? (
+        <LoaderHub type={"examRoutine"} />
+      ) : (
+        <CourseContain>
+          <Title>Your Exam will start: {firstExamDate}</Title>
+          {examSchedule?.map((daySchedule, index) => (
+            <ExamDay key={index}>
+              <DayTitle>
+                {daySchedule.date} - {daySchedule.day}
+              </DayTitle>
+              {daySchedule?.courses.map((course) => (
+                <ExamCard
+                  key={course._id}
+                  courseCode={course.courseCode}
+                  courseName={course.courseName}
+                  semester={course.semester}
+                />
+              ))}
+            </ExamDay>
           ))}
-        </ExamDay>
-      ))}
-    </CourseContain>
+        </CourseContain>
+      )}
+    </>
   );
 };
 
