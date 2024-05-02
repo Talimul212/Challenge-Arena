@@ -31,6 +31,14 @@ const ClassCard = () => {
   };
   const todayClassesData = todayClasses(data);
   const tomorrowClassesData = tomorrowClasses(data);
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+
+  const tomorrowDate = tomorrow.toLocaleDateString("en-US", {
+    weekday: "long",
+    day: "numeric",
+    month: "short",
+  });
   return (
     <>
       {!data ? (
@@ -74,7 +82,7 @@ const ClassCard = () => {
                       background: "#ffffffc5",
                     }}
                   >
-                    No More Class Today
+                    No Class Today
                   </p>
                 </Div1>
               </CardContainer>
@@ -97,11 +105,7 @@ const ClassCard = () => {
                         background: "#ffffffc5",
                       }}
                     >
-                      {classItem?.day},{" "}
-                      {new Date().toLocaleDateString("en-US", {
-                        day: "numeric",
-                        month: "short",
-                      })}
+                      {classItem?.day}, {tomorrowDate}
                     </p>
                   </Div>
                   <Div1>
@@ -144,11 +148,7 @@ const ClassCard = () => {
                       background: "#ffffffc5",
                     }}
                   >
-                    {new Date().toLocaleDateString("en-US", {
-                      weekday: "long",
-                      day: "numeric",
-                      month: "short",
-                    })}
+                    {tomorrowDate}
                   </p>
                 </Div>
                 <Div1>
@@ -164,7 +164,7 @@ const ClassCard = () => {
                       background: "#ffffffc5",
                     }}
                   >
-                    No More Class Tomorrow
+                    No Class Tomorrow
                   </p>
                 </Div1>
               </CardContainer>

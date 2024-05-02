@@ -11,6 +11,8 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/logo/BU.png";
 import { clear } from "../../../features/auth/authSlice";
+import { FaRegEyeSlash } from "react-icons/fa";
+import { IoEyeOutline } from "react-icons/io5";
 const Register = () => {
   const dispatch = useDispatch();
 
@@ -25,7 +27,7 @@ const Register = () => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value,
+      [name]: name === "password" && passwordVisible ? value : value.trim(),
     });
   };
 
@@ -44,6 +46,22 @@ const Register = () => {
   useEffect(() => {
     dispatch(clear());
   }, [dispatch]);
+  const condidation =
+    !formData.name ||
+    !formData.password ||
+    !formData.email ||
+    !formData.studentId ||
+    !formData.gender;
+
+  const [passwordVisible, setPasswordVisible] = useState(false);
+  const [inputType, setInputType] = useState("password");
+
+  const togglePasswordVisibility = () => {
+    setPasswordVisible((prevState) => !prevState);
+    setInputType((prevState) =>
+      prevState === "password" ? "text" : "password"
+    );
+  };
 
   return (
     <RegisterPage>
@@ -79,15 +97,30 @@ const Register = () => {
             onChange={handleInputChange}
           />
         </FormField>
-        <FormField>
-          <Input
-            type="password"
-            name="password"
-            placeholder="Password"
-            onChange={handleInputChange}
-          />
-        </FormField>
-        <Button type="submit">Register</Button>
+        <FormFieldflex style={{ gap: "0" }}>
+          <div>
+            <Input
+              type={inputType}
+              name="password"
+              placeholder="Password"
+              className="w-auto"
+              onChange={handleInputChange}
+            />
+          </div>
+          <PasswordToggle
+            className="flex justify-end  border-b-[2px] border-gray-200 w-8"
+            onClick={togglePasswordVisibility}
+          >
+            {passwordVisible ? (
+              <FaRegEyeSlash color={primaryColor} />
+            ) : (
+              <IoEyeOutline color={primaryColor} />
+            )}
+          </PasswordToggle>
+        </FormFieldflex>
+        <Button disabled={condidation} type="submit">
+          Register
+        </Button>
       </RegistrationForm>
       <LoginLink>
         Don't have an account?{" "}
@@ -156,17 +189,23 @@ const Input = styled.input`
   border-bottom: 2px solid ${InputColor};
   background: transparent;
 `;
+const PasswordToggle = styled.div`
+  z-index: 100;
+  margin-top: 10px;
 
+  cursor: pointer;
+`;
 const Button = styled.button`
   margin-top: 20px;
-  background-color: ${primaryColor};
+  background-color: ${(props) => (props.disabled ? "gray" : primaryColor)};
   color: white;
   padding: 15px;
   border: none;
   width: 100%;
   border-radius: 10px;
-  cursor: pointer;
+  cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
 `;
+
 const LoginLink = styled.p`
   margin-top: 5px;
   font-size: 14px;

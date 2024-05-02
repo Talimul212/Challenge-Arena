@@ -13,7 +13,6 @@ const CompleteCourse = () => {
   if (isLoading) {
     <p>waiting....</p>;
   }
-  console.log(data);
   const completeCourseData = data;
   const sortedCourses = completeCourseData?.sort(
     (a, b) => a.semesterCompleted - b.semesterCompleted

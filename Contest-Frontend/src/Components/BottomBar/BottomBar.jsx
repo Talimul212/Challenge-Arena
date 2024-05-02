@@ -26,7 +26,7 @@ const BottomBar = () => {
         </Link>
         <Link
           onClick={handleClose}
-          to="/news"
+          to="/buI/newsfeed"
           style={{ textDecoration: "none" }}
         >
           <NewspaperIcon active={location.pathname === "/news"} />
@@ -42,7 +42,7 @@ const BottomBar = () => {
         </Div>
         <Link
           onClick={handleClose}
-          to="/messages"
+          to="/buI/messages"
           style={{ textDecoration: "none" }}
         >
           <MessagesIcon active={location.pathname === "/messages"} />

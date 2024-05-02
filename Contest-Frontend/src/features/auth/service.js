@@ -12,7 +12,7 @@ import {
 } from "./authSlice";
 
 export const login = async (dispatch, formData, navigateCallback) => {
-  console.log(formData);
+  // console.log(formData);
   const data = {
     studentId: parseInt(formData.studentId),
     password: formData.password,

@@ -22,7 +22,11 @@ const Login = () => {
     studentId: null,
     password: "",
   });
+  const [isChecked, setIsChecked] = useState(false);
 
+  const handleCheckboxChange = () => {
+    setIsChecked(!isChecked);
+  };
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -33,7 +37,7 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    console.log("Form Data:", formData);
+    // console.log("Form Data:", formData);
     // login(dispatch, formData);
     await login(dispatch, formData, () => navigate("/"));
 
@@ -62,7 +66,13 @@ const Login = () => {
           />
         </FormField>
         <TermBox>
-          <Radio type="checkbox" id="radio" name="radios" />
+          <Radio
+            type="checkbox"
+            id="radio"
+            name="radios"
+            checked={isChecked}
+            onChange={handleCheckboxChange}
+          />
           <i>
             <Terms>
               I accept the Privacy Policy and terms & condidations of university
@@ -71,7 +81,9 @@ const Login = () => {
           </i>
         </TermBox>
 
-        <Button type="submit">Login</Button>
+        <Button disabled={!isChecked} type="submit">
+          Login
+        </Button>
         <i>
           <Terms1>Forgot password?</Terms1>
         </i>
@@ -149,14 +161,15 @@ const Input = styled.input`
 `;
 
 const Button = styled.button`
-  background-color: ${primaryColor};
+  background-color: ${(props) => (props.disabled ? "gray" : primaryColor)};
   color: white;
   padding: 15px;
   border: none;
   width: 100%;
   border-radius: 10px;
-  cursor: pointer;
+  cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
 `;
+
 const RegisterLink = styled.p`
   margin-top: 5px;
   font-size: 14px;

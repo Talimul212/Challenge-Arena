@@ -80,7 +80,7 @@ const TitlePath = () => {
       ) : path === "/buI/tuition" ? (
         <Title1>
           {" "}
-          <span style={{ color: `${primaryColor}` }}>Tuition</span>
+          <span style={{ color: `${primaryColor}` }}>Tuition</span> System
         </Title1>
       ) : path === "/buI/cgpa" ? (
         <Title1>

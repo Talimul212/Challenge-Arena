@@ -1,5 +1,4 @@
 import { useParams } from "react-router-dom";
-// import { useState } from "react";
 import styled from "styled-components";
 import ClassMateCard from "../../Components/Card/ClassMateCard";
 import Classes from "./Components/Classes/Classes";
@@ -7,6 +6,7 @@ import Course from "./Components/Course/Course";
 import CompleteCourse from "./Components/CompleteCourse/CompleteCourse";
 import TeacherList from "./Components/Teacher/TeacherList";
 import ExamRoutine from "./Components/ExamRoutine/ExamRoutine";
+import TuitionHome from "./Components/Tuition/TuitionHome";
 // import samplePDF from "../../assets/PDF/Pdf1.pdf"; // Replace './sample.pdf' with the path to your PDF file
 
 // Required to avoid issues with displaying PDFs in some environments
@@ -22,24 +22,27 @@ const SixCardDetails = () => {
   //   }
 
   return (
-    <SixCardDetailsContainer>
-      <p>{/* Page {pageNumber} of {numPages} */}</p>
-      {item === "classmate" ? (
-        <ClassMateCard />
-      ) : item === "course" ? (
-        <Course />
-      ) : item === "classes" ? (
-        <Classes />
-      ) : item === "completeCourse" ? (
-        <CompleteCourse />
-      ) : item === "teacher" ? (
-        <TeacherList />
-      ) : item === "examSchedules" ? (
-        <ExamRoutine />
-      ) : (
-        <></>
-      )}
-    </SixCardDetailsContainer>
+    <>
+      <SixCardDetailsContainer>
+        <p>{/* Page {pageNumber} of {numPages} */}</p>
+        {item === "classmate" ? (
+          <ClassMateCard />
+        ) : item === "course" ? (
+          <Course />
+        ) : item === "classes" ? (
+          <Classes />
+        ) : item === "completeCourse" ? (
+          <CompleteCourse />
+        ) : item === "teacher" ? (
+          <TeacherList />
+        ) : item === "examSchedules" ? (
+          <ExamRoutine />
+        ) : (
+          <></>
+        )}
+      </SixCardDetailsContainer>
+      {item === "tuition" ? <TuitionHome /> : <></>}
+    </>
   );
 };
 

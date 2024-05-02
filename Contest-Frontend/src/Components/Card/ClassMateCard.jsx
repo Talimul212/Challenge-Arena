@@ -42,16 +42,18 @@ const ClassMateCard = () => {
                   <div>
                     <h3 className="font-bold">{item.name}</h3>{" "}
                     {/* Assuming item has a 'name' property */}
-                    <div className="text-xs">Bhai Exam thu kopayici</div>
+                    <div className="text-xs">
+                      <span className=" font-medium text-sm">Student ID:</span>
+                      {item.studentId}
+                    </div>
                   </div>
                 </div>
-                <Link to={`/details/${item._id}`}>
-                  {" "}
-                  {/* Assuming you want to link to some details page */}
-                  <button className="text-[#00bf63] hover:text-black">
-                    <FaEye />
-                  </button>
-                </Link>
+                {/* <Link to={`/details/${item._id}`}> */}
+                {/* {" "} */}
+                {/* <button className="text-[#00bf63] hover:text-black"> */}
+                {/* <FaEye /> */}
+                {/* </button> */}
+                {/* </Link> */}
               </div>
             ))}
           </div>
