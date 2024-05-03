@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import boy from "../../../../assets/avater/boy.png";
 import girl from "../../../../assets/avater/girl.svg";
 import { TiMessages } from "react-icons/ti";
@@ -23,9 +24,11 @@ const RequestSide = () => {
             <h3 className="font-[500] text-[#38b6ff]">onlie</h3>{" "}
           </div>
         </div>
-        <div className=" font-bold text-[#38b6ff] text-xl">
-          <TiMessages />
-        </div>
+        <Link to="/chatBox">
+          <div className=" font-bold text-[#38b6ff] text-xl">
+            <TiMessages />
+          </div>
+        </Link>
       </div>
       <div className="flex justify-between items-center me-3">
         <div
@@ -51,9 +54,11 @@ const RequestSide = () => {
             </h3>{" "}
           </div>
         </div>
-        <div className=" font-bold text-[#38b6ff] text-xl">
-          <TiMessages />
-        </div>
+        <Link to="/chatBox">
+          <div className=" font-bold text-[#38b6ff] text-xl">
+            <TiMessages />
+          </div>
+        </Link>
       </div>
     </div>
   );

@@ -43,9 +43,14 @@ const Navbar = () => {
   const hanlerLogOut = async () => {
     await logOut(dispatch, () => navigate("/login"));
   };
+
   return (
-    <NavbarWrapper>
-      <Container>
+    <NavbarWrapper className={`${path == "/buI/bloodBank" ? "" : "mt-[10px]"}`}>
+      <Container
+        className={`${
+          path === "/buI/bloodBank" ? "bg-[#38b6ff] pt-[10px]" : ""
+        }`}
+      >
         <LogoContainer>
           <Image src={logo} alt={logo} />
         </LogoContainer>
@@ -126,7 +131,6 @@ const UserProfile = styled.div`
   top: calc(100% + 0px);
   right: 0px;
   width: 260px;
-
   color: black;
   background-color: #fff;
   border: 1px solid #ccc;
@@ -146,7 +150,6 @@ const UserProfile = styled.div`
 
 const NavbarWrapper = styled.nav`
   background-color: transparent;
-  margin-top: 10px;
   top: 0;
   left: 0;
   font-family: ${fontFamily};

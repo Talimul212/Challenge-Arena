@@ -11,6 +11,7 @@ import SixCardDetails from "../../Pages/SixCard/SixCardDetails";
 import UserProfile from "../../Pages/UserProfile/UserProfile";
 import ErrorPage from "../../Pages/Error/ErrorPage";
 import PrivateRoute from "../Private/PrivateRoute";
+import Tuitionchat from "../../Components/Chats/Tuitionchat";
 
 export const router = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ export const router = createBrowserRouter([
       {
         path: "/buI/:item",
         element: <SixCardDetails />,
+      },
+      {
+        path: "/chatBox",
+        element: <Tuitionchat />,
       },
     ],
   },

@@ -11,10 +11,10 @@ const DesktopBar = () => {
         <Link to="/">Profile</Link>
       </li>
       <li>
-        <Link to="/leaderboard">Leaderboard</Link>
+        <Link to="/message">message</Link>
       </li>
       <li>
-        <Link to="/submissions">Submissions</Link>
+        <Link to="/classes">classes</Link>
       </li>
       <li>
         <Link to="/about">About</Link>

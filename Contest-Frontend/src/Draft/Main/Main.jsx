@@ -13,6 +13,7 @@ const Main = () => {
     "adsForm",
     "booksDetalis",
     "profile",
+    "chatBox",
   ];
   return (
     <div>

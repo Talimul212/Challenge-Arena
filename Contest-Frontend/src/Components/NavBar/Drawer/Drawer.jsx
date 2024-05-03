@@ -19,6 +19,7 @@ import { CgMail } from "react-icons/cg";
 import { MdOutlinePrivacyTip } from "react-icons/md";
 import { CiCircleQuestion } from "react-icons/ci";
 import { LiaStreamSolid } from "react-icons/lia";
+import { BiSolidDonateBlood } from "react-icons/bi";
 import { primaryColor } from "../../Color/Color";
 import { Link } from "react-router-dom";
 const Drawer = ({ mobileMenuOpen, menuRef, CloseMobileMenu, currentUser }) => {
@@ -87,6 +88,12 @@ const Drawer = ({ mobileMenuOpen, menuRef, CloseMobileMenu, currentUser }) => {
         <Option>
           <GiTeacher />
           Tuition
+        </Option>
+      </Link>
+      <Link onClick={CloseMobileMenu} to="/buI/bloodBank">
+        <Option>
+          <BiSolidDonateBlood />
+          Blood Bank
         </Option>
       </Link>
       <Link onClick={CloseMobileMenu} to="/buySell">

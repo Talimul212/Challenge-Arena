@@ -117,6 +117,11 @@ const TitlePath = () => {
           {" "}
           <span style={{ color: `${primaryColor}` }}>Terms</span> & Conditions
         </Title1>
+      ) : path === "/buI/bloodBank" ? (
+        <Title1>
+          {" "}
+          <span>Blood</span> Bank
+        </Title1>
       ) : (
         <></>
       )}
