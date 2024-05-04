@@ -30,7 +30,7 @@ const BloodsCard = () => {
         </span>
         <a
           className="w-[60vw] flex  py-1 text-sm justify-center items-center gap-3 bg-[#00bf63] text-white rounded-md "
-          href="tel:+1234567890"
+          href="tel:01533956212"
         >
           <IoIosCall size={14} />
           01533956212
