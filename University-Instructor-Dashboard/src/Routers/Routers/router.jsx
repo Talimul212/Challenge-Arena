@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { createBrowserRouter } from "react-router-dom";
-import Home from "../../Pages/Home/Home/Home";
 import Root from "../../LayOuts/Root/Root";
+import ScreenHome from "../../Pages/Home/ScreenHome";
 
 export const router = createBrowserRouter([
   {
@@ -11,7 +11,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />,
+        element: <ScreenHome />,
       },
     ],
   },
