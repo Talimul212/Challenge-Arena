@@ -2,24 +2,35 @@
 import { Link } from "react-router-dom";
 import { SiGoogleclassroom } from "react-icons/si";
 import { sideBarData } from "../../../demoData";
+import { useState } from "react";
+import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 const Left = () => {
+  const [min, setmin] = useState(false);
+  const handlerwigth = () => {
+    setmin(!min);
+  };
   return (
-    <div className="drawer-side  ">
-      <label
-        htmlFor="my-drawer-2"
-        aria-label="close sidebar"
-        className="drawer-overlay"
-      ></label>
-      <ul className="menu px-0 py-4 w-56 min-h-full border-r-[1px] text-base-content">
+    <div className=" flex  justify-start items-center">
+      <div
+        className={`menu px-0 h-[100vh] py-4 ${
+          min ? "w-48 duration-500" : "w-16 duration-500"
+        } w-62 bg-[#00bf63]  min-h-full border-r-[1px] `}
+      >
         {sideBarData.map((item, i) => (
           <Link key={item.id} to={item.route}>
-            <div className="flex justify-start py-1 pb-2 border-[#aaa3a3] duration-300 border-b-[1px] gap-6  ps-4 hover:bg-[#00bf63] hover:text-white w-full text-gray-800  items-center">
-              <div>{item.icon}</div>
-              <div className="text-lg font-[500]">{item.title}</div>
+            <div className="flex justify-start py-2 pb-2  duration-300  gap-6 text-white  ps-4 hover:text-[#00bf63] hover:bg-white w-full  items-center">
+              <div title={item.title}>{item.icon}</div>
+              {min ? <div className=" font-[500]">{item.title}</div> : ""}
             </div>
           </Link>
         ))}
-      </ul>
+      </div>
+      <div
+        onClick={handlerwigth}
+        className=" text-white rounded-e-full bg-[#00bf63] ms-[-1px]  mt-28"
+      >
+        <MdKeyboardDoubleArrowRight size={24} />
+      </div>
     </div>
   );
 };

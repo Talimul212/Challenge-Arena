@@ -4,11 +4,16 @@ import Left from "../../Components/Bars/Left/Left";
 
 const Root = () => {
   return (
-    <div>
+    <div className="bg-[#5756560a]">
       <Top />
       <div className="drawer lg:drawer-open">
-        <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content flex flex-col items-center justify-center">
+        <input
+          id="my-drawer-2"
+          type="checkbox"
+          className="drawer-toggle bg-black w-80"
+        />
+
+        <div className="drawer-content flex flex-col  mt-5">
           <Outlet></Outlet>
           {/* Page content here */}
         </div>
