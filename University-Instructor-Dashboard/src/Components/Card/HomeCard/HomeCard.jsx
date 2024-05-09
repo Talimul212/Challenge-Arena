@@ -1,7 +1,7 @@
 const HomeCard = () => {
   return (
     <div className="w-full flex flex-wrap justify-start gap-2 ">
-      <div className="w-72 bg-base-100 rounded shadow-xl">
+      <div className="lg:w-[272px] md:w-64 bg-base-100 rounded shadow-lg ">
         <div className=" flex justify-between items-center p-4">
           <div>
             <img
@@ -12,7 +12,10 @@ const HomeCard = () => {
           </div>
 
           <div>
-            <h2 className="card-title">Total Students</h2>
+            <h2 className="card-title ">
+              <span className="">Total</span>
+              <span className="text-[#00bf62]"> Students</span>
+            </h2>
             <p className="text-xl font-semibold text-right">26</p>
           </div>
         </div>
@@ -21,7 +24,7 @@ const HomeCard = () => {
         </div>
       </div>
 
-      <div className="w-72 bg-base-100 rounded shadow-xl">
+      <div className="lg:w-[272px] bg-base-100 rounded shadow-lg ">
         <div className=" flex justify-between items-center p-4">
           <div>
             <img
@@ -32,7 +35,9 @@ const HomeCard = () => {
           </div>
 
           <div>
-            <h2 className="card-title">Total Teachers</h2>
+            <h2 className="card-title">
+              Total <span className="text-[#00bf62]"> Teachers</span>
+            </h2>
             <p className="text-xl font-semibold text-right">26</p>
           </div>
         </div>
@@ -41,7 +46,7 @@ const HomeCard = () => {
         </div>
       </div>
 
-      <div className="w-72 bg-base-100 rounded shadow-xl">
+      <div className="lg:w-[272px] bg-base-100 rounded shadow-lg ">
         <div className=" flex justify-between items-center p-4">
           <div>
             <img
@@ -52,7 +57,9 @@ const HomeCard = () => {
           </div>
 
           <div>
-            <h2 className="card-title">Total Batch</h2>
+            <h2 className="card-title">
+              Total <span className="text-[#00bf62]"> Batch</span>
+            </h2>
             <p className="text-xl font-semibold text-right">10</p>
           </div>
         </div>
@@ -60,7 +67,7 @@ const HomeCard = () => {
           <button className=" font-[500] text-gray-500">Go Detalis</button>
         </div>
       </div>
-      <div className="w-72 bg-base-100 rounded shadow-xl">
+      <div className="lg:w-[272px] bg-base-100 rounded shadow-lg ">
         <div className=" flex justify-between items-center p-4">
           <div>
             <img
@@ -71,7 +78,9 @@ const HomeCard = () => {
           </div>
 
           <div>
-            <h2 className="card-title">Total Feculties</h2>
+            <h2 className="card-title">
+              Total <span className="text-[#00bf62]"> Faculty</span>
+            </h2>
             <p className="text-xl font-semibold text-right">10</p>
           </div>
         </div>

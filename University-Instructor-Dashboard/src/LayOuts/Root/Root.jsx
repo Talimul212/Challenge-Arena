@@ -6,7 +6,7 @@ const Root = () => {
   return (
     <div className="bg-[#5756560a]">
       <Top />
-      <div className="drawer lg:drawer-open">
+      <div className="drawer lg:drawer-open pt-[70px] ps-[90px]">
         <input
           id="my-drawer-2"
           type="checkbox"

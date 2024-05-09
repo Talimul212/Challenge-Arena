@@ -10,7 +10,7 @@ const Left = () => {
     setmin(!min);
   };
   return (
-    <div className=" flex  justify-start items-center">
+    <div className=" fixed z-50 flex mt-16 justify-start items-center">
       <div
         className={`menu px-0 h-[100vh] py-4 ${
           min ? "w-48 duration-500" : "w-16 duration-500"

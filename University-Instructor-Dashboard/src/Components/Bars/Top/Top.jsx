@@ -3,7 +3,7 @@ import { CgMail } from "react-icons/cg";
 const Top = () => {
   return (
     <div>
-      <div className="navbar  shadow-md bg-base-100 border-b-[1px]  ps-2 px-4">
+      <div className="navbar fixed z-50  shadow-md bg-base-100 border-b-[1px]  ps-2 px-4">
         <div className="flex-1 ">
           <div className="flex flex-shrink-0 items-center ">
             <img className="h-12 w-auto" src={logo} alt="Your Company" />
