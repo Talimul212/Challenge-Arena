@@ -4,114 +4,86 @@ import ENG from "../../../assets/FacultyIcon/ENG.png";
 import GDS from "../../../assets/FacultyIcon/GDS.png";
 import HTM from "../../../assets/FacultyIcon/HTM.png";
 import MBA from "../../../assets/FacultyIcon/MBA.png";
-
+import { FaAngleDown } from "react-icons/fa";
+import { FaChevronUp } from "react-icons/fa6";
+import { useState } from "react";
+import FacutlyForm from "../../Form/FacutlyForm/FacutlyForm";
 const FacultyCard = () => {
+  const [open, setOpen] = useState("open");
+  const hanlderOpen = () => {
+    setOpen(!open);
+  };
+  const facultyData = [
+    {
+      id: 1,
+      title: "B.Sc. in Computer Science & Engineering (CSE)",
+      image: CSE,
+    },
+    { id: 2, title: "Bachelor of Business Administration (BBA)", image: BBA },
+    { id: 3, title: "Bachelor of English", image: ENG },
+    {
+      id: 4,
+      title: "Bachelor of Hospitality &Tourism Management (HTM)",
+      image: HTM,
+    },
+    {
+      id: 5,
+      title:
+        "Bachelor of Social Science in Governance & Development Studies (GDS)",
+      image: GDS,
+    },
+    { id: 6, title: "✅Master of Business Administration (MBA)", image: MBA },
+  ];
   return (
-    <div>
-      <div className="w-full flex flex-wrap justify-start gap-2 ">
-        <div className="lg:w-[272px] md:w-64 bg-base-100 rounded shadow-lg ">
-          <div className=" flex flex-col justify-between items-center p-4">
-            <div>
-              <img src={CSE} className="w-16" alt="" />
-            </div>
+    <div className="flex  justify-between ">
+      <div className=" flex flex-wrap justify-start gap-2 ">
+        {facultyData.map((item) => (
+          <div
+            key={item.id}
+            className=" bg-white card-bordered lg:w-[272px] md:w-64  rounded shadow-md "
+          >
+            <div className=" flex flex-col justify-between items-center py-3">
+              <div>
+                <img src={item.image} className="w-16" alt="" />
+              </div>
 
-            <div className=" text-center">
-              <h2 className="card-title text-[15px] ">
-                <span className=""> Computer Science and Engineering</span>
-              </h2>
-              <p className="text-xl "> Total Students: 26</p>
+              <div className=" text-center h-[80px]  mt-3">
+                <h2 className=" text-[15px] ">
+                  <span className=" font-semibold"> {item.title}</span>
+                </h2>
+                <p className="text-md ">
+                  {" "}
+                  Total <span className="text-[#00bf62]"> Students</span>: 26
+                </p>
+              </div>
+            </div>
+            <div className="card-actions justify-center mb-2">
+              <button className=" font-[500] text-gray-500">Go Detalis</button>
             </div>
           </div>
-          <div className="card-actions justify-center mb-2">
-            <button className=" font-[500] text-gray-500">Go Detalis</button>
-          </div>
-        </div>
-
-        <div className="lg:w-[272px] bg-base-100 rounded shadow-lg ">
-          <div className=" flex justify-between items-center p-4">
-            <div>
-              <img src={BBA} className="w-16" alt="" />
-            </div>
-
-            <div>
-              <h2 className="card-title">
-                Total <span className="text-[#00bf62]"> Teachers</span>
-              </h2>
-              <p className="text-xl font-semibold text-right">26</p>
-            </div>
-          </div>
-          <div className="card-actions justify-center mb-2">
-            <button className=" font-[500] text-gray-500">Go Detalis</button>
-          </div>
-        </div>
-
-        <div className="lg:w-[272px] bg-base-100 rounded shadow-lg ">
-          <div className=" flex justify-between items-center p-4">
-            <div>
-              <img src={ENG} className="w-16" alt="" />
-            </div>
-
-            <div>
-              <h2 className="card-title">
-                Total <span className="text-[#00bf62]"> Batch</span>
-              </h2>
-              <p className="text-xl font-semibold text-right">10</p>
-            </div>
-          </div>
-          <div className="card-actions justify-center mb-2">
-            <button className=" font-[500] text-gray-500">Go Detalis</button>
-          </div>
-        </div>
-        <div className="lg:w-[272px] bg-base-100 rounded shadow-lg ">
-          <div className=" flex justify-between items-center p-4">
-            <div>
-              <img src={GDS} className="w-16" alt="" />
-            </div>
-
-            <div>
-              <h2 className="card-title">
-                Total <span className="text-[#00bf62]"> Faculty</span>
-              </h2>
-              <p className="text-xl font-semibold text-right">10</p>
-            </div>
-          </div>
-          <div className="card-actions justify-center mb-2">
-            <button className=" font-[500] text-gray-500">Go Detalis</button>
-          </div>
-        </div>
-        <div className="lg:w-[272px] bg-base-100 rounded shadow-lg ">
-          <div className=" flex justify-between items-center p-4">
-            <div>
-              <img src={HTM} className="w-16" alt="" />
-            </div>
-
-            <div>
-              <h2 className="card-title">
-                Total <span className="text-[#00bf62]"> Faculty</span>
-              </h2>
-              <p className="text-xl font-semibold text-right">10</p>
-            </div>
-          </div>
-          <div className="card-actions justify-center mb-2">
-            <button className=" font-[500] text-gray-500">Go Detalis</button>
-          </div>
-        </div>
-        <div className="lg:w-[272px] bg-base-100 rounded shadow-lg ">
-          <div className=" flex justify-between items-center p-4">
-            <div>
-              <img src={MBA} className="w-16" alt="" />
-            </div>
-
-            <div>
-              <h2 className="card-title">
-                Total <span className="text-[#00bf62]"> Faculty</span>
-              </h2>
-              <p className="text-xl font-semibold text-right">10</p>
-            </div>
-          </div>
-          <div className="card-actions justify-center mb-2">
-            <button className=" font-[500] text-gray-500">Go Detalis</button>
-          </div>
+        ))}
+      </div>
+      <div className="w-[59vw] me-5">
+        <div className=" bg-white  rounded shadow-md h-[8vh]">
+          <p className=" flex items-center justify-between text-lg font-semibold  mb-1   p-2 ">
+            Add New Faculty
+            {open ? (
+              <span onClick={hanlderOpen}>
+                <FaAngleDown />
+              </span>
+            ) : (
+              <span className=" duration-300 " onClick={hanlderOpen}>
+                <FaChevronUp size={12} />
+              </span>
+            )}
+          </p>
+          {open ? (
+            <></>
+          ) : (
+            <>
+              <FacutlyForm />
+            </>
+          )}
         </div>
       </div>
     </div>
