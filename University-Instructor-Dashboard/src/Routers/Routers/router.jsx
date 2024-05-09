@@ -2,6 +2,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Root from "../../LayOuts/Root/Root";
 import ScreenHome from "../../Pages/Home/ScreenHome";
+import ShortHome from "../../Pages/Function/ShortHome";
 
 export const router = createBrowserRouter([
   {
@@ -12,6 +13,10 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <ScreenHome />,
+      },
+      {
+        path: "/UI/:id",
+        element: <ShortHome />,
       },
     ],
   },

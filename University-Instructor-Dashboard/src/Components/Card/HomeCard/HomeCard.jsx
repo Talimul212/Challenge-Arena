@@ -1,14 +1,14 @@
+import Student from "../../../assets/HomeIcon/Student.png";
+import Teacher from "../../../assets/HomeIcon/Teacher.png";
+import Batch from "../../../assets/HomeIcon/Batch.png";
+import Faculty from "../../../assets/HomeIcon/Faculty.png";
 const HomeCard = () => {
   return (
     <div className="w-full flex flex-wrap justify-start gap-2 ">
       <div className="lg:w-[272px] md:w-64 bg-base-100 rounded shadow-lg ">
         <div className=" flex justify-between items-center p-4">
           <div>
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/354/354637.png"
-              className="w-16"
-              alt=""
-            />
+            <img src={Student} className="w-16" alt="" />
           </div>
 
           <div>
@@ -27,11 +27,7 @@ const HomeCard = () => {
       <div className="lg:w-[272px] bg-base-100 rounded shadow-lg ">
         <div className=" flex justify-between items-center p-4">
           <div>
-            <img
-              src="https://cdn-icons-png.freepik.com/512/1838/1838013.png"
-              className="w-16"
-              alt=""
-            />
+            <img src={Teacher} className="w-16" alt="" />
           </div>
 
           <div>
@@ -49,11 +45,7 @@ const HomeCard = () => {
       <div className="lg:w-[272px] bg-base-100 rounded shadow-lg ">
         <div className=" flex justify-between items-center p-4">
           <div>
-            <img
-              src="https://cdn-icons-png.freepik.com/512/562/562132.png"
-              className="w-16"
-              alt=""
-            />
+            <img src={Batch} className="w-16" alt="" />
           </div>
 
           <div>
@@ -70,11 +62,7 @@ const HomeCard = () => {
       <div className="lg:w-[272px] bg-base-100 rounded shadow-lg ">
         <div className=" flex justify-between items-center p-4">
           <div>
-            <img
-              src="https://cdn-icons-png.freepik.com/512/4263/4263397.png"
-              className="w-16"
-              alt=""
-            />
+            <img src={Faculty} className="w-16" alt="" />
           </div>
 
           <div>
