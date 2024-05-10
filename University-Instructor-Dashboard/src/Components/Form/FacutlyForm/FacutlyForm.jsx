@@ -40,7 +40,7 @@ const FacutlyForm = () => {
     //
   };
   return (
-    <div className=" bg-white w-full rounded mt-2  duration-300 shadow-md p-2">
+    <div className="duration-500 bg-white w-full rounded mt-2   shadow-md p-2">
       <div>
         {image ? (
           <div className="mt-2 mb-2 flex justify-center">

@@ -80,9 +80,9 @@ const FacultyCard = () => {
           {open ? (
             <></>
           ) : (
-            <>
+            <div className=" duration-500">
               <FacutlyForm />
-            </>
+            </div>
           )}
         </div>
       </div>
