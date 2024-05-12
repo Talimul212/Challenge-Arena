@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Root from "../../LayOuts/Root/Root";
 import ScreenHome from "../../Pages/Home/ScreenHome";
 import ShortHome from "../../Pages/Function/ShortHome";
+import AddForm from "../../Components/Form/TeacherForm/AddForm";
 
 export const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ export const router = createBrowserRouter([
       {
         path: "/UI/:id",
         element: <ShortHome />,
+      },
+      {
+        path: "/UI/teachers/addForm",
+        element: <AddForm />,
       },
     ],
   },
