@@ -1,5 +1,6 @@
+/* eslint-disable no-unused-vars */
 import { useState } from "react";
-
+import { IoMdPerson } from "react-icons/io";
 const AddForm = () => {
   const [file, setFile] = useState(null);
   const [image, setImage] = useState(null);
@@ -40,47 +41,50 @@ const AddForm = () => {
     //
   };
   return (
-    <div>
-      <div className="duration-500 bg-white w-full rounded mt-2   shadow-md p-2">
-        <div>
+    <div className="me-7 duration-500 bg-white w-full rounded mt-2   shadow-md">
+      <div className=" border-b-[1px] pb-1  ps-4 text-xl font-semibold   mt-2">
+        Basic Information
+      </div>
+      <div className=" p-4">
+        <div className="mt-5">
           {image ? (
-            <div className="mt-2 mb-2 flex justify-center">
+            <div className="mt-2 mb-2 flex ">
               <div className="avatar ">
-                <div className="w-24 rounded-full ring ring-success ring-offset-base-100 ring-offset-2">
+                <div className="w-32 rounded border-dashed border-2 border-success  ring-offset-2 ">
                   <img
                     src={image}
                     alt="Captured Image"
-                    className="h-[140px] w-[20vw] mx-auto rounded-full"
+                    className="h-[140px] w-[20vw]  rounded"
                   />
                 </div>
               </div>
             </div>
           ) : (
-            <div className="mt-2 mb-2 flex justify-center">
+            <div className=" mt-2 mb-2 flex ">
               <div className="avatar ">
-                <div className="w-24 rounded-full ring ring-success ring-offset-base-100 ring-offset-2 text-center pt-[40px] text-gray-300 font-semibold text-sm">
-                  Upload Here
+                <div className=" w-32 flex  justify-center items-center rounded border-dashed border-2 border-success   ring-offset-2 text-center  font-semibold text-sm text-[#00bf6349]">
+                  <IoMdPerson size={120} />
                 </div>
               </div>
             </div>
           )}
           {image ? (
             <label
-              className={`ms-[143px]  cursor-pointer  font-semibold text-white px-5 rounde bg-[#00bf63] pb-1 rounded`}
+              className={` shadow cursor-pointer  font-semibold text-white px-[30px] rounde bg-[#00bf63] pb-1 rounded`}
               htmlFor="cameraInput"
             >
               Reupload
             </label>
           ) : (
             <label
-              className={`ms-[152px]  cursor-pointer  font-semibold text-white px-5 rounde pb-1 rounded bg-[#00bf63] `}
+              className={`shadow cursor-pointer  font-semibold text-white px-[38px] rounde pb-1 rounded bg-[#00bf63] `}
               htmlFor="cameraInput"
             >
               Upload
             </label>
           )}
           <input
-            id="cameraInput"
+            id="cameraIfocus:outline-none nput"
             type="file"
             accept="image/*"
             capture="environment"
@@ -89,18 +93,96 @@ const AddForm = () => {
           />
         </div>
         <form className="mt-5" onSubmit={handleTuitons}>
-          <div>
+          <div className="flex justify-between items-center gap-5 mb-5">
             <input
-              className=" border-b-[1px] mb-2 w-full border-gray-400 focus-visible:no-underline"
+              className="focus:outline-none  border-b-[1px] mb-2 w-full border-gray-400 focus-visible:no-underline"
               type="text"
-              name="facultyName"
-              placeholder="Faculty name"
+              name="name"
+              placeholder="Name"
+              onChange={handleInputChange}
+            />
+
+            <input
+              className="focus:outline-none  border-b-[1px] mb-2 w-full border-gray-400 focus-visible:no-underline"
+              type="email"
+              name="email"
+              placeholder="Email"
               onChange={handleInputChange}
             />
           </div>
+          <div className="flex justify-between items-center gap-5 mb-5">
+            <input
+              className="focus:outline-none  border-b-[1px] mb-2 w-full border-gray-400 focus-visible:no-underline"
+              type="text"
+              name="designation"
+              placeholder="Designation"
+              onChange={handleInputChange}
+            />
+            <select
+              name="department"
+              onChange={handleInputChange}
+              className="focus:outline-none  border-b-[1px] mb-2 w-full border-gray-400 focus-visible:no-underline"
+            >
+              <option disabled selected>
+                Department
+              </option>
+              <option>Computer Science & Engineering</option>
+              <option>Bachelor of Business Administration</option>
+              <option>Bachelor of English</option>
+              <option>Bachelor of Hospitality &Tourism Management</option>
+              <option>
+                Bachelor of Social Science in Governance & Development Studies
+              </option>
+            </select>
+          </div>
+          <div className="flex justify-between items-center gap-5 mb-5">
+            <input
+              className="focus:outline-none  border-b-[1px] mb-2 w-full border-gray-400 focus-visible:no-underline"
+              type="number"
+              name="mobileNumber"
+              placeholder="Phone number"
+              onChange={handleInputChange}
+            />
 
+            <select
+              name="gender"
+              onChange={handleInputChange}
+              className="focus:outline-none  border-b-[1px] mb-2 w-full border-gray-400 focus-visible:no-underline"
+            >
+              <option disabled selected>
+                select gender
+              </option>
+              <option>Male</option>
+              <option>Female</option>
+            </select>
+          </div>
+          <div>
+            <p>Course List:</p>
+            <select
+              name="gender"
+              onChange={handleInputChange}
+              className="focus:outline-none  border-b-[1px] mb-2 w-full border-gray-400 focus-visible:no-underline"
+            >
+              <option disabled selected>
+                select gender
+              </option>
+              <option>Male</option>
+              <option>Female</option>
+            </select>
+            <select
+              name="gender"
+              onChange={handleInputChange}
+              className="focus:outline-none  border-b-[1px] mb-2 w-full border-gray-400 focus-visible:no-underline"
+            >
+              <option disabled selected>
+                select gender
+              </option>
+              <option>Male</option>
+              <option>Female</option>
+            </select>
+          </div>
           <button
-            className="bg-[#00bf63] mt-2 text-white font-semibold px-3 rounded"
+            className="bg-[#00bf63] mt-2 text-white font-semibold px-5 py-2 rounded shadow-lg"
             type="submit"
           >
             POST

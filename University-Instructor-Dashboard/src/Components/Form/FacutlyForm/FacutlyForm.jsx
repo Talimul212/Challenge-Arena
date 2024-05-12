@@ -90,7 +90,7 @@ const FacutlyForm = () => {
       <form className="mt-5" onSubmit={handleTuitons}>
         <div>
           <input
-            className=" border-b-[1px] mb-2 w-full border-gray-400 focus-visible:no-underline"
+            className="focus:outline-none border-b-[1px] mb-2 w-full border-gray-400 focus-visible:no-underline"
             type="text"
             name="facultyName"
             placeholder="Faculty name"

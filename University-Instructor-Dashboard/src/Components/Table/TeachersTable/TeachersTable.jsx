@@ -206,7 +206,7 @@ const actionColumn = [
         <div className=" flex justify-start mt-4 items-center gap-3">
           <div
             title="View"
-            className=" bg-[#00bf63] text-white border px-3 rounded shadow hover:bg-transparent hover:border-[#38b6ff] hover:text-[#38b6ff] cursor-pointer duration-700"
+            className=" bg-[#00bf63] text-white border  px-3 rounded shadow hover:bg-transparent hover:border-[#38b6ff] hover:text-[#38b6ff] cursor-pointer duration-700"
             // onClick={() => toggleModal(params.row._id)}
           >
             <FaEye size={17} />
@@ -230,7 +230,7 @@ const TeachersTable = () => {
           <p>Teachers List:</p>
           <Link
             to="/UI/teachers/addForm"
-            className="bg-[#00bf63] px-4 rounded shadow hover:text-[#38b6ff] border hover:bg-transparent hover:border-[#38b6ff]  text-white py-1"
+            className="bg-[#00bf63] duration-700 px-4 rounded shadow hover:text-[#38b6ff] border hover:bg-transparent hover:border-[#38b6ff]  text-white py-1"
           >
             <IoIosPersonAdd />
           </Link>
