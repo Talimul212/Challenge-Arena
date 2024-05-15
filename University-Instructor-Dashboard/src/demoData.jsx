@@ -7,6 +7,8 @@ import { PiNewspaperClipping } from "react-icons/pi";
 import { IoMdNotifications } from "react-icons/io";
 import { PiExamFill } from "react-icons/pi";
 import { MdOutlineEvent } from "react-icons/md";
+import { LiaDatabaseSolid } from "react-icons/lia";
+import { IoIosImages } from "react-icons/io";
 export const sideBarData = [
   {
     id: 1,
@@ -25,6 +27,12 @@ export const sideBarData = [
     route: "/UI/batch",
     title: "Batch",
     icon: <FaCodeBranch size={24} />,
+  },
+  {
+    id: 4,
+    route: "/UI/courses",
+    title: "Courses",
+    icon: <LiaDatabaseSolid size={24} />,
   },
   {
     id: 3,
@@ -55,6 +63,12 @@ export const sideBarData = [
     route: "/UI/examSchedules",
     title: "Exam Schedules ",
     icon: <PiExamFill size={24} />,
+  },
+  {
+    id: 6,
+    route: "/UI/gallery",
+    title: "Gallery",
+    icon: <IoIosImages size={24} />,
   },
   {
     id: 7,

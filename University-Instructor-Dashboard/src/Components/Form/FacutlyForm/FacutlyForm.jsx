@@ -97,6 +97,15 @@ const FacutlyForm = () => {
             onChange={handleInputChange}
           />
         </div>
+        <div className="mt-2">
+          <input
+            className="focus:outline-none border-b-[1px] mb-2 w-full border-gray-400 focus-visible:no-underline"
+            type="text"
+            name="credits"
+            placeholder="Total Credits"
+            onChange={handleInputChange}
+          />
+        </div>
 
         <button
           className="bg-[#00bf63] mt-2 text-white font-semibold px-3 rounded"

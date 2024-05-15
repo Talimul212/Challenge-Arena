@@ -84,7 +84,7 @@ const AddForm = () => {
             </label>
           )}
           <input
-            id="cameraIfocus:outline-none nput"
+            id="cameraInput"
             type="file"
             accept="image/*"
             capture="environment"
@@ -139,8 +139,8 @@ const AddForm = () => {
             <input
               className="focus:outline-none  border-b-[1px] mb-2 w-full border-gray-400 focus-visible:no-underline"
               type="number"
-              name="mobileNumber"
-              placeholder="Phone number"
+              name="whatsappNumber"
+              placeholder="What's App Number"
               onChange={handleInputChange}
             />
 
@@ -157,28 +157,43 @@ const AddForm = () => {
             </select>
           </div>
           <div>
-            <p>Course List:</p>
+            <input
+              className="focus:outline-none  border-b-[1px] mb-2 w-full border-gray-400 focus-visible:no-underline"
+              type="text"
+              name="education"
+              placeholder="Education"
+              onChange={handleInputChange}
+            />
+          </div>
+          <p className=" font-semibold  mt-5 text-lg mb-2">Course List</p>
+          <div className="flex justify-between items-center gap-5 mb-5">
             <select
-              name="gender"
+              name="courseCode"
               onChange={handleInputChange}
               className="focus:outline-none  border-b-[1px] mb-2 w-full border-gray-400 focus-visible:no-underline"
             >
               <option disabled selected>
-                select gender
+                Course Code
               </option>
-              <option>Male</option>
-              <option>Female</option>
+              <option>CSE 216</option>
+              <option>CSE 310</option>
+              <option>CSE 326</option>
+              <option>CSE 110</option>
             </select>
             <select
-              name="gender"
+              name="courseName"
               onChange={handleInputChange}
               className="focus:outline-none  border-b-[1px] mb-2 w-full border-gray-400 focus-visible:no-underline"
             >
               <option disabled selected>
-                select gender
+                Course Name
               </option>
-              <option>Male</option>
-              <option>Female</option>
+              <option>Database Management System (DBMS)</option>
+              <option>Computer Graphics</option>
+              <option>Programming Abstractions</option>
+              <option> Compiler Construction</option>
+              <option> Operating Systems</option>
+              <option> Computer Networks</option>
             </select>
           </div>
           <button

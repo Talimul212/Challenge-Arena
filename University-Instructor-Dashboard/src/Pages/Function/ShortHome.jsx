@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import Faculty from "./Components/Faculty/Faculty";
 import Batch from "./Components/Batch/Batch";
 import Teachers from "./Components/Teachers/Teachers";
+import Courses from "./Components/Courses/Courses";
 
 const ShortHome = () => {
   const { id } = useParams();
@@ -13,6 +14,8 @@ const ShortHome = () => {
         <Batch />
       ) : id === "teachers" ? (
         <Teachers />
+      ) : id === "courses" ? (
+        <Courses />
       ) : (
         ""
       )}

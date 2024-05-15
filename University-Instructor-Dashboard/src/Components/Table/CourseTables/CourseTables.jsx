@@ -1,7 +1,8 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import { DataGrid } from "@mui/x-data-grid";
 import { Link } from "react-router-dom";
-import { IoIosPersonAdd } from "react-icons/io";
+import { FcAddDatabase } from "react-icons/fc";
 import { FaEye } from "react-icons/fa";
 import { BsTrash } from "react-icons/bs";
 import { LiaSortAmountUpSolid } from "react-icons/lia";
@@ -223,35 +224,49 @@ const actionColumn = [
     },
   },
 ];
-const TeachersTable = () => {
+const CourseTables = ({ type }) => {
   return (
-    <div className=" me-6  mb-16 ">
-      <div style={{ height: open ? 400 : 100, width: "90vw" }}>
-        <div className="flex items-center justify-between  mt-2 text-lg font-semibold shadow-lg mb-1  bg-white rounded p-2 ">
-          <p>Teachers List:</p>
-          <Link
-            to="/UI/teachers/addForm"
-            className="bg-[#00bf63] duration-700 px-4 rounded shadow hover:text-[#38b6ff] border hover:bg-transparent hover:border-[#38b6ff]  text-white py-1"
-          >
-            <IoIosPersonAdd />
-          </Link>
+    <>
+      {type == "CSE" ? (
+        <div className=" me-6  mb-16 duration-700">
+          <div style={{ height: open ? 400 : 100, width: "90vw" }}>
+            <div className="flex items-center justify-between  mt-2 text-lg font-semibold shadow-lg mb-1  bg-white rounded p-2 ">
+              <p>Department of {type}</p>
+              <Link
+                to="/UI/courses/addForm"
+                className="bg-[#00bf63] duration-700 px-4 rounded shadow hover:text-[#38b6ff] border hover:bg-transparent hover:border-[#38b6ff]  text-white py-1"
+              >
+                <FcAddDatabase />
+              </Link>
+            </div>
+            <div className=" duration-300">
+              <DataGrid
+                rows={rows}
+                columns={columns.concat(actionColumn)}
+                className="shadow-lg bg-white duration-300"
+                initialState={{
+                  pagination: {
+                    paginationModel: { page: 0, pageSize: 5 },
+                  },
+                }}
+                pageSizeOptions={[5, 10]}
+              />
+            </div>
+          </div>
         </div>
-        <div className=" duration-300">
-          <DataGrid
-            rows={rows}
-            columns={columns.concat(actionColumn)}
-            className="shadow-lg bg-white duration-300"
-            initialState={{
-              pagination: {
-                paginationModel: { page: 0, pageSize: 5 },
-              },
-            }}
-            pageSizeOptions={[5, 10]}
-          />
-        </div>
-      </div>
-    </div>
+      ) : type == "BBA" ? (
+        <p>BBA</p>
+      ) : type == "ENG" ? (
+        <p>ENG</p>
+      ) : type == "GDS" ? (
+        <p>GDS</p>
+      ) : type == "HTM" ? (
+        <p>HTM</p>
+      ) : (
+        ""
+      )}
+    </>
   );
 };
 
-export default TeachersTable;
+export default CourseTables;
