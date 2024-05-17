@@ -3,6 +3,7 @@ import Faculty from "./Components/Faculty/Faculty";
 import Batch from "./Components/Batch/Batch";
 import Teachers from "./Components/Teachers/Teachers";
 import Courses from "./Components/Courses/Courses";
+import Classes from "./Components/Class/Classes";
 
 const ShortHome = () => {
   const { id } = useParams();
@@ -16,6 +17,8 @@ const ShortHome = () => {
         <Teachers />
       ) : id === "courses" ? (
         <Courses />
+      ) : id === "classes" ? (
+        <Classes />
       ) : (
         ""
       )}
