@@ -1,12 +1,24 @@
 // import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import HomeCard from "../../Components/Card/HomeCard/HomeCard";
 import Chart from "../../Components/Grahp/Chart";
 import ExamTopper from "../../Components/Table/ExamTopper/ExamTopper";
 import NEwTable from "../../Components/Table/NewTable/NEwTable";
 import Logo from "../../assets/logo/BU.png";
+import { getUserFailure } from "../../features/users/userSlice";
 const ScreenHome = () => {
   // const { id } = useParams();
+  const { totalUser, isLoading } = useSelector((state) => state?.user);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    getUserFailure(dispatch);
+  }, [dispatch]);
 
+  if (isLoading) {
+    <p>jhgdkjsh</p>;
+  }
+  console.log(totalUser);
   return (
     <>
       <div className=" flex">

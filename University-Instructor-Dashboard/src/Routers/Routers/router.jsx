@@ -4,12 +4,13 @@ import Root from "../../LayOuts/Root/Root";
 import ScreenHome from "../../Pages/Home/ScreenHome";
 import ShortHome from "../../Pages/Function/ShortHome";
 import AddForm from "../../Components/Form/TeacherForm/AddForm";
+import ErrorPage from "../../Pages/Error/ErrorPage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    errorElement: <p>Not Found go to back </p>,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",

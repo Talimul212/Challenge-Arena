@@ -11,15 +11,18 @@ import {
 } from "redux-persist";
 
 import storage from "redux-persist/lib/storage";
+import userSlice from "../features/users/userSlice";
 
 const persistConfig = {
   key: "root",
   version: 1,
   storage,
-  whitelist: ["auth"],
+  whitelist: ["users"],
 };
 
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({
+  user: userSlice,
+});
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
