@@ -41,7 +41,7 @@ const AddForm = () => {
     //
   };
   return (
-    <div className="me-7 duration-500 bg-white w-full rounded mt-2   shadow-md">
+    <div className=" duration-500 bg-white w-[98%]  mb-6 rounded mt-2   shadow-md">
       <div className=" border-b-[1px] pb-1  ps-4 text-xl font-semibold   mt-2">
         Basic Information
       </div>
@@ -197,7 +197,7 @@ const AddForm = () => {
             </select>
           </div>
           <button
-            className="bg-[#00bf63] mt-2 text-white font-semibold px-5 py-2 rounded shadow-lg"
+            className="bg-[#00bf63] mt-2 text-white font-semibold px-5 py-1 rounded shadow-lg"
             type="submit"
           >
             POST
