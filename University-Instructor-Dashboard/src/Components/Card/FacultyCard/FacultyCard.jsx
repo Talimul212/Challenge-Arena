@@ -68,11 +68,17 @@ const FacultyCard = () => {
           <p className=" flex items-center justify-between text-lg font-semibold  mb-1   p-2 ">
             Add New Faculty
             {open ? (
-              <span onClick={hanlderOpen}>
+              <span
+                className=" duration-700 cursor-pointer "
+                onClick={hanlderOpen}
+              >
                 <FaAngleDown />
               </span>
             ) : (
-              <span className=" duration-300 " onClick={hanlderOpen}>
+              <span
+                className=" duration-700 cursor-pointer "
+                onClick={hanlderOpen}
+              >
                 <FaChevronUp size={12} />
               </span>
             )}
@@ -80,8 +86,8 @@ const FacultyCard = () => {
           {open ? (
             <></>
           ) : (
-            <div className=" duration-500">
-              <FacutlyForm />
+            <div className={`${open ? "" : "h-[100px]"} duration-700`}>
+              <FacutlyForm open={open} />
             </div>
           )}
         </div>

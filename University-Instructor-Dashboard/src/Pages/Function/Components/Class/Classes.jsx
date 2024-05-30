@@ -1,44 +1,57 @@
+import ExamLogo from "../../../../assets/RoutineIcon/ExamSchedule.png";
+import ClassLogo from "../../../../assets/RoutineIcon/ClassSchedule.png";
 const Classes = () => {
   return (
-    <div className=" grid grid-cols-12 gap-2 items-center justify-center pe-6">
-      <div className="  col-span-6 rounded shadow-md card-bordered">
-        <p className="bg-[#38b6ff]  text-center rounded text-lg font-semibold text-white py-2">
-          Class Routine
-        </p>
-        <div className="text-center pt-2">
-          <p className=" border-b-2 p-2 bg-">
+    <div className="  items-center justify-center pe-6">
+      <div className="bg-white text-center text flex justify-center items-center rounded text-lg font-semibold shadow py-2 uppercase">
+        Class <span className="ms-3 text-[#00bf61]"> Routine</span>
+      </div>
+      <div className="  grid grid-cols-2 rounded gap-2  mt-2 ">
+        <div className="bg-[#38b6ff]  text-center flex justify-center items-center rounded shadow text-lg font-semibold text-white py-2">
+          <img className="w-52" src={ClassLogo} alt="Class Routine" />
+        </div>
+        <div className="text-center bg-white shadow rounded card-bordered  pt-2">
+          <p className=" border-b-2 p-2  cursor-pointer hover:text-[#00bf63]">
             B.Sc. in Computer Science & Engineering{" "}
           </p>
-          <p className=" border-b-2 p-2 bg-">
+          <p className=" border-b-2 p-2  cursor-pointer hover:text-[#00bf63]">
             Bachelor of Business Administration{" "}
           </p>
-          <p className=" border-b-2 p-2 bg-">Bachelor of English</p>
-          <p className=" border-b-2 p-2 bg-">
+          <p className=" border-b-2 p-2  cursor-pointer hover:text-[#00bf63]">
+            Bachelor of English
+          </p>
+          <p className=" border-b-2 p-2  cursor-pointer hover:text-[#00bf63]">
             Bachelor of Hospitality &Tourism Management{" "}
           </p>
-          <p className=" border-b-2 p-2 bg-">
+          <p className="  p-2  cursor-pointer hover:text-[#00bf63]">
             Bachelor of Social Science in Governance & Development Studies
           </p>
         </div>
       </div>
-      <div className="  col-span-6 rounded shadow-md card-bordered">
-        <p className="bg-[#38b6ff]  text-center rounded text-lg font-semibold text-white py-2">
-          Exam Routine
-        </p>
-        <div className="text-center pt-2">
-          <p className=" border-b-2 p-2 bg-">
+
+      <div className="bg-white mt-8  text-center text flex justify-center items-center rounded text-lg font-semibold shadow py-2 uppercase">
+        Exam <span className="ms-3 text-[#00bf61]"> Routine</span>
+      </div>
+      <div className="  grid grid-cols-2 rounded gap-2 mt-2">
+        <div className="text-center bg-white shadow card-bordered rounded   pt-2">
+          <p className=" border-b-2 p-2  cursor-pointer hover:text-[#00bf63]">
             B.Sc. in Computer Science & Engineering{" "}
           </p>
-          <p className=" border-b-2 p-2 bg-">
+          <p className=" border-b-2 p-2  cursor-pointer hover:text-[#00bf63]">
             Bachelor of Business Administration{" "}
           </p>
-          <p className=" border-b-2 p-2 bg-">Bachelor of English</p>
-          <p className=" border-b-2 p-2 bg-">
+          <p className=" border-b-2 p-2  cursor-pointer hover:text-[#00bf63]">
+            Bachelor of English
+          </p>
+          <p className=" border-b-2 p-2  cursor-pointer hover:text-[#00bf63]">
             Bachelor of Hospitality &Tourism Management{" "}
           </p>
-          <p className=" border-b-2 p-2 bg-">
+          <p className=" p-2  cursor-pointer hover:text-[#00bf63]">
             Bachelor of Social Science in Governance & Development Studies
           </p>
+        </div>
+        <div className="bg-[#38b6ff]  text-center flex justify-center items-center rounded text-lg font-semibold text-white py-2 shadow">
+          <img className="w-48" src={ExamLogo} alt="Class Routine" />
         </div>
       </div>
     </div>

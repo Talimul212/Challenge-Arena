@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import { useState } from "react";
-const FacutlyForm = () => {
+const FacutlyForm = ({ open }) => {
   const [file, setFile] = useState(null);
   const [image, setImage] = useState(null);
   const [formData, setFormData] = useState({});
@@ -40,10 +41,14 @@ const FacutlyForm = () => {
     //
   };
   return (
-    <div className="duration-500 bg-white w-full rounded mt-2   shadow-md p-2">
+    <div
+      className={`${
+        open ? "" : " duration-700"
+      }   bg-white w-full duration-700 rounded mt-2   shadow-md p-2`}
+    >
       <div>
         {image ? (
-          <div className="mt-2 mb-2 flex justify-center">
+          <div className=" mt-2 mb-2 flex justify-center">
             <div className="avatar ">
               <div className="w-24 rounded-full ring ring-success ring-offset-base-100 ring-offset-2">
                 <img
@@ -55,7 +60,7 @@ const FacutlyForm = () => {
             </div>
           </div>
         ) : (
-          <div className="mt-2 mb-2 flex justify-center">
+          <div className="duration-700 mt-2 mb-2 flex justify-center">
             <div className="avatar ">
               <div className="w-24 rounded-full ring ring-success ring-offset-base-100 ring-offset-2 text-center pt-[40px] text-gray-300 font-semibold text-sm">
                 Upload Here
@@ -108,7 +113,7 @@ const FacutlyForm = () => {
         </div>
 
         <button
-          className="bg-[#00bf63] mt-2 text-white font-semibold px-3 rounded"
+          className="bg-[#00bf63] mt-2 text-white font-semibold px-3  py-[1px] shadow rounded"
           type="submit"
         >
           POST
