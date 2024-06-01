@@ -3,7 +3,15 @@ import { useState } from "react";
 import { FaAngleDown } from "react-icons/fa";
 import { FaChevronUp } from "react-icons/fa6";
 const columns = [
-  { field: "id", headerName: "ID", width: 70 },
+  {
+    field: "id",
+    type: "number",
+    headerName: "S.No",
+    renderCell: (params) => {
+      return <div className="text-center font-semibold ">{params.row.id}</div>;
+    },
+    width: 70,
+  },
   { field: "CSE", headerName: " Computer Science & Engineering", width: 210 },
   {
     field: "BBA",
@@ -97,7 +105,6 @@ const BatchTable = () => {
                 },
               }}
               pageSizeOptions={[5, 10]}
-              checkboxSelection
             />
           </div>
         )}

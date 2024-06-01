@@ -195,6 +195,7 @@ const NEwTable = () => {
                 },
               }}
               pageSizeOptions={[5, 10]}
+              rowSelection={false}
             />
           </div>
         )}

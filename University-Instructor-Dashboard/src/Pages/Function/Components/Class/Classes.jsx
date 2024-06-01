@@ -10,19 +10,19 @@ const Classes = () => {
           <img className="w-52" src={ClassLogo} alt="Class Routine" />
         </div>
         <div className="text-center bg-white shadow rounded card-bordered  pt-2">
-          <p className=" border-b-2 p-2  cursor-pointer hover:text-[#00bf63]">
+          <p className=" border-b-2 p-2  cursor-pointer hover:text-[#00bf63] duration-700">
             B.Sc. in Computer Science & Engineering{" "}
           </p>
-          <p className=" border-b-2 p-2  cursor-pointer hover:text-[#00bf63]">
+          <p className=" border-b-2 p-2  cursor-pointer hover:text-[#00bf63] duration-700">
             Bachelor of Business Administration{" "}
           </p>
-          <p className=" border-b-2 p-2  cursor-pointer hover:text-[#00bf63]">
+          <p className=" border-b-2 p-2  cursor-pointer hover:text-[#00bf63] duration-700">
             Bachelor of English
           </p>
-          <p className=" border-b-2 p-2  cursor-pointer hover:text-[#00bf63]">
+          <p className=" border-b-2 p-2  cursor-pointer hover:text-[#00bf63] duration-700">
             Bachelor of Hospitality &Tourism Management{" "}
           </p>
-          <p className="  p-2  cursor-pointer hover:text-[#00bf63]">
+          <p className="  p-2  cursor-pointer hover:text-[#00bf63] duration-700">
             Bachelor of Social Science in Governance & Development Studies
           </p>
         </div>

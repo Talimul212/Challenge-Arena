@@ -2,8 +2,18 @@ import { DataGrid } from "@mui/x-data-grid";
 import { useState } from "react";
 import { FaAngleDown } from "react-icons/fa";
 import { FaChevronUp } from "react-icons/fa6";
+import { FaEye } from "react-icons/fa";
+import { BsTrash } from "react-icons/bs";
 const columns = [
-  { field: "id", headerName: "ID", width: 70 },
+  {
+    field: "id",
+    type: "number",
+    headerName: "S.No",
+    renderCell: (params) => {
+      return <div className="text-center font-semibold ">{params.row.id}</div>;
+    },
+    width: 70,
+  },
   { field: "firstName", headerName: "First name", width: 130 },
   { field: "lastName", headerName: "Last name", width: 130 },
   {
@@ -19,6 +29,30 @@ const columns = [
     sortable: false,
     width: 160,
     valueGetter: (value, row) => `${row.firstName || ""} ${row.lastName || ""}`,
+  },
+  {
+    field: "action",
+    headerName: "Action",
+    width: 130,
+    renderCell: (params) => {
+      return (
+        <div className=" flex justify-start mt-4 items-center gap-3">
+          <div
+            title="View"
+            className=" bg-[#00bf63] text-white border  px-3 rounded shadow hover:bg-transparent hover:border-[#38b6ff] hover:text-[#38b6ff] cursor-pointer duration-700"
+            // onClick={() => toggleModal(params.row._id)}
+          >
+            <FaEye size={17} />
+          </div>
+          <div
+            className="bg-[#38b6ff] text-white border px-3 rounded shadow hover:bg-transparent hover:border-[#d33] hover:text-[#d33] cursor-pointer duration-700"
+            // onClick={() => handleDelete(params.row._id)}
+          >
+            <BsTrash size={17} />
+          </div>
+        </div>
+      );
+    },
   },
 ];
 
@@ -67,7 +101,7 @@ const ExamTopper = () => {
                 },
               }}
               pageSizeOptions={[5, 10]}
-              checkboxSelection
+              rowSelection={false}
             />
           </div>
         )}

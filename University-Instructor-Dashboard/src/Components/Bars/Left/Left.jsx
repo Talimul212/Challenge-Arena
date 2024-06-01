@@ -1,11 +1,13 @@
 /* eslint-disable no-unused-vars */
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { SiGoogleclassroom } from "react-icons/si";
 import { sideBarData } from "../../../demoData";
 import { useState } from "react";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 const Left = () => {
   const [min, setmin] = useState(false);
+  const location = useLocation();
+  const path = location.pathname;
   const handlerwigth = () => {
     setmin(!min);
   };
@@ -18,7 +20,11 @@ const Left = () => {
       >
         {sideBarData.map((item, i) => (
           <Link key={item.id} to={item.route}>
-            <div className="flex justify-start py-2 pb-2  duration-300  gap-6 text-white  ps-4 hover:text-[#00bf63] hover:bg-white w-full  items-center">
+            <div
+              className={`${
+                path == item.route ? "text-green-500 bg-white duration-700" : ""
+              } flex justify-start py-2 pb-2  duration-500  gap-6 text-white  ps-4 hover:text-[#00bf63] hover:bg-white w-full  items-center`}
+            >
               <div title={item.title}>{item.icon}</div>
               {min ? <div className=" font-[500]">{item.title}</div> : ""}
             </div>
