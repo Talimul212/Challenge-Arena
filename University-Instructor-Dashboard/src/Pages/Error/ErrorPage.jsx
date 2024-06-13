@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const ErrorPage = () => {
   return (
-    <div className="flex flex-col justify-center items-center left-[27vw] top-[28vh] absolute">
+    <div className="flex flex-col relative top-32 justify-center items-center ">
       <p>
         <FaRegFaceSadTear className=" text-[#00bf63]" size={"150px"} />
         {/* <img src={logo} alt="" /> */}
@@ -13,7 +13,7 @@ const ErrorPage = () => {
       <p className="text-2xl text-[#00bf63] font-semibold ">Pages Not Found </p>
       <Link
         to="/"
-        className="text-2xl text-white bg-[#00bf63] px-2 text-center font-semibold  rounded cursor-pointer mt-3 py-1 hover:bg-[#20f58e] "
+        className="text-2xl text-white bg-[#00bf63] px-2 text-center font-semibold border-[1px] border-[#00bf63]  rounded cursor-pointer mt-3 py-1 hover:bg-transparent hover:text-[#00bf63] duration-700 "
       >
         Go Back
       </Link>

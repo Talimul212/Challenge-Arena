@@ -105,6 +105,74 @@ const CourseTables = ({ type }) => {
       batch: "5th,3th",
     },
   ];
+  const rows1 = [
+    {
+      id: 1,
+      name: "Human Resource Management",
+      credits: "3",
+      teacherName: "Admam",
+      hours: "30",
+      type: "Theory",
+      courseCode: "BBA110",
+      batch: "5th",
+    },
+  ];
+  const rows2 = [
+    {
+      id: 1,
+      name: "English Fundamentals ",
+      credits: "3",
+      teacherName: "Mrs.Bean",
+      hours: "30",
+      type: "Theory",
+      courseCode: "ENG101",
+      batch: "5th",
+    },
+  ];
+  const rows3 = [
+    {
+      id: 1,
+      name: "Introduction to Politics and Political Thoughts  ",
+      credits: "3",
+      teacherName: "Mrs.Modi",
+      hours: "30",
+      type: "Theory",
+      courseCode: "DS103",
+      batch: "1th,2nd",
+    },
+    {
+      id: 2,
+      name: "NGOs and Development Management ",
+      credits: "3",
+      teacherName: "DR. Muhammad Yunus",
+      hours: "30",
+      type: "Theory",
+      courseCode: "DS305",
+      batch: "5th,6th",
+    },
+  ];
+  const rows4 = [
+    {
+      id: 1,
+      name: "Hospitality Management.",
+      credits: "3",
+      teacherName: "Mrs.Ban",
+      hours: "30",
+      type: "Theory",
+      courseCode: "HT1010 ",
+      batch: "2nd",
+    },
+    {
+      id: 2,
+      name: "Introduction to Marketing",
+      credits: "3",
+      teacherName: "Mrs.lina",
+      hours: "30",
+      type: "Theory",
+      courseCode: "MK2350",
+      batch: "6th",
+    },
+  ];
   const actionColumn = [
     {
       field: "action",
@@ -135,12 +203,12 @@ const CourseTables = ({ type }) => {
   return (
     <>
       {type == "CSE" ? (
-        <div className=" me-6  mb-16 duration-700">
+        <div className=" me-6  mb-10 duration-700">
           <div style={{ height: open ? 400 : 100, width: "90vw" }}>
             <div className="flex items-center justify-between  mt-2 text-lg font-semibold shadow-lg mb-1  bg-white rounded p-2 ">
               <p>Department of {type}</p>
               <Link
-                to="/UI/courses/addForm"
+                to={`/UI/${type.toLowerCase()}/addForm`}
                 className="bg-[#00bf63] duration-700 px-4 rounded shadow hover:text-[#38b6ff] border hover:bg-transparent hover:border-[#38b6ff]  text-white py-1"
               >
                 <FcAddDatabase />
@@ -163,13 +231,117 @@ const CourseTables = ({ type }) => {
           </div>
         </div>
       ) : type == "BBA" ? (
-        <p>BBA</p>
+        <div className=" me-6  mb-10 duration-700">
+          <div style={{ height: open ? 400 : 100, width: "90vw" }}>
+            <div className="flex items-center justify-between  mt-2 text-lg font-semibold shadow-lg mb-1  bg-white rounded p-2 ">
+              <p>Department of {type}</p>
+              <Link
+                to={`/UI/${type.toLowerCase()}/addForm`}
+                className="bg-[#00bf63] duration-700 px-4 rounded shadow hover:text-[#38b6ff] border hover:bg-transparent hover:border-[#38b6ff]  text-white py-1"
+              >
+                <FcAddDatabase />
+              </Link>
+            </div>
+            <div className=" duration-300">
+              <DataGrid
+                rows={rows1}
+                columns={columns.concat(actionColumn)}
+                className="shadow-lg bg-white duration-300"
+                initialState={{
+                  pagination: {
+                    paginationModel: { page: 0, pageSize: 5 },
+                  },
+                }}
+                pageSizeOptions={[5, 10]}
+                rowSelection={false}
+              />
+            </div>
+          </div>
+        </div>
       ) : type == "ENG" ? (
-        <p>ENG</p>
+        <div className=" me-6  mb-10 duration-700">
+          <div style={{ height: open ? 400 : 100, width: "90vw" }}>
+            <div className="flex items-center justify-between  mt-2 text-lg font-semibold shadow-lg mb-1  bg-white rounded p-2 ">
+              <p>Department of {type}</p>
+              <Link
+                to={`/UI/${type.toLowerCase()}/addForm`}
+                className="bg-[#00bf63] duration-700 px-4 rounded shadow hover:text-[#38b6ff] border hover:bg-transparent hover:border-[#38b6ff]  text-white py-1"
+              >
+                <FcAddDatabase />
+              </Link>
+            </div>
+            <div className=" duration-300">
+              <DataGrid
+                rows={rows2}
+                columns={columns.concat(actionColumn)}
+                className="shadow-lg bg-white duration-300"
+                initialState={{
+                  pagination: {
+                    paginationModel: { page: 0, pageSize: 5 },
+                  },
+                }}
+                pageSizeOptions={[5, 10]}
+                rowSelection={false}
+              />
+            </div>
+          </div>
+        </div>
       ) : type == "GDS" ? (
-        <p>GDS</p>
+        <div className=" me-6  mb-10 duration-700">
+          <div style={{ height: open ? 400 : 100, width: "90vw" }}>
+            <div className="flex items-center justify-between  mt-2 text-lg font-semibold shadow-lg mb-1  bg-white rounded p-2 ">
+              <p>Department of {type}</p>
+              <Link
+                to={`/UI/${type.toLowerCase()}/addForm`}
+                className="bg-[#00bf63] duration-700 px-4 rounded shadow hover:text-[#38b6ff] border hover:bg-transparent hover:border-[#38b6ff]  text-white py-1"
+              >
+                <FcAddDatabase />
+              </Link>
+            </div>
+            <div className=" duration-300">
+              <DataGrid
+                rows={rows3}
+                columns={columns.concat(actionColumn)}
+                className="shadow-lg bg-white duration-300"
+                initialState={{
+                  pagination: {
+                    paginationModel: { page: 0, pageSize: 5 },
+                  },
+                }}
+                pageSizeOptions={[5, 10]}
+                rowSelection={false}
+              />
+            </div>
+          </div>
+        </div>
       ) : type == "HTM" ? (
-        <p>HTM</p>
+        <div className=" me-6  mb-10 duration-700">
+          <div style={{ height: open ? 400 : 100, width: "90vw" }}>
+            <div className="flex items-center justify-between  mt-2 text-lg font-semibold shadow-lg mb-1  bg-white rounded p-2 ">
+              <p>Department of {type}</p>
+              <Link
+                to={`/UI/${type.toLowerCase()}/addForm`}
+                className="bg-[#00bf63] duration-700 px-4 rounded shadow hover:text-[#38b6ff] border hover:bg-transparent hover:border-[#38b6ff]  text-white py-1"
+              >
+                <FcAddDatabase />
+              </Link>
+            </div>
+            <div className=" duration-300">
+              <DataGrid
+                rows={rows4}
+                columns={columns.concat(actionColumn)}
+                className="shadow-lg bg-white duration-300"
+                initialState={{
+                  pagination: {
+                    paginationModel: { page: 0, pageSize: 5 },
+                  },
+                }}
+                pageSizeOptions={[5, 10]}
+                rowSelection={false}
+              />
+            </div>
+          </div>
+        </div>
       ) : (
         ""
       )}

@@ -165,7 +165,7 @@ const AddForm = () => {
               onChange={handleInputChange}
             />
           </div>
-          <p className=" font-semibold  mt-5 text-lg mb-2">Course List</p>
+          {/* <p className=" font-semibold  mt-5 text-lg mb-2">Course List</p>
           <div className="flex justify-between items-center gap-5 mb-5">
             <select
               name="courseCode"
@@ -195,7 +195,7 @@ const AddForm = () => {
               <option> Operating Systems</option>
               <option> Computer Networks</option>
             </select>
-          </div>
+          </div> */}
           <button
             className="bg-[#00bf63] mt-2 text-white font-semibold px-5 py-1 rounded shadow-lg"
             type="submit"

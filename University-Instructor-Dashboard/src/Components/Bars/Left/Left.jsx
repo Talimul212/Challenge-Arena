@@ -22,8 +22,10 @@ const Left = () => {
           <Link key={item.id} to={item.route}>
             <div
               className={`${
-                path == item.route ? "text-green-500 bg-white duration-700" : ""
-              } flex justify-start py-2 pb-2  duration-500  gap-6 text-white  ps-4 hover:text-[#00bf63] hover:bg-white w-full  items-center`}
+                path == item.route
+                  ? "bg-white  text-gray-700 duration-700  hover:text-[#00bf63]"
+                  : "hover:text-[#00bf63]"
+              } flex justify-start py-2 pb-2  duration-500  gap-6 text-white  ps-4  hover:bg-white w-full  items-center`}
             >
               <div title={item.title}>{item.icon}</div>
               {min ? <div className=" font-[500]">{item.title}</div> : ""}
