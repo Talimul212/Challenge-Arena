@@ -10,7 +10,6 @@ import G9 from "../../../../assets/gallery/Department_Tour.jpg";
 import G10 from "../../../../assets/gallery/DepartmentParty.jpg";
 import G11 from "../../../../assets/gallery/FootballTeam.jpg";
 import G12 from "../../../../assets/gallery/TeamCSE.jpg";
-import G13 from "../../../../assets/gallery/x.mp4";
 const Gellary = () => {
   const images = [
     {
