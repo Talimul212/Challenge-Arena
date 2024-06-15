@@ -8,6 +8,7 @@ import TeacherList from "./Components/Teacher/TeacherList";
 import ExamRoutine from "./Components/ExamRoutine/ExamRoutine";
 import TuitionHome from "./Components/Tuition/TuitionHome";
 import BloodBank from "./Components/BloodBank/BloodBank";
+import Gellary from "./Components/gellary/Gellary";
 // import samplePDF from "../../assets/PDF/Pdf1.pdf"; // Replace './sample.pdf' with the path to your PDF file
 
 // Required to avoid issues with displaying PDFs in some environments
@@ -38,6 +39,8 @@ const SixCardDetails = () => {
           <TeacherList />
         ) : item === "examSchedules" ? (
           <ExamRoutine />
+        ) : item === "gellary" ? (
+          <Gellary />
         ) : (
           <></>
         )}

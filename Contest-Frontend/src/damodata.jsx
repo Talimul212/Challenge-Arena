@@ -150,7 +150,7 @@ export const bottomBarData = [
     title: "  CGPA Analyzer",
     route: "/buI/cgpaAnalyzer",
   },
-  { id: 13, icon: RiGalleryLine, title: "Gallery", route: "/buI/gallery" },
+  { id: 13, icon: RiGalleryLine, title: "Gallery", route: "/buI/gellary" },
   {
     id: 14,
     icon: MdOutlineEvent,
