@@ -110,10 +110,10 @@ const Drawer = ({ mobileMenuOpen, menuRef, CloseMobileMenu, currentUser }) => {
           Course
         </Option>
       </Link>
-      <Link onClick={CloseMobileMenu} to="/buI/schedules">
+      <Link onClick={CloseMobileMenu} to="/buI/examSchedules">
         <Option>
           <GrSchedules />
-          Schedules
+          Exams
         </Option>
       </Link>
       <Link onClick={CloseMobileMenu} to="/buI/classes">
@@ -122,10 +122,10 @@ const Drawer = ({ mobileMenuOpen, menuRef, CloseMobileMenu, currentUser }) => {
           Classes
         </Option>
       </Link>
-      <Link onClick={CloseMobileMenu} to="/buI/faculties">
+      <Link onClick={CloseMobileMenu} to="/buI/faculty">
         <Option>
           <MdOutlineGroups />
-          Feculties
+          Faculty
         </Option>
       </Link>
       <hr style={{ margin: "15px 0px" }} />

@@ -10,6 +10,7 @@ import G9 from "../../../../assets/gallery/Department_Tour.jpg";
 import G10 from "../../../../assets/gallery/DepartmentParty.jpg";
 import G11 from "../../../../assets/gallery/FootballTeam.jpg";
 import G12 from "../../../../assets/gallery/TeamCSE.jpg";
+import GFilterSilder from "../../../../Components/Slider/GFilterSilder";
 const Gellary = () => {
   const images = [
     {
@@ -59,7 +60,8 @@ const Gellary = () => {
   ];
   return (
     <div className="pb-12">
-      <div className="flex justify-between">
+      <GFilterSilder />
+      {/* <div className="flex justify-between">
         <kbd className="kbd kbd-sm bg-white rounded text-[#00bf63]">Tours</kbd>
         <kbd className="kbd kbd-sm bg-white rounded text-[#00bf63]">Party</kbd>
         <kbd className="kbd kbd-sm bg-white rounded text-[#00bf63]">
@@ -69,25 +71,27 @@ const Gellary = () => {
           Contest
         </kbd>
         <kbd className="kbd kbd-sm bg-white rounded text-[#00bf63]">BU day</kbd>
-      </div>
+      </div> */}
       <p className="text-black font-semibold text-xl  mb-2">
         {/* Department Tours: */}
       </p>
-      {images.map((img, i) => (
-        <div className="mb-5" key={img.id}>
-          <div className="card w-auto bg-base-100 shadow rounded">
-            <figure>
-              <img src={img.image} className="  rounded" alt={img.image} />
-            </figure>
-            <div className="card-body p-3">
-              <p>
-                Probably last Picnic of University life.❤️ Computer Science and
-                Engineering Department{" "}
-              </p>
+      <div className="">
+        {images.map((img, i) => (
+          <div className="mb-5" key={img.id}>
+            <div className="card w-auto bg-base-100 shadow rounded">
+              <figure>
+                <img src={img.image} className="  rounded" alt={img.image} />
+              </figure>
+              <div className="card-body p-3">
+                <p>
+                  Probably last Picnic of University life.❤️ Computer Science
+                  and Engineering Department{" "}
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
       {/* <video
         controls
         src="https://www.facebook.com/100095355135104/videos/387431827195725"

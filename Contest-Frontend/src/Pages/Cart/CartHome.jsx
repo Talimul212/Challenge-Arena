@@ -4,9 +4,12 @@ import { departments } from "../../damodata";
 import { MdOutlineAddCircle } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { primaryColor } from "../../Components/Color/Color";
+import FilterSlider from "../../Components/Slider/FilterSlider";
 const CartHome = () => {
   return (
     <>
+      <FilterSlider />
+
       <Div>
         {Object.keys(departments).map((department) => (
           <BookCards

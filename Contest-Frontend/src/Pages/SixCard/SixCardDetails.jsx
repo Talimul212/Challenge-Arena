@@ -9,6 +9,8 @@ import ExamRoutine from "./Components/ExamRoutine/ExamRoutine";
 import TuitionHome from "./Components/Tuition/TuitionHome";
 import BloodBank from "./Components/BloodBank/BloodBank";
 import Gellary from "./Components/gellary/Gellary";
+import AboutUs from "./Components/AboutUs/AboutUs";
+import Faculty from "./Components/Faculty/Faculty";
 // import samplePDF from "../../assets/PDF/Pdf1.pdf"; // Replace './sample.pdf' with the path to your PDF file
 
 // Required to avoid issues with displaying PDFs in some environments
@@ -31,6 +33,8 @@ const SixCardDetails = () => {
           <ClassMateCard />
         ) : item === "course" ? (
           <Course />
+        ) : item === "faculty" ? (
+          <Faculty />
         ) : item === "classes" ? (
           <Classes />
         ) : item === "completeCourse" ? (
@@ -41,6 +45,8 @@ const SixCardDetails = () => {
           <ExamRoutine />
         ) : item === "gellary" ? (
           <Gellary />
+        ) : item === "about" ? (
+          <AboutUs />
         ) : (
           <></>
         )}

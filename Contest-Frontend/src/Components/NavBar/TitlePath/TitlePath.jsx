@@ -67,7 +67,7 @@ const TitlePath = () => {
           {" "}
           <span style={{ color: `${primaryColor}` }}> Create</span> Poll
         </Title1>
-      ) : path === "/buI/faculties" ? (
+      ) : path === "/buI/faculty" ? (
         <Title1>
           {" "}
           <span style={{ color: `${primaryColor}` }}> Faculties</span>
