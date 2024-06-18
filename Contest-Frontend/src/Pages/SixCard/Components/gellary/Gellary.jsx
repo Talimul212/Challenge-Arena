@@ -88,10 +88,10 @@ const Gellary = () => {
           </div>
         </div>
       ))}
-      <video
+      {/* <video
         controls
         src="https://www.facebook.com/100095355135104/videos/387431827195725"
-      ></video>
+      ></video> */}
     </div>
   );
 };
