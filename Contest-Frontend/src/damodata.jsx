@@ -141,7 +141,7 @@ export const bottomBarData = [
     route: "/buI/createPoll",
   },
   { id: 5, icon: LiaDatabaseSolid, title: "Course", route: "/buI/course" },
-  { id: 6, icon: RiGroup2Fill, title: " Faculties", route: "/buI/faculties" },
+  { id: 6, icon: RiGroup2Fill, title: " Faculty", route: "/buI/faculty" },
   { id: 9, icon: GiTeacher, title: "Tuition", route: "/buI/tuition" },
   { id: 11, icon: FaCalculator, title: "CGPA Count", route: "/buI/cgpa" },
   {
