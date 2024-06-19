@@ -11,6 +11,8 @@ import BloodBank from "./Components/BloodBank/BloodBank";
 import Gellary from "./Components/gellary/Gellary";
 import AboutUs from "./Components/AboutUs/AboutUs";
 import Faculty from "./Components/Faculty/Faculty";
+import CGPACalculator from "./Components/CGPACalculator/CGPACalculator";
+import CGPAAnalyzer from "./Components/CGPAAnalyzer/CGPAAnalyzer";
 // import samplePDF from "../../assets/PDF/Pdf1.pdf"; // Replace './sample.pdf' with the path to your PDF file
 
 // Required to avoid issues with displaying PDFs in some environments
@@ -47,6 +49,10 @@ const SixCardDetails = () => {
           <Gellary />
         ) : item === "about" ? (
           <AboutUs />
+        ) : item === "cgpa" ? (
+          <CGPACalculator />
+        ) : item === "cgpaAnalyzer" ? (
+          <CGPAAnalyzer />
         ) : (
           <></>
         )}

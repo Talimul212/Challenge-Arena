@@ -9,10 +9,10 @@ import "./FilterSlider.css";
 
 // import required modules
 // import { Autoplay } from "swiper/modules";
+
 const GFilterSilder = () => {
   return (
     <div className="mt-1 mb-4">
-      {" "}
       <>
         <Swiper
           slidesPerView={4}
@@ -26,13 +26,11 @@ const GFilterSilder = () => {
             </kbd>
           </SwiperSlide>
           <SwiperSlide>
-            {" "}
             <kbd className=" hover:bg-[#00bf63] hover:text-white w-full kbd kbd-sm bg-white rounded text-[#00bf63]">
               Partys
             </kbd>
           </SwiperSlide>
           <SwiperSlide>
-            {" "}
             <kbd className=" hover:bg-[#00bf63] hover:text-white w-full kbd kbd-sm bg-white rounded text-[#00bf63]">
               Contest
             </kbd>
@@ -43,22 +41,17 @@ const GFilterSilder = () => {
             </kbd>
           </SwiperSlide>
           <SwiperSlide>
-            {" "}
             <kbd className=" hover:bg-[#00bf63] hover:text-white w-full kbd kbd-sm bg-white rounded s text-[#00bf63]">
-              {" "}
               Seminer
             </kbd>
           </SwiperSlide>
           <SwiperSlide>
-            {" "}
             <kbd className=" hover:bg-[#00bf63] hover:text-white w-full kbd kbd-sm bg-white rounded text-[#00bf63]">
-              {" "}
               Exhibition
             </kbd>
           </SwiperSlide>
           <SwiperSlide>
             <kbd className=" hover:bg-[#00bf63] hover:text-white w-full kbd kbd-sm bg-white rounded text-[#00bf63]">
-              {" "}
               Others
             </kbd>
           </SwiperSlide>

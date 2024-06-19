@@ -15,7 +15,7 @@ const Faculty = () => {
     { id: 3, title: "Bachelor of English", image: ENG },
     {
       id: 4,
-      title: "Bachelor of Hospitality &Tourism Management (HTM)",
+      title: "Bachelor of  Hospitality &Tourism Management (HTM)",
       image: HTM,
     },
     {
@@ -29,7 +29,7 @@ const Faculty = () => {
   return (
     <div className="mb-20 mt-3">
       {" "}
-      <div className="  grid grid-cols-1 gap-2 ">
+      <div className="  grid grid-cols-2 gap-2 ">
         {facultyData.map((item) => (
           <div
             key={item.id}
@@ -41,17 +41,17 @@ const Faculty = () => {
               </div>
 
               <div className=" text-center h-[80px]  mt-3">
-                <h2 className=" text-[15px] ">
+                <h2 className="  text-[15px] ">
                   <span className=" font-semibold"> {item.title}</span>
                 </h2>
-                <p className="text-md ">
+                <p className="text-md mt-2">
                   {" "}
                   Total <span className="text-[#00bf62]"> Credits</span>: 164
                 </p>
               </div>
             </div>
-            <div className="card-actions justify-center mb-2">
-              <button className=" font-[500] text-gray-500">Go Detalis</button>
+            <div className="card-actions mt-8 justify-center mb-2  ">
+              <button className="font-[500] text-gray-500">Go Detalis</button>
             </div>
           </div>
         ))}
