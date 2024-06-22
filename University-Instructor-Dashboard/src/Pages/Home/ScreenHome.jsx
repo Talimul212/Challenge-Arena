@@ -1,6 +1,5 @@
 // import { useParams } from "react-router-dom";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+
 import HomeCard from "../../Components/Card/HomeCard/HomeCard";
 import Chart from "../../Components/Grahp/Chart";
 import ExamTopper from "../../Components/Table/ExamTopper/ExamTopper";

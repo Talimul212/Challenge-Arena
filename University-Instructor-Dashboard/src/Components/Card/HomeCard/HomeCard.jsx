@@ -2,7 +2,20 @@ import Student from "../../../assets/HomeIcon/Student.png";
 import Teacher from "../../../assets/HomeIcon/Teacher.png";
 import Batch from "../../../assets/HomeIcon/Batch.png";
 import Faculty from "../../../assets/HomeIcon/Faculty.png";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getUser } from "../../../features/users/serviceApi";
 const HomeCard = () => {
+  const { totalUser, isLoading } = useSelector((state) => state?.user);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    getUser(dispatch);
+  }, [dispatch]);
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
   return (
     <div className="w-full flex flex-wrap justify-start gap-2 ">
       <div className="lg:w-[272px] md:w-64 bg-base-100 rounded shadow-lg ">
@@ -16,7 +29,9 @@ const HomeCard = () => {
               <span className="">Total</span>
               <span className="text-[#00bf62]"> Students</span>
             </h2>
-            <p className="text-xl font-semibold text-right">26</p>
+            <p className="text-xl font-semibold text-right">
+              {totalUser.length}
+            </p>
           </div>
         </div>
         <div className="card-actions justify-center mb-2">
