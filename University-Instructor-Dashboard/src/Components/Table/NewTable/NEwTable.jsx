@@ -46,14 +46,14 @@ const NEwTable = () => {
     { field: "name", headerName: "Name", width: 150 },
     { field: "email", headerName: "Email", width: 200 },
     { field: "department", headerName: "Department", width: 150 },
-    { field: "cgpa", headerName: "CGPA", width: 110 },
-    { field: "batch", headerName: "Batch", width: 100 },
-    { field: "semseter", headerName: "Semester", width: 110 },
-    { field: "gender", headerName: "Gender", width: 110 },
+    { field: "batch", headerName: "Batch", width: 90 },
+    { field: "semseter", headerName: "Semester", width: 90 },
+    { field: "gender", headerName: "Gender", width: 90 },
+    { field: "createdAt", headerName: "Admission Data", width: 150 },
     {
       field: "action",
       headerName: "Action",
-      width: 130,
+      width: 120,
       renderCell: (params) => {
         return (
           <div className="flex justify-start mt-4 items-center gap-3">
