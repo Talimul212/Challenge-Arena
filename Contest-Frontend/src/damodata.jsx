@@ -29,7 +29,7 @@ export const departments = {
       price: 20.75,
       date: "Mar 15",
       image_url:
-        "https://redshine.co.in/wp-content/uploads/2022/03/9789198758290_thumbnail.jpg",
+        "https://m.media-amazon.com/images/I/61Fw-vhAsoL._AC_UF1000,1000_QL80_.jpg",
     },
     {
       id: 4,
