@@ -6,6 +6,8 @@ import { FaEye } from "react-icons/fa";
 import { BsTrash } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser } from "../../../features/users/serviceApi";
+import NewStudentModale from "../../Modal/NewStudentModale/NewStudentModale";
+import LoaderHub from "../../Loader/LoaderHub";
 
 const NEwTable = () => {
   const [open, setOpen] = useState(true);
@@ -14,6 +16,7 @@ const NEwTable = () => {
   };
 
   const { totalUser, isLoading } = useSelector((state) => state?.user);
+  const [student, setStudent] = useState(null);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -21,9 +24,13 @@ const NEwTable = () => {
   }, [dispatch]);
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <LoaderHub type={"Student"} />;
   }
-
+  const toggleModal = (id) => {
+    document.getElementById("my_modal_3").showModal();
+    const single = totalUser.find((item) => item._id == id);
+    setStudent(single);
+  };
   const columns = [
     { field: "studentId", headerName: "S.ID", width: 90 },
     {
@@ -60,7 +67,7 @@ const NEwTable = () => {
             <div
               title="View"
               className="bg-[#00bf63] text-white border px-3 rounded shadow hover:bg-transparent hover:border-[#38b6ff] hover:text-[#38b6ff] cursor-pointer duration-700"
-              // onClick={() => toggleModal(params.row._id)}
+              onClick={() => toggleModal(params.row._id)}
             >
               <FaEye size={17} />
             </div>
@@ -75,7 +82,6 @@ const NEwTable = () => {
       },
     },
   ];
-
   return (
     <div className="mt-5 me-6 mb-6">
       <div style={{ height: open ? 400 : 15, width: "100%" }}>
@@ -113,6 +119,7 @@ const NEwTable = () => {
           </div>
         )}
       </div>
+      <NewStudentModale student={student} />
     </div>
   );
 };

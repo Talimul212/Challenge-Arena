@@ -30,7 +30,7 @@ const HomeCard = () => {
               <span className="text-[#00bf62]"> Students</span>
             </h2>
             <p className="text-xl font-semibold text-right">
-              {totalUser.length}
+              {totalUser?.length}
             </p>
           </div>
         </div>
