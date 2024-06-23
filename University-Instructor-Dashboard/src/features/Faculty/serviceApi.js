@@ -31,7 +31,7 @@ export const addFaculty = async (dispatch, payload) => {
 export const getFaculty = async (dispatch) => {
   dispatch(getFacultyStart());
   try {
-    const res = await publicRequest.get(`/users`);
+    const res = await publicRequest.get(`/faculty`);
     dispatch(getFacultySuccess(res.data.data));
   } catch (err) {
     const errorMessage = err.response?.data?.error || "An error occurred.";

@@ -3,6 +3,7 @@ const { FacultyList } = require("../Models/facultyModel");
 module.exports.addFaculty = async (req, res) => {
   try {
     const list = new FacultyList(req.body);
+    console.log(list);
     const result = await list.save();
     res.status(200).json({
       status: true,

@@ -1,10 +1,14 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
+import { useDispatch } from "react-redux";
 import { useState } from "react";
+import { publicRequest } from "../../../requestMethod";
+import { addFaculty } from "../../../features/Faculty/serviceApi";
 const FacutlyForm = ({ open }) => {
   const [file, setFile] = useState(null);
   const [image, setImage] = useState(null);
   const [formData, setFormData] = useState({});
+  const dispatch = useDispatch();
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -23,22 +27,30 @@ const FacutlyForm = ({ open }) => {
       reader.readAsDataURL(file);
     }
   };
-  // upload single file
-  //   const upload = async (file) => {
-  //     console.log(file);
-  //     try {
-  //       const formData = new FormData();
-  //       formData.append("image", file);
-  //       const res = await publicRequest.post("/file-upload", formData);
-  //       return res.data;
-  //     } catch (err) {
-  //       alert("Error", "Can't upload this image", "error");
-  //     }
-  //   };
+  // const upload single file
+  const upload = async (file) => {
+    console.log(file);
+    try {
+      const formData = new FormData();
+      formData.append("image", file);
+      const res = await publicRequest.post("/file-upload", formData);
+      return res.data;
+    } catch (err) {
+      alert("Error", "Can't upload this image", "error");
+    }
+  };
   const handleTuitons = async (e) => {
     e.preventDefault();
+    const photoURL = await upload(file);
     console.log("Form Data:", formData);
-    //
+    const formDataJson = {
+      facultyName: formData.facultyName,
+      totalCredits: parseInt(formData.totalCredits),
+      photoURL: photoURL,
+    };
+    addFaculty(dispatch, formDataJson);
+    setFormData(null);
+    setImage(null);
   };
   return (
     <div
@@ -105,19 +117,24 @@ const FacutlyForm = ({ open }) => {
         <div className="mt-2">
           <input
             className="focus:outline-none border-b-[1px] mb-2 w-full border-gray-400 focus-visible:no-underline"
-            type="text"
-            name="credits"
+            type="number"
+            name="totalCredits"
             placeholder="Total Credits"
             onChange={handleInputChange}
           />
         </div>
-
-        <button
-          className="bg-[#00bf63] mt-2 text-white font-semibold px-3  py-[1px] shadow rounded"
-          type="submit"
-        >
-          POST
-        </button>
+        {image && formData?.facultyName && formData?.totalCredits ? (
+          <button
+            className="bg-[#00bf63] mt-2 text-white font-semibold px-3  py-[1px] shadow rounded"
+            type="submit"
+          >
+            POST
+          </button>
+        ) : (
+          <button className="bg-gray-400 mt-2 text-white font-semibold px-3  py-[1px] shadow rounded">
+            POST
+          </button>
+        )}
       </form>
     </div>
   );

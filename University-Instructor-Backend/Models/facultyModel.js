@@ -4,7 +4,7 @@ const facultyListSchema = mongoose.Schema(
   {
     facultyName: {
       type: String,
-      required: [false, " Faculty name is required"],
+      required: [true, " Faculty name is required"],
     },
     totalCredits: {
       type: Number,

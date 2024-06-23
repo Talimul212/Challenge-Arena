@@ -59,7 +59,7 @@ const NewStudentModale = ({ student }) => {
           <div className="flex justify-between   items-center mt-4 ">
             <h3 className=" text-lg">
               <span className="  text-[#00bf63]">Admission Date: </span>
-              {formatDate(student?.createdAt)}
+              {/* {formatDate(student?.createdAt)} */}
             </h3>
 
             <h3 className=" text-lg">

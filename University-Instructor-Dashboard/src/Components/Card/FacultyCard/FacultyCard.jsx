@@ -1,55 +1,68 @@
-import CSE from "../../../assets/FacultyIcon/CSE.png";
-import BBA from "../../../assets/FacultyIcon/BBA.png";
-import ENG from "../../../assets/FacultyIcon/ENG.png";
-import GDS from "../../../assets/FacultyIcon/GDS.png";
-import HTM from "../../../assets/FacultyIcon/HTM.png";
-import MBA from "../../../assets/FacultyIcon/MBA.png";
 import { FaAngleDown } from "react-icons/fa";
 import { FaChevronUp } from "react-icons/fa6";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FacutlyForm from "../../Form/FacutlyForm/FacutlyForm";
+import { useDispatch, useSelector } from "react-redux";
+import { getFaculty } from "../../../features/Faculty/serviceApi";
 const FacultyCard = () => {
   const [open, setOpen] = useState("open");
+  const { totalFaculty, isLoading } = useSelector(
+    (state) => state?.facultyList
+  );
+  const dispatch = useDispatch();
+  useEffect(() => {
+    getFaculty(dispatch);
+  }, [dispatch]);
+
+  if (isLoading) {
+    <p>wating......</p>;
+  }
+  const facultyData = totalFaculty;
+
   const hanlderOpen = () => {
     setOpen(!open);
   };
-  const facultyData = [
-    {
-      id: 1,
-      title: "B.Sc. in Computer Science & Engineering (CSE)",
-      image: CSE,
-    },
-    { id: 2, title: "Bachelor of Business Administration (BBA)", image: BBA },
-    { id: 3, title: "Bachelor of English", image: ENG },
-    {
-      id: 4,
-      title: "Bachelor of Hospitality &Tourism Management (HTM)",
-      image: HTM,
-    },
-    {
-      id: 5,
-      title:
-        "Bachelor of Social Science in Governance & Development Studies (GDS)",
-      image: GDS,
-    },
-    { id: 6, title: "✅Master of Business Administration (MBA)", image: MBA },
-  ];
+  // const facultyData = [
+  //   {
+  //     id: 1,
+  //     title: "B.Sc. in Computer Science & Engineering (CSE)",
+  //     image: CSE,
+  //   },
+  //   { id: 2, title: "Bachelor of Business Administration (BBA)", image: BBA },
+  //   { id: 3, title: "Bachelor of English", image: ENG },
+  //   {
+  //     id: 4,
+  //     title: "Bachelor of Hospitality &Tourism Management (HTM)",
+  //     image: HTM,
+  //   },
+  //   {
+  //     id: 5,
+  //     title:
+  //       "Bachelor of Social Science in Governance & Development Studies (GDS)",
+  //     image: GDS,
+  //   },
+  //   { id: 6, title: "✅Master of Business Administration (MBA)", image: MBA },
+  // ];
   return (
     <div className="flex  justify-between ">
       <div className=" flex flex-wrap justify-start gap-2 ">
-        {facultyData.map((item) => (
+        {facultyData?.map((item) => (
           <div
-            key={item.id}
+            key={item?.id}
             className=" bg-white card-bordered lg:w-[272px] md:w-64  rounded shadow-md "
           >
             <div className=" flex flex-col justify-between items-center py-3">
               <div>
-                <img src={item.image} className="w-16" alt="" />
+                <img
+                  src={`http://localhost:8000/images/${item?.photoURL?.filename}`}
+                  className="w-16"
+                  alt={item?.photoURL?.filename}
+                />
               </div>
 
               <div className=" text-center h-[80px]  mt-3">
                 <h2 className=" text-[15px] ">
-                  <span className=" font-semibold"> {item.title}</span>
+                  <span className=" font-semibold"> {item?.facultyName}</span>
                 </h2>
                 <p className="text-md ">
                   {" "}
