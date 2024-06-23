@@ -1,10 +1,24 @@
 /* eslint-disable no-unused-vars */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { LiaDatabaseSolid } from "react-icons/lia";
 import { MdCreditScore } from "react-icons/md";
 import CourseTables from "../../../../Components/Table/CourseTables/CourseTables";
+import { useDispatch, useSelector } from "react-redux";
+import { getFaculty } from "../../../../features/Faculty/serviceApi";
 const Courses = () => {
+  const { totalFaculty, isLoading } = useSelector(
+    (state) => state?.facultyList
+  );
+  const dispatch = useDispatch();
+  useEffect(() => {
+    getFaculty(dispatch);
+  }, [dispatch]);
+
+  if (isLoading) {
+    <p>wating......</p>;
+  }
   const [type, setType] = useState("CSE");
+  const facultyData = totalFaculty;
   const handlerType = (e) => {
     setType(e);
   };
