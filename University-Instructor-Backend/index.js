@@ -7,6 +7,7 @@ const teachersRoute = require("./routers/v1/teachersRoute");
 const classRoutineRoute = require("./routers/v1/classRoutinrRoute");
 const completeCourseRoute = require("./routers/v1/completeCourseRoute");
 const courseRoute = require("./routers/v1/coursesRoute");
+const facultyRoute = require("./routers/v1/facultyRoute");
 const examRoute = require("./routers/v1/examRoute");
 const fileUploadRoute = require("./routers/v1/fileUploadRoute");
 
@@ -55,6 +56,7 @@ app.use("/api/v1/auth", authRoute);
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/teachers", teachersRoute);
 app.use("/api/v1/courses", courseRoute);
+app.use("/api/v1/faculty", facultyRoute);
 app.use("/api/v1/classes", classRoutineRoute);
 app.use("/api/v1/completeCourse", completeCourseRoute);
 app.use("/api/v1/examSchedules", examRoute);
