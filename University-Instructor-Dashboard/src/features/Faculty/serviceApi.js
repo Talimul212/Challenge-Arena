@@ -6,6 +6,9 @@ import {
   getFacultyFailure,
   getFacultyStart,
   getFacultySuccess,
+  updataFacultyFailure,
+  updataFacultyStart,
+  updataFacultySuccess,
 } from "./FacultySlice";
 
 export const addFaculty = async (dispatch, payload) => {
@@ -18,16 +21,21 @@ export const addFaculty = async (dispatch, payload) => {
     dispatch(facultyFailure(errorMessage));
   }
 };
-// export const getUser = async (dispatch, batch, semseter, id) => {
-//   dispatch(getUserStart());
-//   try {
-//     const res = await publicRequest.get(`/users/${batch}/${semseter}/${id}`);
-//     dispatch(getUserSuccess(res.data.data));
-//   } catch (err) {
-//     const errorMessage = err.response?.data?.error || "An error occurred.";
-//     dispatch(getUserFailure(errorMessage));
-//   }
-// };
+
+export const updateFaculty = async (dispatch, id, formDataJson) => {
+  console.log(formDataJson);
+  dispatch(updataFacultyStart());
+  try {
+    const res = await publicRequest.put(`/faculty/${id}`, {
+      formDataJson,
+    });
+    dispatch(updataFacultySuccess(res.data.data));
+  } catch (err) {
+    const errorMessage = err.response?.data?.error || "An error occurred.";
+    dispatch(updataFacultyFailure(errorMessage));
+  }
+};
+
 export const getFaculty = async (dispatch) => {
   dispatch(getFacultyStart());
   try {

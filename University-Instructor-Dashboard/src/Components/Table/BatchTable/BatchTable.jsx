@@ -35,7 +35,7 @@ const BatchTable = ({ facultyData }) => {
         ) : (
           <div className="duration-300   ">
             <div className="flex overflow-x-auto w-[1230px] custom-scrollbar">
-              {facultyData.map((item) => (
+              {facultyData?.map((item) => (
                 <>
                   <div key={item?._id} className="">
                     <div className="bg-white p-2 h-[90px] py-1 flex items-center justify-center text-center shadow m-1 rounded font-medium w-[290px]">

@@ -2,13 +2,13 @@ import { MdLibraryAdd } from "react-icons/md";
 import BatchTable from "../../../../Components/Table/BatchTable/BatchTable";
 import BatchModal from "../../../../Components/Modal/BatchModal/BatchModal";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getFaculty } from "../../../../features/Faculty/serviceApi";
 const Batch = () => {
   const { totalFaculty, isLoading } = useSelector(
     (state) => state?.facultyList
   );
-
+  const [data, setData] = useState({});
   const dispatch = useDispatch();
   useEffect(() => {
     getFaculty(dispatch);
@@ -18,6 +18,12 @@ const Batch = () => {
     <p>wating......</p>;
   }
   const facultyData = totalFaculty;
+  const toggleModal = (id) => {
+    document.getElementById("my_modal_3").showModal();
+    const single = facultyData.find((item) => item._id == id);
+    setData(single);
+  };
+
   return (
     <div className="ms-[-20px]  pb-20">
       <div
@@ -31,14 +37,10 @@ const Batch = () => {
           >
             {item?.facultyName}
             <div>
-              <button
-                onClick={() =>
-                  document.getElementById("my_modal_3").showModal()
-                }
-              >
+              <button onClick={() => toggleModal(item?._id)}>
                 <MdLibraryAdd className=" bg-white text-[#00bf63] hover:text-[#38b6ff] " />
               </button>
-              <BatchModal />
+              <BatchModal data={data} />
             </div>
           </div>
         ))}
