@@ -84,7 +84,7 @@ const NEwTable = () => {
   ];
   return (
     <div className="mt-5 me-6 mb-6">
-      <div style={{ height: open ? 400 : 15, width: "100%" }}>
+      <div id="student" style={{ height: open ? 400 : 15, width: "100%" }}>
         <p className="flex items-center justify-between mt-2 text-lg font-semibold shadow-lg mb-1 bg-white rounded p-2">
           New Student List:
           {open ? (

@@ -58,6 +58,7 @@ module.exports.GetClassMate = async (req, res) => {
   // console.log(req.params, batch);
   const users = await Users.find({
     _id: { $ne: new ObjectId(req.params.id) }, // Exclude the current user
+    department: req.params.department,
     batch: req.params.batch,
     semester: req.params.semester, // Corrected property name to "semester"
   });

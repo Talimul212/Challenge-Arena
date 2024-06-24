@@ -1,10 +1,25 @@
 /* eslint-disable no-unused-vars */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoMdPerson } from "react-icons/io";
+import { useDispatch, useSelector } from "react-redux";
+import { getFaculty } from "../../../features/Faculty/serviceApi";
+import LoaderHub from "../../Loader/LoaderHub";
 const AddForm = () => {
   const [file, setFile] = useState(null);
   const [image, setImage] = useState(null);
   const [formData, setFormData] = useState({});
+  const { totalFaculty, isLoading } = useSelector(
+    (state) => state?.facultyList
+  );
+  const dispatch = useDispatch();
+  useEffect(() => {
+    getFaculty(dispatch);
+  }, [dispatch]);
+
+  if (isLoading) {
+    return <LoaderHub type={"facultyform"} />;
+  }
+  const facultyData = totalFaculty;
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -111,28 +126,30 @@ const AddForm = () => {
             />
           </div>
           <div className="flex justify-between items-center gap-5 mb-5">
-            <input
-              className="focus:outline-none  border-b-[1px] mb-2 w-full border-gray-400 focus-visible:no-underline"
-              type="text"
-              name="designation"
-              placeholder="Designation"
+            <select
+              name="position"
               onChange={handleInputChange}
-            />
+              className="focus:outline-none  border-b-[1px] mb-2 w-full border-gray-400 focus-visible:no-underline"
+            >
+              <option disabled selected>
+                Designation
+              </option>
+              <option>Lecturer</option>
+              <option>Assistant Professor</option>
+              <option>Associate Professor</option>
+              <option> Professor</option>
+            </select>
             <select
               name="department"
               onChange={handleInputChange}
               className="focus:outline-none  border-b-[1px] mb-2 w-full border-gray-400 focus-visible:no-underline"
             >
               <option disabled selected>
-                Department
+                Faculty
               </option>
-              <option>Computer Science & Engineering</option>
-              <option>Bachelor of Business Administration</option>
-              <option>Bachelor of English</option>
-              <option>Bachelor of Hospitality &Tourism Management</option>
-              <option>
-                Bachelor of Social Science in Governance & Development Studies
-              </option>
+              {facultyData.map((item) => (
+                <option key={item?._id}>{item?.facultyName}</option>
+              ))}
             </select>
           </div>
           <div className="flex justify-between items-center gap-5 mb-5">
@@ -156,15 +173,7 @@ const AddForm = () => {
               <option>Female</option>
             </select>
           </div>
-          <div>
-            <input
-              className="focus:outline-none  border-b-[1px] mb-2 w-full border-gray-400 focus-visible:no-underline"
-              type="text"
-              name="education"
-              placeholder="Education"
-              onChange={handleInputChange}
-            />
-          </div>
+          <div></div>
           {/* <p className=" font-semibold  mt-5 text-lg mb-2">Course List</p>
           <div className="flex justify-between items-center gap-5 mb-5">
             <select

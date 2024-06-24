@@ -4,6 +4,7 @@ import BatchModal from "../../../../Components/Modal/BatchModal/BatchModal";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { getFaculty } from "../../../../features/Faculty/serviceApi";
+import LoaderHub from "../../../../Components/Loader/LoaderHub";
 const Batch = () => {
   const { totalFaculty, isLoading } = useSelector(
     (state) => state?.facultyList
@@ -15,7 +16,7 @@ const Batch = () => {
   }, [dispatch]);
 
   if (isLoading) {
-    <p>wating......</p>;
+    return <LoaderHub type={"batch"} />;
   }
   const facultyData = totalFaculty;
   const toggleModal = (id) => {
@@ -27,7 +28,7 @@ const Batch = () => {
   return (
     <div className="ms-[-20px] ">
       <div
-        className=" flex justify-center flex-wrap gap-3  mx-auto  
+        className=" flex justify-center flex-wrap gap-3 mb-8  mx-auto  
       "
       >
         {facultyData?.map((item) => (

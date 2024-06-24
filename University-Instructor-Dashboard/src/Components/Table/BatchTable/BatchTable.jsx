@@ -18,7 +18,7 @@ const BatchTable = ({ facultyData }) => {
           width: "90vw",
         }}
       >
-        <p className="flex items-center justify-between mt-2 text-lg font-semibold shadow-lg mb-1 bg-white rounded p-2">
+        <p className="flex items-center  border-[1px] border-[#38b6ff] justify-between mt-2 text-lg font-semibold shadow mb-1 bg-white rounded p-2">
           Faculty Batch List:
           {open ? (
             <span onClick={handlerOpen}>
@@ -34,7 +34,7 @@ const BatchTable = ({ facultyData }) => {
           ""
         ) : (
           <div className="duration-300   ">
-            <div className="flex overflow-x-auto w-[1230px] custom-scrollbar">
+            <div className="flex overflow-x-auto  shadow-md w-[1230px] custom-scrollbar border-[1px] border-[#38b6ff] rounded">
               {facultyData?.map((item) => (
                 <>
                   <div key={item?._id} className="">
@@ -44,7 +44,7 @@ const BatchTable = ({ facultyData }) => {
                     {item.batchlist?.map((item1) => (
                       <div
                         key={item1?._id}
-                        className="bg-white p-2 shadow m-1 rounded font-medium "
+                        className="bg-white p-2 shadow m-1 rounded font-medium text-center"
                       >
                         {item1}
                       </div>

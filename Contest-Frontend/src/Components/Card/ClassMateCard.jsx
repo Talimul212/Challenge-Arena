@@ -11,8 +11,20 @@ const ClassMateCard = () => {
   const { currentUser } = useSelector((state) => state?.auth);
   const dispatch = useDispatch();
   useEffect(() => {
-    getUser(dispatch, currentUser.batch, currentUser.semseter, currentUser._id);
-  }, [dispatch, currentUser.batch, currentUser.semseter, currentUser._id]);
+    getUser(
+      dispatch,
+      currentUser.batch,
+      currentUser.semseter,
+      currentUser.department,
+      currentUser._id
+    );
+  }, [
+    dispatch,
+    currentUser.batch,
+    currentUser.semseter,
+    currentUser._id,
+    currentUser.department,
+  ]);
   if (isLoading) {
     <p>lolo</p>;
   }

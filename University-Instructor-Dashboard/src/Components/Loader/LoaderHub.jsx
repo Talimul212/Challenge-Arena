@@ -56,18 +56,24 @@ const LoaderHub = ({ type }) => {
               <Skeleton count={1} height={"160px"} width={"88vw"} />
             </div>
           </>
-        ) : type === "course" ? (
+        ) : type === "courses" ? (
           <>
+            <div className="lg:flex items-center gap-2">
+              <Skeleton count={2} height={"120px"} width={"30vw"} />
+              <Skeleton count={2} height={"120px"} width={"29vw"} />
+              <Skeleton count={2} height={"120px"} width={"30vw"} />
+            </div>
             <div>
-              <div className="flex justify-between gap-5 mt-4">
-                <Skeleton count={1} height={"20px"} width={"95vw"} />
+              <div className="lg:flex justify-between mt-8 mb-2">
+                <Skeleton count={1} height={"50px"} width={"90vw"} />
               </div>
-              <div className="flex justify-between gap-5 mt-1">
-                <Skeleton count={1} height={"40px"} width={"70px"} />
-                <Skeleton count={1} height={"40px"} width={"70px"} />
-              </div>
-              <div className="flex justify-start gap-5 mt-2">
-                <Skeleton count={5} height={"40px"} width={"95vw"} />
+              <div className=" flex justify-start gap-3">
+                <Skeleton
+                  count={3}
+                  style={{ marginBottom: "2px" }}
+                  height={"60px"}
+                  width={"90vw"}
+                />
               </div>
             </div>
           </>
@@ -166,40 +172,91 @@ const LoaderHub = ({ type }) => {
               <Skeleton count={2} height={"160px"} width={"175px"} />
             </div>
           </>
-        ) : type === "classMate" ? (
-          <div className="flex gap-2 flex-col mt-4">
-            <Skeleton count={1} height={"60px"} width={"95vw"} />
-            <Skeleton count={1} height={"60px"} width={"95vw"} />
-            <Skeleton count={1} height={"60px"} width={"95vw"} />
+        ) : type === "faculty" ? (
+          <div className="flex gap-2 justify-start">
+            <Skeleton
+              className=" shadow-md"
+              count={2}
+              height={"110px"}
+              width={"20vw"}
+              style={{ marginBottom: "5px" }}
+            />
+            <Skeleton
+              className=" shadow-md"
+              count={2}
+              height={"110px"}
+              style={{ marginBottom: "5px" }}
+              width={"20vw"}
+            />
           </div>
-        ) : type === "CourseDetails" ? (
+        ) : type === "facultyCard" ? (
           <>
-            <div className="lg:flex items-center gap-8">
-              <Skeleton count={1} height={"340px"} width={"600px"} />
-              <Skeleton count={1} height={"340px"} width={"500px"} />
+            <div className="flex justify-start gap-5">
+              <div className="flex gap-2 justify-start">
+                <Skeleton
+                  className=" shadow-md"
+                  count={3}
+                  height={"190px"}
+                  width={"20vw"}
+                  style={{ marginBottom: "5px" }}
+                />
+                <Skeleton
+                  className=" shadow-md"
+                  count={2}
+                  height={"190px"}
+                  style={{ marginBottom: "5px" }}
+                  width={"20vw"}
+                />
+                <Skeleton
+                  className=" shadow-md"
+                  count={2}
+                  height={"190px"}
+                  style={{ marginBottom: "5px" }}
+                  width={"20vw"}
+                />
+              </div>
+              <div>
+                <Skeleton
+                  className=" shadow-md"
+                  count={1}
+                  height={"70px"}
+                  width={"28vw"}
+                />
+              </div>
+            </div>
+          </>
+        ) : type === "batch" ? (
+          <>
+            <div className="lg:flex items-center gap-2">
+              <Skeleton count={2} height={"60px"} width={"30vw"} />
+              <Skeleton count={2} height={"60px"} width={"29vw"} />
+              <Skeleton count={2} height={"60px"} width={"30vw"} />
             </div>
             <div>
-              <div className="lg:flex justify-between mt-20">
-                <Skeleton count={1} height={"60px"} width={"150px"} />
-                <Skeleton count={1} height={"60px"} width={"150px"} />
+              <div className="lg:flex justify-between mt-8">
+                <Skeleton count={1} height={"50px"} width={"90vw"} />
               </div>
-              <div className=" mt-20">
-                <Skeleton
-                  count={2}
-                  marginTop={"10px"}
-                  height={"70px"}
-                  width={"100%"}
-                />
-                <Skeleton count={2} height={"70px"} width={"100%"} />
-              </div>
-              <div className=" mt-20">
-                <Skeleton count={1} height={"60px"} width={"150px"} />
+              <div className=" flex justify-start gap-3">
                 <Skeleton
                   count={1}
                   marginTop={"10px"}
-                  height={"200px"}
-                  width={"100%"}
+                  height={"100px"}
+                  width={"300px"}
                 />
+                <Skeleton count={1} height={"100px"} width={"300px"} />
+                <Skeleton count={1} height={"100px"} width={"300px"} />
+                <Skeleton count={1} height={"100px"} width={"293px"} />
+              </div>
+              <div className=" flex justify-start gap-3">
+                <Skeleton
+                  count={3}
+                  marginTop={"10px"}
+                  height={"50px"}
+                  width={"300px"}
+                />
+                <Skeleton count={2} height={"50px"} width={"300px"} />
+                <Skeleton count={1} height={"50px"} width={"300px"} />
+                <Skeleton count={2} height={"50px"} width={"293px"} />
               </div>
             </div>
           </>

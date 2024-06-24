@@ -2,10 +2,6 @@
 import { MdPlayLesson } from "react-icons/md";
 import { FaClipboardCheck } from "react-icons/fa";
 const NewStudentModale = ({ student }) => {
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    return date.toISOString().split("T")[0];
-  };
   return (
     <div>
       <dialog id="my_modal_3" className="modal overflow-y-auto">
@@ -60,6 +56,7 @@ const NewStudentModale = ({ student }) => {
             <h3 className=" text-lg">
               <span className="  text-[#00bf63]">Admission Date: </span>
               {/* {formatDate(student?.createdAt)} */}
+              {student?.createdAt?.split("T")[0]}
             </h3>
 
             <h3 className=" text-lg">

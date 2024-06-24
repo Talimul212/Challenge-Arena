@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import FacutlyForm from "../../Form/FacutlyForm/FacutlyForm";
 import { useDispatch, useSelector } from "react-redux";
 import { getFaculty } from "../../../features/Faculty/serviceApi";
+import LoaderHub from "../../Loader/LoaderHub";
 const FacultyCard = () => {
   const [open, setOpen] = useState("open");
   const { totalFaculty, isLoading } = useSelector(
@@ -15,7 +16,7 @@ const FacultyCard = () => {
   }, [dispatch]);
 
   if (isLoading) {
-    <p>wating......</p>;
+    return <LoaderHub type={"facultyCard"} />;
   }
   const facultyData = totalFaculty;
 

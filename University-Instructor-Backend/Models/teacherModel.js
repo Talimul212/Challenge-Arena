@@ -30,7 +30,7 @@ const teachersSchema = mongoose.Schema(
       {
         courseName: {
           type: String,
-          required: [true, "Course Name  is required"],
+          required: [false, "Course Name  is required"],
         },
         courseCode: {
           type: String,
@@ -41,10 +41,6 @@ const teachersSchema = mongoose.Schema(
     whatsappNumber: {
       type: Number,
       required: [false],
-    },
-    gmailAccount: {
-      type: String,
-      required: [true, "Gmail Account is required"],
     },
   },
   {

@@ -8,18 +8,18 @@
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #00bf63;
+  background: #38b6ff;
   border-radius: 10px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #00a653;
+  background: #38b6ff;
 }
 
 /* For Firefox */
 .custom-scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: #00bf63 #f1f1f1;
+  scrollbar-color: #38b6ff #f1f1f1;
 }
 
 /* For Edge and IE */

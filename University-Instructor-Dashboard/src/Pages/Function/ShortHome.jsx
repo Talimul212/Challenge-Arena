@@ -5,6 +5,7 @@ import Teachers from "./Components/Teachers/Teachers";
 import Courses from "./Components/Courses/Courses";
 import Classes from "./Components/Class/Classes";
 import Exam from "./Components/Exam/Exam";
+import Gallery from "./Components/Gallery/Gallery";
 
 const ShortHome = () => {
   const { id } = useParams();
@@ -22,6 +23,8 @@ const ShortHome = () => {
         <Classes />
       ) : id === "examSchedules" ? (
         <Exam />
+      ) : id === "gallery" ? (
+        <Gallery />
       ) : (
         ""
       )}

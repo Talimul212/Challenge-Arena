@@ -5,20 +5,22 @@ import { MdCreditScore } from "react-icons/md";
 import CourseTables from "../../../../Components/Table/CourseTables/CourseTables";
 import { useDispatch, useSelector } from "react-redux";
 import { getFaculty } from "../../../../features/Faculty/serviceApi";
+import LoaderHub from "../../../../Components/Loader/LoaderHub";
 const Courses = () => {
   const { totalFaculty, isLoading } = useSelector(
     (state) => state?.facultyList
   );
   const dispatch = useDispatch();
+  const [type, setType] = useState("Computer Science & Engineering");
+  const [name, setName] = useState("Computer Science & Engineering");
   useEffect(() => {
     getFaculty(dispatch);
   }, [dispatch]);
 
   if (isLoading) {
-    <p>wating......</p>;
+    return <LoaderHub type={"courses"} />;
   }
-  const [type, setType] = useState("Computer Science & Engineering");
-  const [name, setName] = useState("Computer Science & Engineering");
+
   const facultyData = totalFaculty;
   const handlerType = (e) => {
     setType(e);

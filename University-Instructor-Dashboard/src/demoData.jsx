@@ -29,12 +29,6 @@ export const sideBarData = [
     icon: <FaCodeBranch size={24} />,
   },
   {
-    id: 4,
-    route: "/UI/courses",
-    title: "Courses",
-    icon: <LiaDatabaseSolid size={24} />,
-  },
-  {
     id: 3,
     route: "/UI/teachers",
     title: "Teachers",
@@ -42,6 +36,12 @@ export const sideBarData = [
   },
   {
     id: 4,
+    route: "/UI/courses",
+    title: "Courses",
+    icon: <LiaDatabaseSolid size={24} />,
+  },
+  {
+    id: 5,
     route: "/UI/classes",
     title: "Classes Routine",
     icon: <SiGoogleclassroom size={24} />,
@@ -53,7 +53,7 @@ export const sideBarData = [
     icon: <PiNewspaperClipping size={24} />,
   },
   {
-    id: 6,
+    id: 7,
     route: "/UI/notifications",
     title: "Notifications",
     icon: <IoMdNotifications size={24} />,
@@ -65,13 +65,13 @@ export const sideBarData = [
     icon: <PiExamFill size={24} />,
   },
   {
-    id: 6,
+    id: 8,
     route: "/UI/gallery",
     title: "Gallery",
     icon: <IoIosImages size={24} />,
   },
   {
-    id: 7,
+    id: 9,
     route: "/UI/noticeEvent",
     title: "Notice & Event",
     icon: <MdOutlineEvent size={24} />,
