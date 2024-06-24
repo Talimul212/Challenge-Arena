@@ -25,7 +25,7 @@ const Batch = () => {
   };
 
   return (
-    <div className="ms-[-20px]  pb-20">
+    <div className="ms-[-20px] ">
       <div
         className=" flex justify-center flex-wrap gap-3  mx-auto  
       "
