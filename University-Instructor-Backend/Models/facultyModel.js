@@ -10,6 +10,10 @@ const facultyListSchema = mongoose.Schema(
       type: Number,
       required: [true, " Total Credits is required"],
     },
+    batchlist: {
+      type: [String], // Array of strings to hold batch names
+      required: [false, "Batch list is required"],
+    },
     photoURL: {
       fieldname: {
         type: String,

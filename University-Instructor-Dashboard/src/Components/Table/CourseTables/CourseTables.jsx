@@ -9,7 +9,7 @@ import { LiaSortAmountUpSolid } from "react-icons/lia";
 import { CgDetailsMore } from "react-icons/cg";
 import CoursesModal from "../../Modal/CoursesModal/CoursesModal";
 import { useState } from "react";
-const CourseTables = ({ type }) => {
+const CourseTables = ({ type, name }) => {
   const [modalData, setModalData] = useState();
   const toggleModal = (id) => {
     document.getElementById("my_modal_3").showModal();
@@ -202,7 +202,7 @@ const CourseTables = ({ type }) => {
 
   return (
     <>
-      {type == "CSE" ? (
+      {type == name ? (
         <div className=" me-6  mb-10 duration-700">
           <div style={{ height: open ? 400 : 100, width: "90vw" }}>
             <div className="flex items-center justify-between  mt-2 text-lg font-semibold shadow-lg mb-1  bg-white rounded p-2 ">
@@ -230,7 +230,7 @@ const CourseTables = ({ type }) => {
             </div>
           </div>
         </div>
-      ) : type == "BBA" ? (
+      ) : type == name ? (
         <div className=" me-6  mb-10 duration-700">
           <div style={{ height: open ? 400 : 100, width: "90vw" }}>
             <div className="flex items-center justify-between  mt-2 text-lg font-semibold shadow-lg mb-1  bg-white rounded p-2 ">
@@ -258,7 +258,7 @@ const CourseTables = ({ type }) => {
             </div>
           </div>
         </div>
-      ) : type == "ENG" ? (
+      ) : type == name ? (
         <div className=" me-6  mb-10 duration-700">
           <div style={{ height: open ? 400 : 100, width: "90vw" }}>
             <div className="flex items-center justify-between  mt-2 text-lg font-semibold shadow-lg mb-1  bg-white rounded p-2 ">
@@ -286,7 +286,7 @@ const CourseTables = ({ type }) => {
             </div>
           </div>
         </div>
-      ) : type == "GDS" ? (
+      ) : type == name ? (
         <div className=" me-6  mb-10 duration-700">
           <div style={{ height: open ? 400 : 100, width: "90vw" }}>
             <div className="flex items-center justify-between  mt-2 text-lg font-semibold shadow-lg mb-1  bg-white rounded p-2 ">
@@ -314,7 +314,7 @@ const CourseTables = ({ type }) => {
             </div>
           </div>
         </div>
-      ) : type == "HTM" ? (
+      ) : type == name ? (
         <div className=" me-6  mb-10 duration-700">
           <div style={{ height: open ? 400 : 100, width: "90vw" }}>
             <div className="flex items-center justify-between  mt-2 text-lg font-semibold shadow-lg mb-1  bg-white rounded p-2 ">

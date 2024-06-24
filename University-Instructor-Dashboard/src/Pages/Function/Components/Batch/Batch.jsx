@@ -8,6 +8,7 @@ const Batch = () => {
   const { totalFaculty, isLoading } = useSelector(
     (state) => state?.facultyList
   );
+
   const dispatch = useDispatch();
   useEffect(() => {
     getFaculty(dispatch);
@@ -18,7 +19,7 @@ const Batch = () => {
   }
   const facultyData = totalFaculty;
   return (
-    <div className="ms-[-20px]">
+    <div className="ms-[-20px]  pb-20">
       <div
         className=" flex justify-center flex-wrap gap-3  mx-auto  
       "
@@ -26,7 +27,7 @@ const Batch = () => {
         {facultyData?.map((item) => (
           <div
             key={item?._id}
-            className=" bg-white shadow-md flex items-center justify-between rounded text-md font-semibold  mb-1  p-2 w-[29vw]"
+            className=" bg-white shadow-md flex items-center justify-between rounded text-md font-semibold  mb-1  p-2 w-[401px]"
           >
             {item?.facultyName}
             <div>
@@ -43,7 +44,7 @@ const Batch = () => {
         ))}
       </div>
       <div>
-        <BatchTable />
+        <BatchTable facultyData={facultyData} />
       </div>
     </div>
   );
