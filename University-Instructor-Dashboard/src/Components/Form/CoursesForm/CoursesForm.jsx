@@ -1,5 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { getFaculty } from "../../../features/Faculty/serviceApi";
+import LoaderHub from "../../Loader/LoaderHub";
+import { getTeacherslist } from "../../../features/Teachers/serviceApi";
 
 const CoursesForm = () => {
   const { id } = useParams();
@@ -11,16 +15,38 @@ const CoursesForm = () => {
       [name]: value,
     }));
   };
+  const { totalFaculty, isLoading } = useSelector(
+    (state) => state?.facultyList
+  );
+  const { data } = useSelector((state) => state?.teachersList);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    getFaculty(dispatch);
+    getTeacherslist(dispatch);
+  }, [dispatch]);
+
+  if (isLoading) {
+    return <LoaderHub type={"facultyform"} />;
+  }
+  const facultyData = totalFaculty;
   const handleTuitons = async (e) => {
     e.preventDefault();
     console.log("Form Data:", formData);
     //
   };
+  const selectedFaculty = facultyData?.find((item) => item.facultyName === id);
+  const faculty = facultyData?.find((item) => item.facultyName == id);
+
+  const batches = selectedFaculty ? selectedFaculty.batchlist : [];
+  const teachers = data?.filter(
+    (item) => item.department == faculty?.facultyName
+  );
+
   return (
     <div>
       {" "}
       <div className=" duration-500 bg-white w-[98%]  mb-6 rounded mt-2   shadow-md">
-        <div className=" border-b-[1px] pb-1  ps-4 pt-2 text-xl font-semibold   mt-2">
+        <div className="  border-b-[1px] pb-1  ps-4 pt-2 text-xl font-semibold   mt-2">
           Add Course of {id.toUpperCase()}
         </div>
         <div className=" p-4">
@@ -44,15 +70,15 @@ const CoursesForm = () => {
                 />
               </div>
 
-              {/* <div className="flex justify-between items-center gap-5 mb-5">
+              <div className="flex justify-between items-center gap-5 mb-5">
                 <input
                   className="focus:outline-none  border-b-[1px] mb-2 w-full border-gray-400 focus-visible:no-underline"
                   type="text"
                   name="courseCode"
                   placeholder="Course Code "
                   onChange={handleInputChange}
-                /> 
-                 <select
+                />
+                <select
                   name="department"
                   onChange={handleInputChange}
                   className="focus:outline-none  border-b-[1px] mb-2 w-full border-gray-400 focus-visible:no-underline"
@@ -60,16 +86,11 @@ const CoursesForm = () => {
                   <option disabled selected>
                     Department
                   </option>
-                  <option>Computer Science & Engineering</option>
-                  <option>Bachelor of Business Administration</option>
-                  <option>Bachelor of English</option>
-                  <option>Bachelor of Hospitality &Tourism Management</option>
-                  <option>
-                    Bachelor of Social Science in Governance & Development
-                    Studies
-                  </option>
+                  {facultyData?.map((item) => (
+                    <option key={item?._id}>{item?.facultyName}</option>
+                  ))}
                 </select>
-              </div> */}
+              </div>
               <div className="flex justify-between items-center gap-5 mb-5">
                 <input
                   className="focus:outline-none  border-b-[1px] mb-2 w-full border-gray-400 focus-visible:no-underline"
@@ -99,20 +120,29 @@ const CoursesForm = () => {
                 </select> */}
               </div>
               <div className="flex justify-between items-center gap-5 mb-5">
-                <input
-                  className="focus:outline-none  border-b-[1px] mb-2 w-full border-gray-400 focus-visible:no-underline"
-                  type="text"
+                <select
                   name="batch"
-                  placeholder="Batch"
                   onChange={handleInputChange}
-                />
-                <input
                   className="focus:outline-none  border-b-[1px] mb-2 w-full border-gray-400 focus-visible:no-underline"
-                  type="text"
+                >
+                  <option disabled selected>
+                    Batch
+                  </option>
+                  {batches?.map((item) => (
+                    <option key={item?._id}>{item}</option>
+                  ))}
+                </select>
+                <select
                   name="type"
-                  placeholder="Course Type"
                   onChange={handleInputChange}
-                />
+                  className="focus:outline-none  border-b-[1px] mb-2 w-full border-gray-400 focus-visible:no-underline"
+                >
+                  <option disabled selected>
+                    Course Types
+                  </option>
+                  <option>Theory</option>
+                  <option>Lab</option>
+                </select>
               </div>
               <div className="flex justify-between items-center gap-5 mb-5">
                 <select
@@ -122,11 +152,10 @@ const CoursesForm = () => {
                 >
                   <option disabled selected>
                     Course Teacher
-                  </option>
-                  <option>Mr.Ban</option>
-                  <option>Mr.Bean</option>
-                  <option>Dr.yunus</option>
-                  <option>Mr.Modi</option>
+                  </option>{" "}
+                  {teachers?.map((item) => (
+                    <option key={item?._id}>{item?.name}</option>
+                  ))}
                 </select>
               </div>
               <p className=" font-semibold  mt-5 text-lg mb-2">

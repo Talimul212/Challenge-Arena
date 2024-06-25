@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { FcAddDatabase } from "react-icons/fc";
 import { LiaDatabaseSolid } from "react-icons/lia";
 import { MdCreditScore } from "react-icons/md";
 import CourseTables from "../../../../Components/Table/CourseTables/CourseTables";
@@ -11,8 +13,12 @@ const Courses = () => {
     (state) => state?.facultyList
   );
   const dispatch = useDispatch();
-  const [type, setType] = useState("Computer Science & Engineering");
-  const [name, setName] = useState("Computer Science & Engineering");
+  const [type, setType] = useState(
+    "B.Sc. in Computer Science & Engineering (CSE)"
+  );
+  const [name, setName] = useState(
+    "B.Sc. in Computer Science & Engineering (CSE)"
+  );
   useEffect(() => {
     getFaculty(dispatch);
   }, [dispatch]);
@@ -22,9 +28,9 @@ const Courses = () => {
   }
 
   const facultyData = totalFaculty;
-  const handlerType = (e) => {
+  const handlerType = (e, id) => {
     setType(e);
-    setName(e);
+    setName(id);
   };
   // const FacultyData = [
   //   {
@@ -70,7 +76,7 @@ const Courses = () => {
         {facultyData?.map((item, i) => (
           <div
             key={item.id}
-            onClick={() => handlerType(item.facultyName)}
+            onClick={() => handlerType(item.facultyName, item?._id)}
             className={`${
               type == item.facultyName
                 ? "bg-[#00bf63]  duration-1000"
@@ -134,6 +140,15 @@ const Courses = () => {
         ))}
       </div>
       <div className=" duration-700 mt-6">
+        <div className="flex items-center justify-between  mt-2 text-lg font-semibold shadow-lg mb-1  bg-white rounded p-2 ">
+          <p>Department of {type}</p>
+          <Link
+            to={`/UI/${name}/coursesForm`}
+            className="bg-[#00bf63] duration-700 px-4 rounded shadow hover:text-[#38b6ff] border hover:bg-transparent hover:border-[#38b6ff]  text-white py-1"
+          >
+            <FcAddDatabase />
+          </Link>
+        </div>
         <CourseTables type={type} name={name} />
       </div>
     </div>

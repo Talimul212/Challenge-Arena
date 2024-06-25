@@ -26,7 +26,7 @@ export const router = createBrowserRouter([
         element: <AddForm />,
       },
       {
-        path: "/UI/:id/addForm",
+        path: "/UI/:id/coursesForm",
         element: <CoursesForm />,
       },
     ],

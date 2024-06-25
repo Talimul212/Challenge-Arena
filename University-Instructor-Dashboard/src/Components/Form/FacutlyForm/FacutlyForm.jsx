@@ -49,8 +49,12 @@ const FacutlyForm = ({ open }) => {
       photoURL: photoURL,
     };
     addFaculty(dispatch, formDataJson);
-    setFormData(null);
+    setFormData({
+      facultyName: "",
+      totalCredits: "",
+    });
     setImage(null);
+    window.location.reload();
   };
   return (
     <div
