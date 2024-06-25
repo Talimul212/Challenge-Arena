@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useDispatch, useSelector } from "react-redux";
 import TeachersTable from "../../../../Components/Table/TeachersTable/TeachersTable";
 import { useEffect } from "react";
@@ -7,13 +8,15 @@ import { getTeacherslist } from "../../../../features/Teachers/serviceApi";
 const Teachers = () => {
   const { data, isLoading } = useSelector((state) => state?.teachersList);
   const dispatch = useDispatch();
+
   useEffect(() => {
     getTeacherslist(dispatch);
   }, [dispatch]);
 
   if (isLoading) {
-    return <LoaderHub type={"teachersList"} />;
+    return <LoaderHub type={"courses"} />;
   }
+
   return (
     <>
       <div>

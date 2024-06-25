@@ -12,6 +12,7 @@ const AddForm = () => {
   const [image, setImage] = useState(null);
   const [formData, setFormData] = useState({});
   const navigate = useNavigate();
+
   const { totalFaculty, isLoading } = useSelector(
     (state) => state?.facultyList
   );
@@ -64,7 +65,8 @@ const AddForm = () => {
     };
     addTeacherslist(dispatch, formDataJson);
     setImage(null);
-    navigate("/teachers");
+    navigate("/UI/teachers");
+    window.location.reload();
   };
   return (
     <div className=" duration-500 bg-white w-[98%]  mb-6 rounded mt-2   shadow-md">
@@ -185,43 +187,24 @@ const AddForm = () => {
             </select>
           </div>
           <div></div>
-          {/* <p className=" font-semibold  mt-5 text-lg mb-2">Course List</p>
-          <div className="flex justify-between items-center gap-5 mb-5">
-            <select
-              name="courseCode"
-              onChange={handleInputChange}
-              className="focus:outline-none  border-b-[1px] mb-2 w-full border-gray-400 focus-visible:no-underline"
+          {image &&
+          formData?.name &&
+          formData?.gender &&
+          formData?.whatsappNumber &&
+          formData?.department &&
+          formData?.position &&
+          formData?.email ? (
+            <button
+              className="bg-[#00bf63] mt-2 text-white font-semibold px-5 py-1 rounded shadow-lg"
+              type="submit"
             >
-              <option disabled selected>
-                Course Code
-              </option>
-              <option>CSE 216</option>
-              <option>CSE 310</option>
-              <option>CSE 326</option>
-              <option>CSE 110</option>
-            </select>
-            <select
-              name="courseName"
-              onChange={handleInputChange}
-              className="focus:outline-none  border-b-[1px] mb-2 w-full border-gray-400 focus-visible:no-underline"
-            >
-              <option disabled selected>
-                Course Name
-              </option>
-              <option>Database Management System (DBMS)</option>
-              <option>Computer Graphics</option>
-              <option>Programming Abstractions</option>
-              <option> Compiler Construction</option>
-              <option> Operating Systems</option>
-              <option> Computer Networks</option>
-            </select>
-          </div> */}
-          <button
-            className="bg-[#00bf63] mt-2 text-white font-semibold px-5 py-1 rounded shadow-lg"
-            type="submit"
-          >
-            POST
-          </button>
+              POST
+            </button>
+          ) : (
+            <button className="bg-gray-400 mt-2 text-white font-semibold px-5 py-1 rounded shadow-lg">
+              POST
+            </button>
+          )}
         </form>
       </div>
     </div>

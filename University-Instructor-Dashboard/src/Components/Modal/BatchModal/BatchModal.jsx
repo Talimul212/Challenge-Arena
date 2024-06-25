@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { updateFaculty } from "../../../features/Faculty/serviceApi";
 import { useDispatch } from "react-redux";
-
 /* eslint-disable react/prop-types */
 const BatchModal = ({ data }) => {
   const dispatch = useDispatch();
@@ -20,9 +19,10 @@ const BatchModal = ({ data }) => {
       batchlist: update,
       photoURL: data?.photoURL,
     };
-    console.log(formDataJson);
+
     updateFaculty(dispatch, data?._id, formDataJson);
     setNewBatch("");
+    window.location.reload();
   };
 
   return (

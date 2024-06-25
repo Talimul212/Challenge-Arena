@@ -182,6 +182,22 @@ const LoaderHub = ({ type }) => {
               </div>
             </div>
           </>
+        ) : type === "facultyform" ? (
+          <>
+            <div>
+              <div className="mt-3 flex justify-start gap-3">
+                <Skeleton
+                  count={1}
+                  marginTop={"10px"}
+                  height={"40px"}
+                  width={"90vw"}
+                />
+              </div>
+              <div className="lg:flex justify-start gap-3">
+                <Skeleton count={1} height={"70vh"} width={"90vw"} />
+              </div>
+            </div>
+          </>
         ) : type === "faculty" ? (
           <div className="flex gap-2 justify-start">
             <Skeleton
