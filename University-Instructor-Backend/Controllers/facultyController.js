@@ -47,7 +47,6 @@ module.exports.getFaculty = async (req, res) => {
 module.exports.updateFaculty = async (req, res) => {
   const facultyId = req.params.id;
   const facultyData = req.body;
-  console.log(facultyData.formDataJson);
   try {
     const updated = await FacultyList.findByIdAndUpdate(
       facultyId,
