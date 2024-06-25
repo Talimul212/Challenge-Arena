@@ -11,8 +11,38 @@ const teachersSchema = mongoose.Schema(
       required: [false],
     },
     photoURL: {
-      type: String,
-      required: [false],
+      fieldname: {
+        type: String,
+        required: [false],
+      },
+      originalname: {
+        type: String,
+        required: [false],
+      },
+      encoding: {
+        type: String,
+        required: [false],
+      },
+      mimetype: {
+        type: String,
+        required: [false],
+      },
+      destination: {
+        type: String,
+        required: [false],
+      },
+      filename: {
+        type: String,
+        required: [false],
+      },
+      path: {
+        type: String,
+        required: [false],
+      },
+      size: {
+        type: Number,
+        required: [false],
+      },
     },
     email: {
       type: String,

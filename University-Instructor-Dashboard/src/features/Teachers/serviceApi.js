@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import { publicRequest } from "../../requestMethod";
 import {
   getTeacherslistingFailure,
@@ -16,6 +17,7 @@ export const addTeacherslist = async (dispatch, payload) => {
   try {
     const res = await publicRequest.post("/teachers", payload);
     dispatch(teacherslistingSuccess(res.data.data));
+    toast.success(`${res.data.message}`);
   } catch (err) {
     const errorMessage = err.response?.data?.error || "An error occurred.";
     dispatch(teacherslistingFailure(errorMessage));

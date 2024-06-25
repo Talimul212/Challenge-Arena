@@ -1,12 +1,13 @@
 /* eslint-disable react/prop-types */
 import styled from "styled-components";
+import { vercel } from "../../helpers/api";
 
 const TeacherCard = ({ teacher }) => {
   return (
     <CardContainer className="bg-white shadow rounded border-[1px]">
       <TeacherImage
         className=" rounded-t"
-        src={teacher.photoURL}
+        src={`${vercel}/images/${teacher?.photoURL?.filename}`}
         alt={teacher.name}
       />
       <div className="px-1 pb-1">

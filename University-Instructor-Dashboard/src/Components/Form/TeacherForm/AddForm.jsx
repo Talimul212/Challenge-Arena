@@ -6,10 +6,12 @@ import { getFaculty } from "../../../features/Faculty/serviceApi";
 import LoaderHub from "../../Loader/LoaderHub";
 import { publicRequest } from "../../../requestMethod";
 import { addTeacherslist } from "../../../features/Teachers/serviceApi";
+import { useNavigate } from "react-router-dom";
 const AddForm = () => {
   const [file, setFile] = useState(null);
   const [image, setImage] = useState(null);
   const [formData, setFormData] = useState({});
+  const navigate = useNavigate();
   const { totalFaculty, isLoading } = useSelector(
     (state) => state?.facultyList
   );
@@ -61,7 +63,8 @@ const AddForm = () => {
       photoURL: photoURL,
     };
     addTeacherslist(dispatch, formDataJson);
-    setFormData(null);
+    setImage(null);
+    navigate("/teachers");
   };
   return (
     <div className=" duration-500 bg-white w-[98%]  mb-6 rounded mt-2   shadow-md">

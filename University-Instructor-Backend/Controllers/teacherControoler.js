@@ -3,11 +3,10 @@ const { Teachers } = require("../Models/teacherModel");
 module.exports.addTeacher = async (req, res) => {
   try {
     const teacher = new Teachers(req.body);
-    console.log(teacher);
     const result = await teacher.save();
     res.status(200).json({
       status: true,
-      message: "teacher added successfully",
+      message: "New Teacher added successfully",
       data: result,
     });
   } catch (error) {
