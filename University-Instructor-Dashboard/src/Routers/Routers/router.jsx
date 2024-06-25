@@ -22,7 +22,7 @@ export const router = createBrowserRouter([
         element: <ShortHome />,
       },
       {
-        path: "/UI/teachers/addForm",
+        path: "/UI/teacherForm",
         element: <AddForm />,
       },
       {

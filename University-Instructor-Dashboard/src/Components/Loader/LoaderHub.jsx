@@ -165,11 +165,21 @@ const LoaderHub = ({ type }) => {
               </div>
             </div>
           </>
-        ) : type === "teachers" ? (
+        ) : type === "teachersList" ? (
           <>
-            <div className="flex justify-between w-[97%] mx-auto mt-4">
-              <Skeleton count={3} height={"160px"} width={"175px"} />
-              <Skeleton count={2} height={"160px"} width={"175px"} />
+            <div>
+              <div className="lg:flex justify-start gap-3">
+                <Skeleton count={1} height={"50px"} width={"82vw"} />
+                <Skeleton count={1} height={"50px"} width={"7vw"} />
+              </div>
+              <div className="mt-3 flex justify-start gap-3">
+                <Skeleton
+                  count={8}
+                  marginTop={"10px"}
+                  height={"40px"}
+                  width={"90vw"}
+                />
+              </div>
             </div>
           </>
         ) : type === "faculty" ? (

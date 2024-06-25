@@ -4,6 +4,8 @@ import { IoMdPerson } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 import { getFaculty } from "../../../features/Faculty/serviceApi";
 import LoaderHub from "../../Loader/LoaderHub";
+import { publicRequest } from "../../../requestMethod";
+import { addTeacherslist } from "../../../features/Teachers/serviceApi";
 const AddForm = () => {
   const [file, setFile] = useState(null);
   const [image, setImage] = useState(null);
@@ -38,22 +40,28 @@ const AddForm = () => {
       reader.readAsDataURL(file);
     }
   };
-  // upload single file
-  //   const upload = async (file) => {
-  //     console.log(file);
-  //     try {
-  //       const formData = new FormData();
-  //       formData.append("image", file);
-  //       const res = await publicRequest.post("/file-upload", formData);
-  //       return res.data;
-  //     } catch (err) {
-  //       alert("Error", "Can't upload this image", "error");
-  //     }
-  //   };
+  // consupload single file
+  const upload = async (file) => {
+    console.log(file);
+    try {
+      const formData = new FormData();
+      formData.append("image", file);
+      const res = await publicRequest.post("/file-upload", formData);
+      return res.data;
+    } catch (err) {
+      alert("Error", "Can't upload this image", "error");
+    }
+  };
   const handleTuitons = async (e) => {
     e.preventDefault();
+    const photoURL = await upload(file);
     console.log("Form Data:", formData);
-    //
+    const formDataJson = {
+      ...formData,
+      photoURL: photoURL,
+    };
+    addTeacherslist(dispatch, formDataJson);
+    setFormData(null);
   };
   return (
     <div className=" duration-500 bg-white w-[98%]  mb-6 rounded mt-2   shadow-md">
@@ -147,7 +155,7 @@ const AddForm = () => {
               <option disabled selected>
                 Faculty
               </option>
-              {facultyData.map((item) => (
+              {facultyData?.map((item) => (
                 <option key={item?._id}>{item?.facultyName}</option>
               ))}
             </select>
