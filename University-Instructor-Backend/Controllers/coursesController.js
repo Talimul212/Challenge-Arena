@@ -3,6 +3,7 @@ const { Courses } = require("../Models/coursesModel");
 module.exports.addCourses = async (req, res) => {
   try {
     const course = new Courses(req.body);
+    console.log(course);
     const result = await course.save();
     res.status(201).json({
       status: true,

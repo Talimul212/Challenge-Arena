@@ -1,16 +1,16 @@
 import { toast } from "react-toastify";
 import { publicRequest } from "../../requestMethod";
 import {
-  getTeacherslistingFailure,
-  getTeacherslistingStart,
-  getTeacherslistingSuccess,
-  teacherslistingFailure,
   teacherslistingStart,
+  teacherslistingFailure,
   teacherslistingSuccess,
+  getTeacherslistingFailure,
+  getTeacherslistingSuccess,
+  getTeacherslistingStart,
   updataTeacherslistingFailure,
   updataTeacherslistingStart,
   updataTeacherslistingSuccess,
-} from "../Teachers/teachersSlice";
+} from "./teachersSlice";
 
 export const addTeacherslist = async (dispatch, payload) => {
   dispatch(teacherslistingStart());

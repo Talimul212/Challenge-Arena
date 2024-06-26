@@ -9,12 +9,13 @@ import { LiaSortAmountUpSolid } from "react-icons/lia";
 import { CgDetailsMore } from "react-icons/cg";
 import CoursesModal from "../../Modal/CoursesModal/CoursesModal";
 import { useState } from "react";
-const CourseTables = ({ type, name }) => {
+const CourseTables = ({ type, name, data }) => {
   const [modalData, setModalData] = useState();
   const toggleModal = (id) => {
     document.getElementById("my_modal_3").showModal();
     setModalData(id);
   };
+
   const columns = [
     {
       field: "id",
@@ -27,7 +28,7 @@ const CourseTables = ({ type, name }) => {
       },
       width: 70,
     },
-    { field: "name", headerName: "Course Name", width: 170 },
+    { field: "courseName", headerName: "Course Name", width: 170 },
     { field: "credits", headerName: "Credits", width: 100 },
     { field: "courseCode", headerName: "Course Code", width: 130 },
     {
@@ -63,7 +64,11 @@ const CourseTables = ({ type, name }) => {
             </button>
             <div className="flex items-center ">
               <LiaSortAmountUpSolid size={17} color="#38b6ff" />
-              <p>2</p>
+              <p>
+                {params?.row?.relatedBooks.length
+                  ? params?.row?.relatedBooks.length
+                  : 0}
+              </p>
             </div>
           </div>
         );
@@ -93,86 +98,7 @@ const CourseTables = ({ type, name }) => {
     // });
   };
 
-  const rows = [
-    {
-      id: 1,
-      name: "Theory of Computation",
-      credits: "3",
-      teacherName: "Smith",
-      hours: "30",
-      type: "Theory",
-      courseCode: "CSE110",
-      batch: "5th,3th",
-    },
-  ];
-  const rows1 = [
-    {
-      id: 1,
-      name: "Human Resource Management",
-      credits: "3",
-      teacherName: "Admam",
-      hours: "30",
-      type: "Theory",
-      courseCode: "BBA110",
-      batch: "5th",
-    },
-  ];
-  const rows2 = [
-    {
-      id: 1,
-      name: "English Fundamentals ",
-      credits: "3",
-      teacherName: "Mrs.Bean",
-      hours: "30",
-      type: "Theory",
-      courseCode: "ENG101",
-      batch: "5th",
-    },
-  ];
-  const rows3 = [
-    {
-      id: 1,
-      name: "Introduction to Politics and Political Thoughts  ",
-      credits: "3",
-      teacherName: "Mrs.Modi",
-      hours: "30",
-      type: "Theory",
-      courseCode: "DS103",
-      batch: "1th,2nd",
-    },
-    {
-      id: 2,
-      name: "NGOs and Development Management ",
-      credits: "3",
-      teacherName: "DR. Muhammad Yunus",
-      hours: "30",
-      type: "Theory",
-      courseCode: "DS305",
-      batch: "5th,6th",
-    },
-  ];
-  const rows4 = [
-    {
-      id: 1,
-      name: "Hospitality Management.",
-      credits: "3",
-      teacherName: "Mrs.Ban",
-      hours: "30",
-      type: "Theory",
-      courseCode: "HT1010 ",
-      batch: "2nd",
-    },
-    {
-      id: 2,
-      name: "Introduction to Marketing",
-      credits: "3",
-      teacherName: "Mrs.lina",
-      hours: "30",
-      type: "Theory",
-      courseCode: "MK2350",
-      batch: "6th",
-    },
-  ];
+  const individual = data?.filter((item) => item.department === type);
   const actionColumn = [
     {
       field: "action",
@@ -202,12 +128,17 @@ const CourseTables = ({ type, name }) => {
 
   return (
     <>
-      {type == name ? (
-        <div className="  mb-10 duration-700">
-          <div style={{ height: open ? 400 : 100, width: "1235px" }}>
-            <div className=" duration-300">
+      <div className="  mb-10 duration-700">
+        <div style={{ height: open ? 400 : 100, width: "1235px" }}>
+          <div className=" duration-300">
+            {individual ? (
               <DataGrid
-                rows={rows}
+                rows={
+                  individual?.map((user, index) => ({
+                    ...user,
+                    id: index + 1,
+                  })) || []
+                }
                 columns={columns.concat(actionColumn)}
                 className="shadow-lg bg-white duration-300"
                 initialState={{
@@ -218,12 +149,13 @@ const CourseTables = ({ type, name }) => {
                 pageSizeOptions={[5, 10]}
                 rowSelection={false}
               />
-            </div>
+            ) : (
+              <p>hgkja</p>
+            )}
           </div>
         </div>
-      ) : (
-        ""
-      )}
+      </div>
+
       {/* You can open the modal using document.getElementById('ID').showModal() method */}
 
       <CoursesModal modalData={modalData} />

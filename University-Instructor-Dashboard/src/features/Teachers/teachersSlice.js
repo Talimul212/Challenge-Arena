@@ -48,8 +48,8 @@ const teachersSlice = createSlice({
 });
 
 export const {
-  teacherslistingFailure,
   teacherslistingStart,
+  teacherslistingFailure,
   teacherslistingSuccess,
   getTeacherslistingFailure,
   getTeacherslistingSuccess,

@@ -55,7 +55,7 @@ const AddForm = () => {
       alert("Error", "Can't upload this image", "error");
     }
   };
-  const handleTuitons = async (e) => {
+  const teacherHandler = async (e) => {
     e.preventDefault();
     const photoURL = await upload(file);
     console.log("Form Data:", formData);
@@ -120,7 +120,7 @@ const AddForm = () => {
             onChange={handleImageChange}
           />
         </div>
-        <form className="mt-5" onSubmit={handleTuitons}>
+        <form className="mt-5" onSubmit={teacherHandler}>
           <div className="flex justify-between items-center gap-5 mb-5">
             <input
               className="focus:outline-none  border-b-[1px] mb-2 w-full border-gray-400 focus-visible:no-underline"
