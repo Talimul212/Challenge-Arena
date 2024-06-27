@@ -7,8 +7,27 @@ import { FaEye } from "react-icons/fa";
 import { BsTrash } from "react-icons/bs";
 import { LiaSortAmountUpSolid } from "react-icons/lia";
 import { CgDetailsMore } from "react-icons/cg";
+import { useState } from "react";
+import TeacherModale from "../../Modal/TeacherModale/TeacherModale";
+import CoursesModal from "../../Modal/CoursesModal/CoursesModal";
 // eslint-disable-next-line react/prop-types
-const TeachersTable = ({ data }) => {
+const TeachersTable = ({ data, course }) => {
+  const [teacher, setTeacher] = useState(null);
+  const [cour, setCourse] = useState(null);
+  const len = (n) => {
+    const count = course?.find((it) => it?.teacherName === n);
+    return <p>{count?.relatedBooks?.length || 0}</p>;
+  };
+  const toggleModal = (id, type, n) => {
+    document.getElementById("my_modal_3").showModal();
+    if (type == "teacher") {
+      const single = data?.find((item) => item._id == id);
+      setTeacher(single);
+    } else {
+      const count = course?.find((it) => it?.teacherName === n);
+      setCourse(count);
+    }
+  };
   const columns = [
     {
       field: "id",
@@ -72,13 +91,15 @@ const TeachersTable = ({ data }) => {
             <div
               title="View"
               className=" bg-[#00bf63] text-white border px-3 rounded shadow hover:bg-transparent hover:border-[#38b6ff] hover:text-[#38b6ff] cursor-pointer duration-700"
-              // onClick={() => toggleModal(params.row._id)}
+              onClick={() =>
+                toggleModal(params.row._id, "course", params?.row?.name)
+              }
             >
               <CgDetailsMore size={17} />
             </div>
             <div className="flex justify-start items-center ">
               <LiaSortAmountUpSolid size={17} color="#38b6ff" />
-              <p>2</p>
+              <p>{len(params?.row?.name)}</p>
             </div>
           </div>
         );
@@ -108,99 +129,6 @@ const TeachersTable = ({ data }) => {
     // });
   };
 
-  const toggleModal = () => {};
-  const rows = [
-    {
-      id: 1,
-      name: "MD:Talimul Islam",
-      gender: "male",
-      position: "professor",
-      email: "Jon@gmail.coms",
-      department: "Computer Science & Engineering ",
-      mobileNumber: "1246365",
-    },
-    {
-      id: 2,
-      name: "MD:Talimul Islam",
-      gender: "male",
-      position: "professor",
-      email: "Jon@gmail.coms",
-      department: "Computer Science & Engineering ",
-      mobileNumber: "1246365",
-    },
-    {
-      id: 3,
-      name: "MD:Talimul Islam",
-      gender: "male",
-      position: "professor",
-      email: "Jon@gmail.coms",
-      department: "Computer Science & Engineering ",
-      mobileNumber: "1246365",
-    },
-    {
-      id: 4,
-      name: "MD:Talimul Islam",
-      gender: "male",
-      position: "professor",
-      email: "Jon@gmail.coms",
-      department: "Computer Science & Engineering ",
-      mobileNumber: "1246365",
-    },
-    {
-      id: 5,
-      name: "MD:Talimul Islam",
-      gender: "male",
-      position: "professor",
-      email: "Jon@gmail.coms",
-      department: "Computer Science & Engineering ",
-      mobileNumber: "1246365",
-    },
-    {
-      id: 6,
-      name: "MD:Talimul Islam",
-      gender: "male",
-      position: "professor",
-      email: "Jon@gmail.coms",
-      department: "Computer Science & Engineering ",
-      mobileNumber: "1246365",
-    },
-    {
-      id: 7,
-      name: "MD:Talimul Islam",
-      gender: "male",
-      position: "professor",
-      email: "Jon@gmail.coms",
-      department: "Computer Science & Engineering ",
-      mobileNumber: "1246365",
-    },
-    {
-      id: 8,
-      name: "MD:Talimul Islam",
-      gender: "male",
-      position: "professor",
-      email: "Jon@gmail.coms",
-      department: "Computer Science & Engineering ",
-      mobileNumber: "1246365",
-    },
-    {
-      id: 9,
-      name: "MD:Talimul Islam",
-      gender: "male",
-      position: "professor",
-      email: "Jon@gmail.coms",
-      department: "Computer Science & Engineering ",
-      mobileNumber: "1246365",
-    },
-    {
-      id: 10,
-      name: "MD:Talimul Islam",
-      gender: "male",
-      position: "professor",
-      email: "Jon@gmail.coms",
-      department: "Computer Science & Engineering ",
-      mobileNumber: "1246365",
-    },
-  ];
   const actionColumn = [
     {
       field: "action",
@@ -212,7 +140,7 @@ const TeachersTable = ({ data }) => {
             <div
               title="View"
               className=" bg-[#00bf63] text-white border  px-3 rounded shadow hover:bg-transparent hover:border-[#38b6ff] hover:text-[#38b6ff] cursor-pointer duration-700"
-              // onClick={() => toggleModal(params.row._id)}
+              onClick={() => toggleModal(params.row._id, "teacher")}
             >
               <FaEye size={17} />
             </div>
@@ -256,6 +184,8 @@ const TeachersTable = ({ data }) => {
           />
         </div>
       </div>
+      <TeacherModale teacher={teacher} />
+      <CoursesModal modalData={cour} />
     </div>
   );
 };

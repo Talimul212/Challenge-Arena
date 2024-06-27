@@ -4,13 +4,17 @@ import TeachersTable from "../../../../Components/Table/TeachersTable/TeachersTa
 import { useEffect } from "react";
 import LoaderHub from "../../../../Components/Loader/LoaderHub";
 import { getTeacherslist } from "../../../../features/Teachers/serviceApi";
+import { getCourses } from "../../../../features/Courses/serviceApi";
 
 const Teachers = () => {
   const { data, isLoading } = useSelector((state) => state?.teachersList);
+  const takedCourse = useSelector((state) => state?.coursesList?.data);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
     getTeacherslist(dispatch);
+    getCourses(dispatch);
   }, [dispatch]);
 
   if (isLoading) {
@@ -20,7 +24,7 @@ const Teachers = () => {
   return (
     <>
       <div>
-        <TeachersTable data={data} />
+        <TeachersTable data={data} course={takedCourse} />
       </div>
     </>
   );

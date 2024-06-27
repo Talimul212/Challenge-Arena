@@ -13,9 +13,9 @@ const ClassMateCard = () => {
   useEffect(() => {
     getUser(
       dispatch,
+      currentUser.department,
       currentUser.batch,
       currentUser.semseter,
-      currentUser.department,
       currentUser._id
     );
   }, [

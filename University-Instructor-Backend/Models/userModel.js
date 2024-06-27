@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const userSchema = mongoose.Schema(
   {
     batch: {
-      type: Number,
+      type: String,
       required: [true, "Batch  is required"],
     },
     credits: {

@@ -12,8 +12,8 @@ const Course = () => {
   const { currentUser } = useSelector((state) => state?.auth);
   const dispatch = useDispatch();
   useEffect(() => {
-    getCourses(dispatch, currentUser?.batch);
-  }, [dispatch, currentUser?.batch]);
+    getCourses(dispatch, currentUser?.department, currentUser?.batch);
+  }, [dispatch, currentUser?.department, currentUser?.batch]);
   if (isLoading) {
     <p>waiting</p>;
   }

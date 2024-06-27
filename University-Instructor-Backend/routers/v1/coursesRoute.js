@@ -9,6 +9,6 @@ const router = express.Router();
 
 router.post("/", addCourses);
 router.get("/", getCourses);
-router.get("/:batch", getBatchCourse);
+router.get("/:department/:batch", getBatchCourse);
 
 module.exports = router;

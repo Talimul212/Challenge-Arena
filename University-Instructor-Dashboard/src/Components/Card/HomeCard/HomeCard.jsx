@@ -8,13 +8,16 @@ import { getUser } from "../../../features/users/serviceApi";
 import { getFaculty } from "../../../features/Faculty/serviceApi";
 import LoaderHub from "../../Loader/LoaderHub";
 import { Link } from "react-router-dom";
+import { getTeacherslist } from "../../../features/Teachers/serviceApi";
 const HomeCard = () => {
   const { totalUser, isLoading } = useSelector((state) => state?.user);
-  const dispatch = useDispatch();
   const { totalFaculty } = useSelector((state) => state?.facultyList);
+  const { data } = useSelector((state) => state?.teachersList);
+  const dispatch = useDispatch();
   useEffect(() => {
     getUser(dispatch);
     getFaculty(dispatch);
+    getTeacherslist(dispatch);
   }, [dispatch]);
 
   if (isLoading) {
@@ -70,7 +73,7 @@ const HomeCard = () => {
             <h2 className="card-title">
               Total <span className="text-[#00bf62]"> Teachers</span>
             </h2>
-            <p className="text-xl font-semibold text-right">26</p>
+            <p className="text-xl font-semibold text-right">{data?.length}</p>
           </div>
         </div>
         <div className="card-actions justify-center mb-2">

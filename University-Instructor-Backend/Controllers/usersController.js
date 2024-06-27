@@ -55,7 +55,7 @@ module.exports.getUser = async (req, res) => {
 };
 
 module.exports.GetClassMate = async (req, res) => {
-  // console.log(req.params, batch);
+  // console.log(req.params);
   const users = await Users.find({
     _id: { $ne: new ObjectId(req.params.id) }, // Exclude the current user
     department: req.params.department,

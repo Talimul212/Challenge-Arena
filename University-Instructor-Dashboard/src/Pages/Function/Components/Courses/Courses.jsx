@@ -36,9 +36,8 @@ const Courses = () => {
     setName(id);
   };
   const len = (n) => {
-    console.log(n);
     const count = data?.filter((it) => it?.department === n);
-    return <p>{count.length}</p>;
+    return <p>{count?.length || 0}</p>;
   };
   //  === item?.facultyName ? it?.length : " 60"
   // const FacultyData = [

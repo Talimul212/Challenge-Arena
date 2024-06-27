@@ -18,6 +18,7 @@ import classRoutineSlice from "../features/classRoutine/classRoutineSlice";
 import CompletecourseSlice from "../features/completeCourse/CompletecourseSlice";
 import teachersSlice from "../features/teachers/teachersSlice";
 import authSlice from "../features/auth/authSlice";
+import facultySlice from "../features/faculty/facultySlice";
 
 const persistConfig = {
   key: "root",
@@ -34,6 +35,7 @@ const rootReducer = combineReducers({
   classRoutine: classRoutineSlice,
   completeCourse: CompletecourseSlice,
   teachers: teachersSlice,
+  faculty: facultySlice,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

@@ -18,7 +18,8 @@ export const userRegistration = async (dispatch, payload) => {
     dispatch(registrationFailure(errorMessage));
   }
 };
-export const getUser = async (dispatch, batch, department, semseter, id) => {
+export const getUser = async (dispatch, department, batch, semseter, id) => {
+  console.log(semseter);
   dispatch(getUserStart());
   try {
     const res = await publicRequest.get(

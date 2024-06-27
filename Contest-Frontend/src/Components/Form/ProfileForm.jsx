@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-unescaped-entities */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoIosCamera } from "react-icons/io";
 import { IoPerson } from "react-icons/io5";
 import {
@@ -21,11 +21,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { register, updateUser } from "../../features/auth/service";
 import { useNavigate } from "react-router-dom";
 import { vercel } from "../../helpers/api";
+import LoaderHub from "../Loader/LoaderHub";
+import { getFaculty } from "../../features/faculty/serviceApi";
 const ProfileForm = ({ state }) => {
   const [file, setFile] = useState(null);
   const [image, setImage] = useState(null);
-  const dispatch = useDispatch();
-  const { currentUser } = useSelector((state) => state?.auth);
   const [formData, setFormData] = useState({
     name: state?.name,
     studentId: parseInt(state?.studentId),
@@ -39,6 +39,25 @@ const ProfileForm = ({ state }) => {
     credits: null,
   });
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { currentUser } = useSelector((state) => state?.auth);
+  const { totalFaculty, isLoading } = useSelector((state) => state?.faculty);
+  const [selectedBatch, setSelectedBatch] = useState(null);
+
+  useEffect(() => {
+    getFaculty(dispatch);
+  }, [dispatch]);
+
+  if (isLoading) {
+    return <LoaderHub type={"facultyCard"} />;
+  }
+  const facultyData = totalFaculty;
+
+  const selectedFaculty = facultyData?.find(
+    (item) => item.facultyName === formData?.department
+  );
+  const batches = selectedFaculty ? selectedFaculty.batchlist : [];
+
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     const reader = new FileReader();
@@ -66,7 +85,7 @@ const ProfileForm = ({ state }) => {
     const { name, value } = e.target;
     const parsedValue =
       name === "batch"
-        ? parseInt(value)
+        ? setSelectedBatch(value)
         : name === "cgpa"
         ? parseInt(value)
         : name === "credits"
@@ -106,7 +125,7 @@ const ProfileForm = ({ state }) => {
     const photoURL = await upload(file);
     // Here you can handle the form submission
     const formDataJson = JSON.stringify({
-      batch: formData.batch,
+      batch: selectedBatch,
       credits: formData.credits,
       name: formData.name,
       gender: formData.gender,
@@ -130,10 +149,11 @@ const ProfileForm = ({ state }) => {
     !formData?.password ||
     !formData?.gender ||
     !formData?.department ||
-    !formData?.batch ||
+    !selectedBatch ||
     !formData?.semester ||
     !formData?.cgpa ||
     !formData?.credits;
+  console.log(formData?.batch);
   return (
     <>
       {currentUser ? (
@@ -208,12 +228,9 @@ const ProfileForm = ({ state }) => {
                   >
                     Select Department
                   </option>
-                  <option value="English">English</option>
-                  <option value="GDS">
-                    Governance and Development Studies
-                  </option>
-                  <option value="BBA">Business Administration</option>
-                  <option value="CSE">Computer Science and Engineering</option>
+                  {facultyData?.map((item) => (
+                    <option key={item?._id}>{item?.facultyName}</option>
+                  ))}
                 </select>
               </div>
             </FormField>
@@ -227,21 +244,26 @@ const ProfileForm = ({ state }) => {
                     type="number"
                     defaultValue={currentUser.batch}
                     onChange={handleChange}
-                    placeholder="select the batch"
                   >
-                    <option
-                      style={{ cursor: "not-allowed" }}
-                      className="cursor-not-allowed text-gray-300"
-                    >
-                      Select the batch
-                    </option>
-                    <option value={1}>1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
+                    {batches?.length > 0 ? (
+                      <>
+                        <option
+                          style={{ cursor: "not-allowed" }}
+                          className="cursor-not-allowed text-gray-300"
+                        >
+                          Select the batch
+                        </option>
+                        {batches.map((item, index) => (
+                          <option key={index} value={item}>
+                            {item}
+                          </option>
+                        ))}
+                      </>
+                    ) : (
+                      <option disabled selected>
+                        Selcet department first
+                      </option>
+                    )}
                   </select>
                 </div>
               </FormField>
@@ -416,12 +438,9 @@ const ProfileForm = ({ state }) => {
                   >
                     Select Department
                   </option>
-                  <option value="English">English</option>
-                  <option value="GDS">
-                    Governance and Development Studies
-                  </option>
-                  <option value="BBA">Business Administration</option>
-                  <option value="CSE">Computer Science and Engineering</option>
+                  {facultyData?.map((item) => (
+                    <option key={item?._id}>{item?.facultyName}</option>
+                  ))}
                 </select>
               </div>
             </FormField>
@@ -435,21 +454,26 @@ const ProfileForm = ({ state }) => {
                     name="batch"
                     type="number"
                     onChange={handleChange}
-                    placeholder="select the batch"
                   >
-                    <option
-                      style={{ cursor: "not-allowed" }}
-                      className="cursor-not-allowed text-gray-300"
-                    >
-                      Select the batch
-                    </option>
-                    <option value={1}>1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
+                    {batches?.length > 0 ? (
+                      <>
+                        <option
+                          style={{ cursor: "not-allowed" }}
+                          className="cursor-not-allowed text-gray-300"
+                        >
+                          Select the batch
+                        </option>
+                        {batches.map((item, index) => (
+                          <option key={index} value={item}>
+                            {item}
+                          </option>
+                        ))}
+                      </>
+                    ) : (
+                      <option disabled selected>
+                        Selcet department first
+                      </option>
+                    )}
                   </select>
                 </div>
               </FormField>

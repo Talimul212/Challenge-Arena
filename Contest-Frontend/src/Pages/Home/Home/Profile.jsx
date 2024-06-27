@@ -47,7 +47,8 @@ const Profile = () => {
               fontWeight: "500",
             }}
           >
-            <FaGraduationCap /> BS in {currentUser?.department}
+            <FaGraduationCap /> BS in{" "}
+            {currentUser?.department.split("(")[1].split(")")[0].trim()}
           </p>
         </div>
       </Div>

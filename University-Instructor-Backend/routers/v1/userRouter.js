@@ -11,6 +11,6 @@ router.post("/register", addUser);
 
 router.put("/register/:id", updateUser);
 router.get("/", getUser);
-router.get("/:batch/:semseter/:id", GetClassMate);
+router.get("/:department/:batch/:semseter/:id", GetClassMate);
 
 module.exports = router;

@@ -10,9 +10,30 @@ const CoursesModal = ({ modalData }) => {
               ✕
             </button>
           </form>
-          <h3 className="font-bold text-lg">{modalData} Related Books List:</h3>
-          <p className="py-4">Books Name:</p>
-          <p className="py-4">Author:</p>
+          {modalData[0].author ? (
+            <>
+              <h3 className="font-bold text-lg mb-2">
+                {modalData?.length} Related Books List:
+              </h3>
+              {modalData?.map((item, i) => (
+                <div className="flex justify-start gap-2" key={item._id}>
+                  <p className="font-[500]">{i + 1}.</p>
+                  <div>
+                    <p className="flex gap-2">
+                      <span className="text-[#00bf63]">Books Name: </span>{" "}
+                      {item?.title}
+                    </p>
+                    <p className="py-2 flex gap-2">
+                      <span className="text-[#00bf63]">Author: </span>
+                      {item?.author}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </>
+          ) : (
+            <>courselisting</>
+          )}
         </div>
       </dialog>
     </div>

@@ -46,8 +46,9 @@ module.exports.getCourses = async (req, res) => {
 
 module.exports.getBatchCourse = async (req, res) => {
   try {
+    const department = req.params.department;
     const batch = req.params.batch;
-    const courses = await Courses.find({ batch }).select("-__v"); // Exclude __v field from response
+    const courses = await Courses.find({ department, batch }).select("-__v"); // Exclude __v field from response
     res.status(200).json({
       status: true,
       data: courses,

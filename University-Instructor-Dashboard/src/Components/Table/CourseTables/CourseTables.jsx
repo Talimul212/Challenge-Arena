@@ -11,9 +11,9 @@ import CoursesModal from "../../Modal/CoursesModal/CoursesModal";
 import { useState } from "react";
 const CourseTables = ({ type, name, data }) => {
   const [modalData, setModalData] = useState();
-  const toggleModal = (id) => {
+  const toggleModal = (data) => {
     document.getElementById("my_modal_3").showModal();
-    setModalData(id);
+    setModalData(data);
   };
 
   const columns = [
@@ -53,7 +53,7 @@ const CourseTables = ({ type, name, data }) => {
       renderCell: (params) => {
         return (
           <div className="flex justify-around items-center ">
-            <button onClick={() => toggleModal("1")}>
+            <button onClick={() => toggleModal(params?.row?.relatedBooks)}>
               <div
                 title="View"
                 className=" bg-[#00bf63] text-white border px-3 rounded shadow hover:bg-transparent hover:border-[#38b6ff] hover:text-[#38b6ff] cursor-pointer duration-700"
