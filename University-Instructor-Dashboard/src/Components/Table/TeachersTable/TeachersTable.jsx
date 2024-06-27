@@ -16,18 +16,22 @@ const TeachersTable = ({ data, course }) => {
   const [cour, setCourse] = useState(null);
   const len = (n) => {
     const count = course?.find((it) => it?.teacherName === n);
-    return <p>{count?.relatedBooks?.length || 0}</p>;
+    return <p>{count?.relatedBooks?.length || "0"}</p>;
   };
-  const toggleModal = (id, type, n) => {
+  const toggleModal = (id) => {
+    console.log(id);
     document.getElementById("my_modal_3").showModal();
-    if (type == "teacher") {
-      const single = data?.find((item) => item._id == id);
-      setTeacher(single);
-    } else {
-      const count = course?.find((it) => it?.teacherName === n);
-      setCourse(count);
-    }
+    const single = data?.find((item) => item._id == id);
+    setTeacher(single);
   };
+
+  const coureModal = (n) => {
+    console.log(n);
+    document.getElementById("my_modal_4").showModal();
+    const count = course?.filter((it) => it?.teacherName === n);
+    setCourse(count);
+  };
+
   const columns = [
     {
       field: "id",
@@ -91,9 +95,7 @@ const TeachersTable = ({ data, course }) => {
             <div
               title="View"
               className=" bg-[#00bf63] text-white border px-3 rounded shadow hover:bg-transparent hover:border-[#38b6ff] hover:text-[#38b6ff] cursor-pointer duration-700"
-              onClick={() =>
-                toggleModal(params.row._id, "course", params?.row?.name)
-              }
+              onClick={() => coureModal(params?.row?.name)}
             >
               <CgDetailsMore size={17} />
             </div>
@@ -107,6 +109,7 @@ const TeachersTable = ({ data, course }) => {
       width: 160,
     },
   ];
+
   const handleDelete = () => {
     // Swal.fire({
     //   title: "Are you sure?",
@@ -140,7 +143,7 @@ const TeachersTable = ({ data, course }) => {
             <div
               title="View"
               className=" bg-[#00bf63] text-white border  px-3 rounded shadow hover:bg-transparent hover:border-[#38b6ff] hover:text-[#38b6ff] cursor-pointer duration-700"
-              onClick={() => toggleModal(params.row._id, "teacher")}
+              onClick={() => toggleModal(params.row._id)}
             >
               <FaEye size={17} />
             </div>
@@ -185,7 +188,7 @@ const TeachersTable = ({ data, course }) => {
         </div>
       </div>
       <TeacherModale teacher={teacher} />
-      <CoursesModal modalData={cour} />
+      <CoursesModal type={"teachersCourse"} modalData={cour} />
     </div>
   );
 };

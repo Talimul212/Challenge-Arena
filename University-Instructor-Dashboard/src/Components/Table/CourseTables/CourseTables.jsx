@@ -158,7 +158,7 @@ const CourseTables = ({ type, name, data }) => {
 
       {/* You can open the modal using document.getElementById('ID').showModal() method */}
 
-      <CoursesModal modalData={modalData} />
+      <CoursesModal type={"courseBook"} modalData={modalData} />
     </>
   );
 };
