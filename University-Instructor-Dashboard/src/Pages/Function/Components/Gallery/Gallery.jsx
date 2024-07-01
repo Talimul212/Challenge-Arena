@@ -45,10 +45,11 @@ const Gallery = () => {
     console.log("Form Data:", formData);
     const formDataJson = {
       facultyName: formData.facultyName,
-      totalCredits: parseInt(formData.totalCredits),
+      // totalCredits: parseInt(formData.totalCredits),
       photoURL: photoURL,
     };
     // addFaculty(dispatch, formDataJson);
+    console.log(formDataJson);
     setFormData(null);
     setImage(null);
   };
@@ -62,12 +63,12 @@ const Gallery = () => {
         <div>
           {image ? (
             <div className=" mt-2 mb-2 flex justify-center">
-              <div className="avatar ">
-                <div className="w-24 rounded-full ring ring-success ring-offset-base-100 ring-offset-2">
+              <div className=" ">
+                <div className="rounded ring ring-success ring-offset-base-100 ring-offset-2">
                   <img
                     src={image}
                     alt="Captured Image"
-                    className="h-[140px] w-[20vw] mx-auto rounded-full"
+                    className="h-[50vh] mx-auto rounded"
                   />
                 </div>
               </div>
@@ -110,21 +111,13 @@ const Gallery = () => {
             <input
               className="focus:outline-none border-b-[1px] mb-2 w-full border-gray-400 focus-visible:no-underline"
               type="text"
-              name="facultyName"
-              placeholder="Faculty name"
+              name="description"
+              placeholder="description"
               onChange={handleInputChange}
             />
           </div>
-          <div className="mt-2">
-            <input
-              className="focus:outline-none border-b-[1px] mb-2 w-full border-gray-400 focus-visible:no-underline"
-              type="number"
-              name="totalCredits"
-              placeholder="Total Credits"
-              onChange={handleInputChange}
-            />
-          </div>
-          {image && formData?.facultyName && formData?.totalCredits ? (
+
+          {image && formData?.facultyName ? (
             <button
               className="bg-[#00bf63] mt-2 text-white font-semibold px-3  py-[1px] shadow rounded"
               type="submit"

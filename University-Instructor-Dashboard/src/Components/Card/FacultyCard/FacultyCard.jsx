@@ -5,21 +5,27 @@ import FacutlyForm from "../../Form/FacutlyForm/FacutlyForm";
 import { useDispatch, useSelector } from "react-redux";
 import { getFaculty } from "../../../features/Faculty/serviceApi";
 import LoaderHub from "../../Loader/LoaderHub";
+import { getUser } from "../../../features/users/serviceApi";
 const FacultyCard = () => {
   const [open, setOpen] = useState("open");
   const { totalFaculty, isLoading } = useSelector(
     (state) => state?.facultyList
   );
+  const { totalUser } = useSelector((state) => state?.user);
   const dispatch = useDispatch();
   useEffect(() => {
     getFaculty(dispatch);
+    getUser(dispatch);
   }, [dispatch]);
 
   if (isLoading) {
     return <LoaderHub type={"facultyCard"} />;
   }
   const facultyData = totalFaculty;
-
+  const departmentStudent = (e) => {
+    const student = totalUser?.filter((it) => it.department == e);
+    return <p>{student?.length}</p>;
+  };
   const hanlderOpen = () => {
     setOpen(!open);
   };
@@ -61,13 +67,14 @@ const FacultyCard = () => {
                 />
               </div>
 
-              <div className=" text-center h-[80px]  mt-3">
-                <h2 className=" text-[15px] ">
+              <div className=" text-center  mt-3">
+                <h2 className=" text-[15px] h-[40px] ">
                   <span className=" font-semibold"> {item?.facultyName}</span>
                 </h2>
-                <p className="text-md ">
+                <p className="text-md mt-8">
                   {" "}
-                  Total <span className="text-[#00bf62]"> Students</span>: 26
+                  Total <span className="text-[#00bf62] "> Students</span>:
+                  {departmentStudent(item?.facultyName)}
                 </p>
               </div>
             </div>

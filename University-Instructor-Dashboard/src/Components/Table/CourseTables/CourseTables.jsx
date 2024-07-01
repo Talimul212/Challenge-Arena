@@ -9,13 +9,20 @@ import { LiaSortAmountUpSolid } from "react-icons/lia";
 import { CgDetailsMore } from "react-icons/cg";
 import CoursesModal from "../../Modal/CoursesModal/CoursesModal";
 import { useState } from "react";
-const CourseTables = ({ type, name, data }) => {
+const CourseTables = ({ data, type, name }) => {
   const [modalData, setModalData] = useState();
+  const [cousrseD, setCourseD] = useState();
   const toggleModal = (data) => {
     document.getElementById("my_modal_3").showModal();
     setModalData(data);
   };
-
+  const coureModal = (n) => {
+    console.log(n);
+    document.getElementById("my_modal_4").showModal();
+    const count = data?.find((it) => it?._id === n);
+    console.log(count);
+    setCourseD(count);
+  };
   const columns = [
     {
       field: "id",
@@ -110,7 +117,7 @@ const CourseTables = ({ type, name, data }) => {
             <div
               title="View"
               className=" bg-[#00bf63] text-white border  px-3 rounded shadow hover:bg-transparent hover:border-[#38b6ff] hover:text-[#38b6ff] cursor-pointer duration-700"
-              // onClick={() => toggleModal(params.row._id)}
+              onClick={() => coureModal(params.row._id)}
             >
               <FaEye size={17} />
             </div>
@@ -159,6 +166,7 @@ const CourseTables = ({ type, name, data }) => {
       {/* You can open the modal using document.getElementById('ID').showModal() method */}
 
       <CoursesModal type={"courseBook"} modalData={modalData} />
+      <CoursesModal type={"courseDetails"} modalData={cousrseD} />
     </>
   );
 };

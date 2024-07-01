@@ -32,6 +32,7 @@ export const updateTeacherslist = async (dispatch, id, formDataJson) => {
       formDataJson,
     });
     dispatch(updataTeacherslistingSuccess(res.data.data));
+    toast.success(`${res.data.message}`);
   } catch (err) {
     const errorMessage = err.response?.data?.error || "An error occurred.";
     dispatch(updataTeacherslistingFailure(errorMessage));

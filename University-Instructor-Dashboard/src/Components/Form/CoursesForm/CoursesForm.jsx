@@ -67,6 +67,7 @@ const CoursesForm = () => {
     navigate("/UI/courses");
     window.location.reload();
   };
+
   return (
     <div>
       {" "}
@@ -246,12 +247,27 @@ const CoursesForm = () => {
                   onChange={handleInputChange}
                 />
               </div>
-              <button
-                className="bg-[#00bf63] mt-2 text-white font-semibold px-5 py-1 rounded shadow-lg"
-                type="submit"
-              >
-                POST
-              </button>
+              {selectedValues &&
+              formData?.courseName &&
+              formData?.courseTeacher &&
+              formData?.credits &&
+              formData?.hours &&
+              formData?.department &&
+              formData?.courseCode &&
+              formData?.type &&
+              formData?.bookName &&
+              formData?.bookAuthor ? (
+                <button
+                  className="bg-[#00bf63] mt-2 text-white font-semibold px-5 py-1 rounded shadow-lg"
+                  type="submit"
+                >
+                  POST
+                </button>
+              ) : (
+                <button className="bg-gray-400 mt-2 text-white font-semibold px-5 py-1 rounded shadow-lg">
+                  POST
+                </button>
+              )}
             </form>
           </div>
         </div>
