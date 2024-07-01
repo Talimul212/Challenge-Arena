@@ -75,8 +75,8 @@ const Gallery = () => {
             </div>
           ) : (
             <div className="duration-700 mt-2 mb-2 flex justify-center">
-              <div className="avatar ">
-                <div className="w-24 rounded-full ring ring-success ring-offset-base-100 ring-offset-2 text-center pt-[40px] text-gray-300 font-semibold text-sm">
+              <div className="">
+                <div className=" rounded ring ring-success ring-offset-base-100 ring-offset-2 text-center pt-[40px] text-gray-300 font-semibold text-sm">
                   Upload Here
                 </div>
               </div>
