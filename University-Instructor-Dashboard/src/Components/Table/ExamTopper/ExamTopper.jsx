@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { DataGrid } from "@mui/x-data-grid";
 import { useState } from "react";
 import { FaAngleDown } from "react-icons/fa";
@@ -74,7 +75,7 @@ const ExamTopper = () => {
   };
   return (
     <div className=" mt-5 me-6  mb-16 ">
-      <div style={{ height: open ? 400 : 100, width: "55vw" }}>
+      <div style={{ height: open ? 400 : 100, width: "54vw" }}>
         <p className=" flex items-center justify-between  mt-2 text-lg font-semibold shadow-lg mb-1  bg-white rounded p-2 ">
           Exam Toppers :
           {open ? (
@@ -100,7 +101,6 @@ const ExamTopper = () => {
                   paginationModel: { page: 0, pageSize: 5 },
                 },
               }}
-              pageSizeOptions={[5, 10]}
               rowSelection={false}
             />
           </div>

@@ -59,7 +59,7 @@ const Chart = () => {
   return (
     <ResponsiveContainer width="100%" height="80%">
       <div>
-        <p className="ms-7 my-2 text-lg font-semibold">University Survey:</p>
+        <p className="ms-7 my-2 text-lg font-semibold">Admission Bar-Chart:</p>
         <BarChart
           width={640}
           height={222}

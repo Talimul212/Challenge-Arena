@@ -40,7 +40,7 @@ const HomeCard = () => {
   const result = processBatchData(totalFaculty);
   return (
     <div className="w-full flex flex-wrap justify-start gap-2 ">
-      <div className="lg:w-[272px] md:w-64 bg-base-100 rounded shadow-lg ">
+      <div className="lg:w-[272px] border-[1px] md:w-64 bg-base-100 rounded shadow-lg ">
         <div className=" flex justify-between items-center p-4">
           <div>
             <img src={Student} className="w-16" alt="" />
@@ -63,7 +63,7 @@ const HomeCard = () => {
         </div>
       </div>
 
-      <div className="lg:w-[272px] bg-base-100 rounded shadow-lg ">
+      <div className="lg:w-[272px] border-[1px] bg-base-100 rounded shadow-lg ">
         <div className=" flex justify-between items-center p-4">
           <div>
             <img src={Teacher} className="w-16" alt="" />
@@ -83,7 +83,7 @@ const HomeCard = () => {
         </div>
       </div>
 
-      <div className="lg:w-[272px] bg-base-100 rounded shadow-lg ">
+      <div className="lg:w-[272px] border-[1px] bg-base-100 rounded shadow-lg ">
         <div className=" flex justify-between items-center p-4">
           <div>
             <img src={Batch} className="w-16" alt="" />
@@ -106,7 +106,7 @@ const HomeCard = () => {
           </Link>
         </div>
       </div>
-      <div className="lg:w-[272px] bg-base-100 rounded shadow-lg ">
+      <div className="lg:w-[272px] border-[1px] bg-base-100 rounded shadow-lg ">
         <div className=" flex justify-between items-center p-4">
           <div>
             <img src={Faculty} className="w-16" alt="" />
