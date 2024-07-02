@@ -203,14 +203,14 @@ const LoaderHub = ({ type }) => {
             <Skeleton
               className=" shadow-md"
               count={2}
-              height={"110px"}
+              height={"123px"}
               width={"20vw"}
               style={{ marginBottom: "5px" }}
             />
             <Skeleton
               className=" shadow-md"
               count={2}
-              height={"110px"}
+              height={"123px"}
               style={{ marginBottom: "5px" }}
               width={"20vw"}
             />

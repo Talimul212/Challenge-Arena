@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import { publicRequest } from "../../requestMethod";
 import {
   facultyFailure,
@@ -16,6 +17,7 @@ export const addFaculty = async (dispatch, payload) => {
   try {
     const res = await publicRequest.post("/faculty", payload);
     dispatch(facultySuccess(res.data.data));
+    toast.success(`${res.data.message}`);
   } catch (err) {
     const errorMessage = err.response?.data?.error || "An error occurred.";
     dispatch(facultyFailure(errorMessage));
@@ -30,6 +32,7 @@ export const updateFaculty = async (dispatch, id, formDataJson) => {
       formDataJson,
     });
     dispatch(updataFacultySuccess(res.data.data));
+    toast.success(`${res.data.message}`);
   } catch (err) {
     const errorMessage = err.response?.data?.error || "An error occurred.";
     dispatch(updataFacultyFailure(errorMessage));
