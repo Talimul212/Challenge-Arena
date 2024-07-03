@@ -19,7 +19,7 @@ const CourseCard = ({ course, index }) => {
         className=" rounded-lg   flex justify-between items-center bg-white shadow-md border-[1px] mb-4"
       >
         <div className="gap-4 flex items-center">
-          <div className="font-bold rounded-s-lg flex justify-center items-center  text-lg bg-[#00bf63]  h-[10vh] w-[10vw] text-white">
+          <div className="font-bold rounded-s-lg flex justify-center items-center  text-lg bg-[#00bf63]  h-[13vh] w-[10vw] text-white">
             {index + 1}
           </div>
           <div className=" p-3">
