@@ -45,7 +45,7 @@ const AboutUs = () => {
             </div>
           </div>
           <div>
-            <p className=" text-xl font-semibold  mb-2">Talimul Islma</p>
+            <p className=" text-xl font-semibold  mb-2">Talimul Islam</p>
             <p
               style={{
                 display: "flex",
